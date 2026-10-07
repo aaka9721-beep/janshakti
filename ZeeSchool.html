@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>विस्तृत जानकारी एवं संसाधन - जनशक्ति</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Noto Sans Devanagari", "Segoe UI", Arial, sans-serif;
+            background: #f8f4ea;
+            color: #172b3a;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Top Bar */
+        .topbar {
+            background: #092238;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+            border-bottom: 2px solid #c89d42;
+        }
+
+        .back-btn {
+            color: #e4bb54;
+            font-size: 13px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: opacity 0.2s;
+        }
+
+        .back-btn:hover {
+            opacity: 0.8;
+        }
+
+        /* Container */
+        .container {
+            width: min(850px, 92%);
+            margin: 40px auto 60px;
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+        }
+
+        /* Header */
+        .page-header {
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 22px;
+            color: #092238;
+            margin-bottom: 6px;
+        }
+
+        .page-header p {
+            font-size: 12px;
+            color: #667580;
+        }
+
+        /* Card Wrapper */
+        .content-card {
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 24px;
+            border: 1px solid #eee9df;
+            box-shadow: 0 4px 15px rgba(23, 43, 58, 0.06);
+        }
+
+        .content-card h2 {
+            font-size: 16px;
+            color: #092238;
+            margin-bottom: 14px;
+            border-left: 4px solid #d5ac48;
+            padding-left: 10px;
+        }
+
+        /* YouTube Video Section (Responsive 16:9) */
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border-radius: 6px;
+            overflow: hidden;
+            background: #000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .video-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            display: block;
+        }
+
+        /* Photo Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 6px;
+            border: 1px solid #ece7dd;
+            background: #fbf9f4;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item img:hover {
+            transform: scale(1.03);
+        }
+
+        .gallery-caption {
+            font-size: 11px;
+            padding: 8px 10px;
+            color: #555;
+            text-align: center;
+        }
+
+        /* Map & Download Section */
+        .map-box {
+            border: 1px solid #e1dbce;
+            border-radius: 6px;
+            overflow: hidden;
+            margin-bottom: 16px;
+        }
+
+        .map-box img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .download-action {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            background: #fdfaf3;
+            padding: 14px 18px;
+            border-radius: 6px;
+            border: 1px dashed #d5ac48;
+        }
+
+        .download-action span {
+            font-size: 12px;
+            color: #172b3a;
+            font-weight: 500;
+        }
+
+        .download-btn {
+            background: #d5ac48;
+            color: #172b3a;
+            padding: 9px 18px;
+            font-size: 12px;
+            font-weight: 700;
+            border-radius: 4px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: background 0.2s;
+        }
+
+        .download-btn:hover {
+            background: #c29937;
+        }
+
+        /* Footer */
+        footer {
+            background: #092238;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            font-size: 10px;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                margin: 25px auto 40px;
+                gap: 25px;
+            }
+
+            .content-card {
+                padding: 18px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .download-action {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .download-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Top Navigation Bar -->
+    <header class="topbar">
+        <a href="janshakti_static.html" class="back-btn">&#8592; मुख्य पृष्ठ पर लौटें</a>
+    </header>
+
+    <div class="container">
+
+        <!-- Page Title -->
+        <header class="page-header">
+            <h1>विस्तृत जानकारी एवं संसाधन</h1>
+            <p>वीडियो विवरण, तस्वीरें और कार्यालय का नक्शा डाउनलोड करें</p>
+        </header>
+
+        <!-- 1. YouTube Video Section -->
+        <section class="content-card">
+            <h2>परिचय वीडियो</h2>
+            <div class="video-wrapper">
+                <!-- Replace 'M7lc1UVf-VE' with your actual YouTube Video ID -->
+                <iframe src="https://www.youtube-nocookie.com/embed/kvIHoHpQAvU" title="YouTube video player"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </section>
+
+        <!-- 2. धारा-80 -->
+            <section class="content-card">
+            <h2>खतौनी धारा-80 के साथ</h2>
+           
+            <div class="download-action">
+                <span> खतौनी :</span>
+                <!-- Replace 'office_map.png' with your file path -->
+                <a href="zee school khatauni.pdf" download="खतौनी " class="download-btn">
+                    ⬇ डाउनलोड करें
+                </a>
+            </div>
+        </section>
+       
+
+        <!-- 3. Downloadable Map Section -->
+        <section class="content-card">
+            <h2>साइड मैप</h2>
+           
+            <div class="download-action">
+                <span>जमीन का नक्शा अपने डिवाइस में सुरक्षित करें:</span>
+                <!-- Replace 'office_map.png' with your file path -->
+                <a href="Zee school map.pdf" download="जी स्कूल ग्राम कोटरा साइड मैप " class="download-btn">
+                    ⬇ नक्शा डाउनलोड करें
+                </a>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>जनशक्ति • न्याय, अधिकार और जनहित में समर्पित</p>
+    </footer>
+
+</body>
+
+</html>

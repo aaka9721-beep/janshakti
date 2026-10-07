@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>जनशक्ति विद एडवोकेट आकाश शुक्ल</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    body {
+      font-family: "Noto Sans Devanagari", "Segoe UI", Arial, sans-serif;
+      background: #f8f4ea;
+      color: #172b3a;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit
+    }
+
+    button {
+      font: inherit;
+      cursor: default
+    }
+
+    /* Header */
+    .topbar {
+      background: #092238;
+      height: 92px;
+      position: relative;
+      color: #fff;
+    }
+
+    .topbar:after {
+      content: "";
+      position: absolute;
+      left: 4%;
+      right: 4%;
+      bottom: 4px;
+      height: 2px;
+      background: linear-gradient(90deg, #c89d42, #5d8c45);
+    }
+
+    .nav {
+      width: min(940px, 92%);
+      height: 100%;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .logo-circle {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 30%, #d9b65b, #72551c 65%, #142d40);
+      border: 2px solid #c9a54d;
+      display: grid;
+      place-items: center;
+      font-size: 20px;
+    }
+
+    .logo-text strong {
+      display: block;
+      font-size: 13px
+    }
+
+    .logo-text small {
+      font-size: 8px;
+      color: #d7d2c4
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: #112f44;
+      border-radius: 6px;
+      padding: 4px;
+    }
+
+    .menu span {
+      font-size: 10px;
+      padding: 7px 11px;
+      color: #eee;
+    }
+
+    .menu .active {
+      background: #e4bb54;
+      color: #172b3a;
+      border-radius: 5px;
+      font-weight: 700;
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 190px;
+      background: linear-gradient(110deg, #092238, #173244 60%, #24352f);
+      color: #fff;
+    }
+
+    .hero-inner {
+      width: min(940px, 92%);
+      margin: auto;
+      padding: 30px 0 38px;
+    }
+
+    .hero h1 {
+      font-size: 18px;
+      margin-bottom: 8px
+    }
+
+    .hero p {
+      max-width: 510px;
+      font-size: 10px;
+      color: #dce3e4;
+      margin-bottom: 13px;
+    }
+
+    .gold-btn {
+      display: inline-block;
+      background: #d5ac48;
+      color: #172b3a;
+      border: 0;
+      padding: 8px 14px;
+      border-radius: 3px;
+      font-size: 10px;
+      font-weight: 700;
+    }
+
+    /* Main cards */
+    .sites {
+      padding: 46px 20px 55px;
+      background: #f8f4ea;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 23px
+    }
+
+    .section-title h2 {
+      font-size: 20px;
+      color: #1c2b34
+    }
+
+    .section-title p {
+      font-size: 9px;
+      color: #92928c;
+      margin-top: 3px
+    }
+
+    .cards {
+      width: min(440px, 100%);
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .card {
+      display: block;
+      cursor: pointer;
+      min-height: 70px;
+      background: #fff;
+      border-radius: 5px;
+      padding: 11px 10px;
+      box-shadow: 0 5px 13px rgba(31, 43, 48, 0.12);
+      border: 1px solid #eee9df;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 18px rgba(31, 43, 48, 0.18);
+    }
+
+    .number {
+      display: inline-grid;
+      place-items: center;
+      width: 19px;
+      height: 19px;
+      border-radius: 50%;
+      background: #f4e5bd;
+      color: #94701f;
+      font-size: 7px;
+      margin-bottom: 7px;
+    }
+
+    .card h3 {
+      font-size: 10px;
+      color: #1d303c
+    }
+
+    .card p {
+      font-size: 7px;
+      color: #8b8b84;
+      margin-top: 2px
+    }
+
+    /* About */
+    .about {
+      background: #fff;
+      padding: 38px 20px;
+    }
+
+    .about-inner {
+      width: min(700px, 100%);
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .about h2 {
+      font-size: 18px;
+      margin-bottom: 6px
+    }
+
+    .about .subtitle {
+      font-size: 9px;
+      color: #aaa;
+      margin-bottom: 10px
+    }
+
+    .about p {
+      font-size: 10px;
+      color: #686c6d
+    }
+
+    .about-box {
+      background: linear-gradient(135deg, #0b2b43, #173b56);
+      color: #fff;
+      border-radius: 7px;
+      padding: 17px;
+      box-shadow: 0 8px 20px rgba(10, 37, 55, .2);
+    }
+
+    .about-box h3 {
+      color: #e2bd59;
+      font-size: 12px;
+      margin-bottom: 6px
+    }
+
+    .about-box p {
+      color: #e6ebec;
+      font-size: 9px
+    }
+
+    /* Footer */
+    footer {
+      background: #092238;
+      color: #fff;
+      min-height: 115px;
+      padding: 27px 20px;
+      text-align: center;
+    }
+
+    footer h3 {
+      font-size: 15px
+    }
+
+    footer p {
+      font-size: 8px;
+      color: #bbc5c8;
+      margin-top: 5px
+    }
+
+    @media(max-width:600px) {
+      .topbar {
+        height: auto;
+        min-height: 78px
+      }
+
+      .nav {
+        padding: 12px 0;
+        gap: 10px;
+        flex-direction: column
+      }
+
+      .menu span {
+        padding: 6px 8px
+      }
+
+      .hero {
+        min-height: 220px
+      }
+
+      .hero-inner {
+        padding-top: 35px
+      }
+
+      .cards {
+        grid-template-columns: 1fr 1fr
+      }
+
+      .about-inner {
+        grid-template-columns: 1fr
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- STATIC WEBSITE: Buttons and cards intentionally do nothing -->
+
+  <header class="topbar">
+    <nav class="nav">
+      <div class="logo">
+        <div class="logo-circle">ॐ</div>
+        <div class="logo-text">
+          <strong>जनशक्ति</strong>
+          <small>विद एडवोकेट आकाश शुक्ल</small>
+        </div>
+      </div>
+
+      <div class="menu">
+        <span>होम</span>
+        <span>हमारे बारे में</span>
+        <span>संपर्क करें</span>
+        <span class="active">मेनू</span>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <h1>जनशक्ति विद एडवोकेट आकाश शुक्ल</h1>
+      <p>
+        हर गरीब नागरिक को उसके सपने का एक आवास व एक बड़ा व्यापार देने का प्रयास।
+        हर जमीन हमेशा विकसित नही विकासशील क्षेत्र में देते है 
+      </p>
+      <span class="gold-btn">हमारी साइट देखें</span>
+    </div>
+  </section>
+
+  <section class="sites">
+    <div class="section-title">
+      <h2>हमारी साइट</h2>
+      <p>आपको तत्काल जानकारी देने का एक छोटा प्रयास</p>
+    </div>
+
+    <div class="cards">
+      <a href="ibrahimbagh.html" class="card" target="_blank">
+        <span class="number">01</span>
+        <h3>नवीन मंडी इब्राहिम बाग</h3>
+        <p>उन्नाव</p>
+      </a>
+
+      <a href="JankiKheda.html" class="card" target="_blank">
+        <span class="number">02</span>
+        <h3>जानकी खेड़ा</h3>
+        <p>उन्नाव</p>
+      </a>
+
+      <a href="ZeeSchool.html" class="card" target="_blank">
+        <span class="number">03</span>
+        <h3>जी स्कूल ग्राम कोटरा</h3>
+        <p>उन्नाव</p>
+      </a>
+
+      <a href="orhar.html" class="card" target="_blank">
+        <span class="number">04</span>
+        <h3>दही चौकी ग्राम ओरहर</h3>
+        <p>उन्नाव</p>
+      </a>
+
+      <a href="Indemau.html" class="card" target="_blank">
+        <span class="number">05</span>
+        <h3>इन्देमऊ कोतवाली के सामने </h3>
+        <p>बीघापुर उन्नाव</p>
+      </a>
+
+      <a href="Rasoolpur.html" class="card" target="_blank">
+        <span class="number">06</span>
+        <h3>रसूलपुर ( नवाबगंज टोल प्लाजा से 4 किमी आगे )</h3>
+        <p>तह० हसनगंज जिला उन्नाव </p>
+      </a>
+
+      <a href="Sohramau.html" class="card" target="_blank">
+        <span class="number">07</span>
+        <h3>सोहरामऊ शहर प्रॉपर हाईवे </h3>
+        <p>तह० हसनगंज जिला उन्नाव </p>
+      </a>
+
+      <a href="Bhemeshwer.html" class="card" target="_blank">
+        <span class="number">08</span>
+        <h3>भीमेश्वर मंदिर के सामने</h3>
+        <p>चकलवंशी उन्नाव</p>
+      </a>
+
+      <a href="Achalganj.html" class="card" target="_blank">
+        <span class="number">09</span>
+        <h3>ग्राम चपरीशाहपुर</h3>
+        <p>अचलगंज , उन्नाव</p>
+      </a>
+
+      <a href="page10.html" class="card" target="_blank">
+        <span class="number">10</span>
+        <h3>बिठूर</h3>
+        <p>साईं मंदिर के पास , कानपपुर नगर</p>
+      </a>
+
+      <a href="page11.html" class="card" target="_blank">
+        <span class="number">11</span>
+        <h3>खुमान खेड़ा</h3>
+        <p>चकलवंशी से 4 किमी पहले प्रॉपर राष्टीय राज्यमार्ग पर</p>
+      </a>
+
+      <a href="HulasiKUA.html" class="card" target="_blank">
+        <span class="number">12</span>
+        <h3>हुलासी कुआ</h3>
+        <p>सफीपुर से 5.5 किमी पहले</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="about">
+    <div class="about-inner">
+      <div>
+        <h2>जनशक्ति के बारे में</h2>
+        <div class="subtitle">हमारा छोटा परिचय</div>
+        <p>
+          जनशक्ति एक सामाजिक और जनहित केंद्रित पहल है जिसका उद्देश्य
+          लोगों को एक रोजगार और आसानी से जमीन के रूप में बचत कराना है।
+        </p>
+      </div>
+
+      <div class="about-box">
+        <h3>हमारी पहचान</h3>
+        <p>
+          जनहित • रोजगार • सामाजिक सेवा • अधिकार • बचत 
+          <br><br>
+          समाज के लिए जागरूकता और सहयोग की दिशा में एक प्रयास।
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <h3>जनशक्ति</h3>
+    <p>जनहित और समाज सेवा के लिए समर्पित</p>
+  </footer>
+
+</body>
+
+</html>
