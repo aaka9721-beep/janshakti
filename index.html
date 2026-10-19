@@ -1,552 +1,123 @@
 <!DOCTYPE html>
 <html lang="hi">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>जनशक्ति विद एडo आकाश शुक्ल</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0
-    }
-
-    body {
-      font-family: "Noto Sans Devanagari", "Segoe UI", Arial, sans-serif;
-      background: #f8f4ea;
-      color: #172b3a;
-      line-height: 1.6;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit
-    }
-
-    button {
-      font: inherit;
-      cursor: default
-    }
-
-    /* Header */
-    .topbar {
-      background: #092238;
-      height: 92px;
-      position: relative;
-      color: #fff;
-    }
-
-    .topbar:after {
-      content: "";
-      position: absolute;
-      left: 4%;
-      right: 4%;
-      bottom: 4px;
-      height: 2px;
-      background: linear-gradient(90deg, #c89d42, #5d8c45);
-    }
-
-    .nav {
-      width: min(940px, 92%);
-      height: 100%;
-      margin: auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 9px;
-    }
-
-    .logo-circle {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      background: radial-gradient(circle at 35% 30%, #d9b65b, #72551c 65%, #142d40);
-      border: 2px solid #c9a54d;
-      display: grid;
-      place-items: center;
-      font-size: 20px;
-    }
-
-    .logo-text strong {
-      display: block;
-      font-size: 13px
-    }
-
-    .logo-text small {
-      font-size: 8px;
-      color: #d7d2c4
-    }
-
-    .menu {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      background: #112f44;
-      border-radius: 6px;
-      padding: 4px;
-    }
-
-    .menu span {
-      font-size: 10px;
-      padding: 7px 11px;
-      color: #eee;
-    }
-
-    .menu .active {
-      background: #e4bb54;
-      color: #172b3a;
-      border-radius: 5px;
-      font-weight: 700;
-    }
-
-    /* Hero */
-    .hero {
-  min-height: 190px;
-  background:
-    linear-gradient(
-      90deg,
-      rgba(9, 34, 56, 0.78),
-      rgba(9, 34, 56, 0.18)
-    ),
-    url("bannernew.jpeg") center center / cover no-repeat;
-  color: #fff;
-}
-
-    .hero-inner {
-      width: min(940px, 92%);
-      margin: auto;
-      padding: 30px 0 38px;
-    }
-
-    .hero h1 {
-      font-size: 18px;
-      margin-bottom: 8px
-    }
-
-    .hero p {
-      max-width: 510px;
-      font-size: 10px;
-      color: #dce3e4;
-      margin-bottom: 13px;
-    }
-
-    .gold-btn {
-      display: inline-block;
-      background: #d5ac48;
-      color: #172b3a;
-      border: 0;
-      padding: 8px 14px;
-      border-radius: 3px;
-      font-size: 10px;
-      font-weight: 700;
-    }
-
-    /* Main cards */
-    .sites {
-      padding: 46px 20px 55px;
-      background: #f8f4ea;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 23px
-    }
-
-    .section-title h2 {
-      font-size: 20px;
-      color: #1c2b34
-    }
-
-    .section-title p {
-      font-size: 9px;
-      color: #92928c;
-      margin-top: 3px
-    }
-
-    .cards {
-      width: min(440px, 100%);
-      margin: auto;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-    }
-
-    .card {
-      display: block;
-      cursor: pointer;
-      min-height: 70px;
-      background: #fff;
-      border-radius: 5px;
-      padding: 11px 10px;
-      box-shadow: 0 5px 13px rgba(31, 43, 48, 0.12);
-      border: 1px solid #eee9df;
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 18px rgba(31, 43, 48, 0.18);
-    }
-
-    .number {
-      display: inline-grid;
-      place-items: center;
-      width: 19px;
-      height: 19px;
-      border-radius: 50%;
-      background: #f4e5bd;
-      color: #94701f;
-      font-size: 7px;
-      margin-bottom: 7px;
-    }
-
-    .card h3 {
-      font-size: 10px;
-      color: #1d303c
-    }
-
-    .card p {
-      font-size: 7px;
-      color: #8b8b84;
-      margin-top: 2px
-    }
-
-    /* About */
-    .about {
-      background: #fff;
-      padding: 38px 20px;
-    }
-
-    .about-inner {
-      width: min(700px, 100%);
-      margin: auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 32px;
-      align-items: center;
-    }
-
-    .about h2 {
-      font-size: 18px;
-      margin-bottom: 6px
-    }
-
-    .about .subtitle {
-      font-size: 9px;
-      color: #aaa;
-      margin-bottom: 10px
-    }
-
-    .about p {
-      font-size: 10px;
-      color: #686c6d
-    }
-
-    .about-box {
-      background: linear-gradient(135deg, #0b2b43, #173b56);
-      color: #fff;
-      border-radius: 7px;
-      padding: 17px;
-      box-shadow: 0 8px 20px rgba(10, 37, 55, .2);
-    }
-
-    .about-box h3 {
-      color: #e2bd59;
-      font-size: 12px;
-      margin-bottom: 6px
-    }
-
-    .about-box p {
-      color: #e6ebec;
-      font-size: 9px
-    }
-
-    /* Footer */
-    footer {
-      background: #092238;
-      color: #fff;
-      min-height: 115px;
-      padding: 27px 20px;
-      text-align: center;
-    }
-
-    footer h3 {
-      font-size: 15px
-    }
-
-    footer p {
-      font-size: 8px;
-      color: #bbc5c8;
-      margin-top: 5px
-    }
-
-    @media(max-width:600px) {
-      .topbar {
-        height: auto;
-        min-height: 78px
-      }
-
-      .nav {
-        padding: 12px 0;
-        gap: 10px;
-        flex-direction: column
-      }
-
-      .menu span {
-        padding: 6px 8px
-      }
-
-      .hero {
-        min-height: 220px
-      }
-
-      .hero-inner {
-        padding-top: 35px
-      }
-
-      .cards {
-        grid-template-columns: 1fr 1fr
-      }
-
-      .about-inner {
-        grid-template-columns: 1fr
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>जनशक्ति | एडवोकेट आकाश शुक्ला</title>
+<style>
+:root{--navy:#071d33;--gold:#e7bd59;--cream:#fbf8f0}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Noto Sans Devanagari","Segoe UI",Arial,sans-serif;background:var(--cream);color:#182d3d;line-height:1.7}
+a{text-decoration:none;color:inherit}
+.wrap{width:min(1160px,92%);margin:auto}
+header{position:sticky;top:0;z-index:10;background:#071d33;color:white;border-bottom:2px solid var(--gold)}
+nav{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap;padding:12px 0}
+.brand{font-size:22px;font-weight:800}
+.brand small{display:block;font-size:12px;color:#e7bd59;font-weight:500}
+.menu{display:flex;gap:8px;flex-wrap:wrap}
+.menu a{padding:8px 12px;border-radius:8px;font-size:13px}
+.menu a:hover{background:#e7bd59;color:#071d33}
+.hero{color:white;background:linear-gradient(100deg,#071d33ed,#071d3370),url("bannernew.jpeg") center/cover no-repeat}
+.hero-inner{padding:70px 0}
+.tag{display:inline-block;border:1px solid #e7bd59;padding:6px 13px;border-radius:30px;color:#ffe4a0;font-size:13px}
+h1{font-size:clamp(30px,5vw,52px);line-height:1.35;margin:18px 0}
+.hero p{max-width:700px;color:#e2e9ee;margin-bottom:24px}
+.btn{display:inline-block;background:linear-gradient(135deg,#ffe6a0,#d9a83d);color:#10283b;padding:12px 18px;border-radius:9px;font-weight:800;margin:5px 5px 5px 0}
+.btn.alt{background:transparent;color:white;border:1px solid #ffffff80}
+.section{padding:60px 0}
+.heading{text-align:center;margin-bottom:30px}
+.heading h2{font-size:clamp(25px,3vw,35px);color:#071d33}
+.heading p{font-size:14px;color:#697985}
+.search{display:block;width:min(450px,100%);padding:13px 15px;border:1px solid #e9e4d8;border-radius:10px;margin:0 auto 22px;font:inherit;background:white}
+.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px}
+.card{display:block;background:white;border:1px solid #e9e4d8;border-radius:14px;padding:18px;box-shadow:0 7px 22px #162b390c;transition:.2s}
+.card:hover{transform:translateY(-4px);border-color:#d8b95f}
+.num{display:inline-block;background:#f8edce;color:#8c681d;border-radius:8px;padding:4px 9px;font-weight:bold;font-size:12px;margin-bottom:10px}
+.card h3{font-size:16px;color:#071d33;margin-bottom:5px}
+.card p{font-size:12px;color:#697985}
+.card strong{display:block;color:#9a711c;font-size:12px;margin-top:12px}
+.member{background:linear-gradient(120deg,#082039,#123d5a);color:white;border-radius:20px;padding:32px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.member h2{font-size:clamp(22px,3vw,30px);margin:8px 0}
+.member p{color:#dce6ec}
+.about{background:white}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}
+.about h2{color:#071d33;margin-bottom:10px}
+.about p{color:#697985}
+.about-box{background:#fbf2dc;padding:25px;border-radius:16px}
+footer{background:#061829;color:white;padding:30px 0}
+footer p{font-size:12px;color:#bdc9d1}
+@media(max-width:900px){.cards{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:650px){nav{align-items:flex-start;flex-direction:column}.menu{gap:3px}.menu a{padding:7px 8px}.hero-inner{padding:48px 0}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.member,.about-grid{display:grid;grid-template-columns:1fr}.member{padding:24px}}
+@media(max-width:390px){.cards{grid-template-columns:1fr}}
+</style>
 </head>
-
 <body>
-
-  <!-- STATIC WEBSITE: Buttons and cards intentionally do nothing -->
-
-  <header class="topbar">
-    <nav class="nav">
-      <div class="logo">
-        <div class="logo-circle">ॐ</div>
-        <div class="logo-text">
-          <strong>जनशक्ति</strong>
-          <small>विद एड0 आकाश शुक्ल</small>
-        </div>
-      </div>
-
-      <div class="menu">
-        <span>होम</span>
-        <span>हमारे बारे में</span>
-        <span>संपर्क करें</span>
-        <span class="active">मेनू</span>
-      </div>
-    </nav>
-  </header>
-
-  <section class="hero">
-    <div class="hero-inner">
-      <h1>जनशक्ति विद एडo आकाश शुक्ला</h1>
-      <p>
-        हर गरीब नागरिक को उसके सपने का एक आवास व एक बड़ा व्यापार देने का प्रयास।
-        हर जमीन हमेशा विकसित नही विकासशील क्षेत्र में देते है 
-      </p>
-      <span class="gold-btn">हमारी साइट देखें</span>
-    </div>
-  </section>
-
-  <section class="sites">
-    <div class="section-title">
-      <h2>हमारी साइट</h2>
-      <p>आपको तत्काल जानकारी देने का एक छोटा प्रयास</p>
-    </div>
-
-    <div class="cards">
-      <a href="ibrahimbagh.html" class="card" target="_blank">
-        <span class="number">01</span>
-        <h3>नवीन मंडी इब्राहिम बाग</h3>
-        <p>उन्नाव</p>
-      </a>
-
-      <a href="JankiKheda.html" class="card" target="_blank">
-        <span class="number">02</span>
-        <h3>जानकी खेड़ा</h3>
-        <p>उन्नाव</p>
-      </a>
-
-      <a href="ZeeSchool.html" class="card" target="_blank">
-        <span class="number">03</span>
-        <h3>जी स्कूल ग्राम कोटरा</h3>
-        <p>उन्नाव</p>
-      </a>
-
-      <a href="orhar.html" class="card" target="_blank">
-        <span class="number">04</span>
-        <h3>दही चौकी ग्राम ओरहर</h3>
-        <p>उन्नाव</p>
-      </a>
-
-      <a href="Indemau.html" class="card" target="_blank">
-        <span class="number">05</span>
-        <h3>इन्देमऊ कोतवाली के सामने </h3>
-        <p>बीघापुर उन्नाव</p>
-      </a>
-
-      <a href="Rasoolpur.html" class="card" target="_blank">
-        <span class="number">06</span>
-        <h3>रसूलपुर ( नवाबगंज टोल से 4 किमी आगे )</h3>
-        <p>तह० हसनगंज जिला उन्नाव </p>
-      </a>
-
-      <a href="Sohramau.html" class="card" target="_blank">
-        <span class="number">07</span>
-        <h3>सोहरामऊ शहर प्रॉपर हाईवे </h3>
-        <p>तह० हसनगंज जिला उन्नाव </p>
-      </a>
-
-      <a href="Bhemeshwer.html" class="card" target="_blank">
-        <span class="number">08</span>
-        <h3>भीमेश्वर मंदिर के सामने</h3>
-        <p>चकलवंशी उन्नाव</p>
-      </a>
-
-      <a href="Achalganj.html" class="card" target="_blank">
-        <span class="number">09</span>
-        <h3>ग्राम चपरीशाहपुर</h3>
-        <p>अचलगंज , उन्नाव</p>
-      </a>
-
-      <a href="Buthur.html" class="card" target="_blank">
-        <span class="number">10</span>
-        <h3>बिठूर</h3>
-        <p>साईं मंदिर के पास , कानपुर नगर</p>
-      </a>
-
-      <a href="khumankheda.html" class="card" target="_blank">
-        <span class="number">11</span>
-        <h3>खुमान खेड़ा</h3>
-        <p>चकलवंशी से 4 किमी पहले प्रॉपर राष्टीय राज्यमार्ग पर</p>
-      </a>
-
-      <a href="HulasiKUA.html" class="card" target="_blank">
-        <span class="number">12</span>
-        <h3>हुलासी कुआ</h3>
-        <p>सफीपुर से 5.5 किमी पहले</p>
-      </a>
-
-      <a href="khaga.html" class="card" target="_blank">
-        <span class="number">13</span>
-        <h3>खागा</h3>
-        <p>टोल प्लाजा से 2 किमी आगे राष्टीय राज्यमार्ग पर</p>
-      </a>
-
-      <a href="chitrakoot.html" class="card" target="_blank">
-        <span class="number">14</span>
-        <h3>चित्रकूट</h3>
-        <p>बुंदेलखंड एक्सप्रेस से 2 किमी दूर ऑन रोड</p>
-      </a>
-
-      <a href="khumankheda.ml" class="card" target="_blank">
-        <span class="number">15</span>
-        <h3>बनारस</h3>
-        <p>एअरपोर्ट रोड पर</p>
-      </a>
-
-      <a href="khumankheda.ml" class="card" target="_blank">
-        <span class="number">16</span>
-        <h3>तिवारीपुर</h3>
-        <p>राष्टीय राज्यमार्ग से 1 किमी अंदर</p>
-      </a>
-
-      <a href="khumankheda.ml" class="card" target="_blank">
-        <span class="number">17</span>
-        <h3>सरसौल</h3>
-        <p>विवरण प्राप्त नही</p>
-      </a>
-
-      <a href="khumankheda.ml" class="card" target="_blank">
-        <span class="number">18</span>
-        <h3>सिखटिया</h3>
-        <p>विवरण प्राप्त नही</p>
-      </a>
-
-      <a href="khumankheda.hl" class="card" target="_blank">
-        <span class="number">19</span>
-        <h3>अकबरपुर</h3>
-        <p>रनिया टोल से ठीक 1 किमी पहले</p>
-      </a>
-
-      <a href="khumankheda.ml" class="card" target="_blank">
-        <span class="number">20</span>
-        <h3>फतेहपुर</h3>
-        <p>विवरण प्राप्त नही</p>
-      </a>
-
-      <a href="khumankheda.ml" class="card" target="_blank">
-        <span class="number">21</span>
-        <h3>माखी प्री लौन्चिंग</h3>
-        <p>मुख्य मार्ग से 2 किमी अंदर ग्राम परमनी</p>
-      </a>
-
-      <a href="khumankheda.ml" class="card" target="_blank">
-        <span class="number">22</span>
-        <h3>साइड एक्सप्रेस वे </h3>
-        <p>पुरवा रोड पर</p>
-      </a>
-
-      <a href="khumankheda.htl" class="card" target="_blank">
-        <span class="number">23</span>
-        <h3>सिमरी अकमपुर</h3>
-        <p>प्रॉपर अचलगंज हाईवे पर</p>
-        </a>
-    
-    <a href="khumankheda.htl" class="card" target="_blank">
-        <span class="number">24</span>
-        <h3>दर्वैस्पुर </h3>
-        <p>प्रयागराज से 30 किमी पहले</p>
-        </a>
-  
-  <a href="khumankheda.htl" class="card" target="_blank">
-        <span class="number">25</span>
-        <h3>हरदोई</h3>
-        <p>बघौली टोल से 2 किमी पहले</p>
-        </a>
-
-        <a href="khumankheda.htl" class="card" target="_blank">
-        <span class="number">26</span>
-        <h3>शिवली साइड</h3>
-        <p>मैथा तह० से 2 किमी पहले ग्राम बैरी दरियाओ कल्यानपुर शिवली मुख्य मार्ग पर</p>
-        </a>
-
-        </div>
-</section>
-  <section class="about">
-    <div class="about-inner">
-      <div>
-        <h2>जनशक्ति के बारे में</h2>
-        <div class="subtitle">हमारा छोटा परिचय</div>
-        <p>
-          जनशक्ति एक सामाजिक और जनहित केंद्रित पहल है जिसका उद्देश्य
-          लोगों को एक रोजगार और आसानी से जमीन के रूप में बचत कराना है।
-        </p>
-      </div>
-
-      <div class="about-box">
-        <h3>हमारी पहचान</h3>
-        <p>
-          जनहित • रोजगार • सामाजिक सेवा • अधिकार • बचत 
-          <br><br>
-          समाज के लिए जागरूकता और सहयोग की दिशा में एक प्रयास।
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <h3>जनशक्ति</h3>
-    <p>जनहित और समाज सेवा के लिए समर्पित</p>
-  </footer>
-
+<header>
+<nav class="wrap">
+<a class="brand" href="#home">जनशक्ति<small>विद एडवोकेट आकाश शुक्ला</small></a>
+<div class="menu">
+<a href="#home">होम</a><a href="#sites">हमारी साइट</a><a href="#about">हमारे बारे में</a><a href="#member">सदस्य लॉगिन</a>
+</div>
+</nav>
+</header>
+<main>
+<section class="hero" id="home"><div class="hero-inner wrap">
+<span class="tag">विश्वास • जनहित • प्रॉपर्टी जानकारी</span>
+<h1>जनशक्ति का भरोसा,<br>एडवोकेट आकाश शुक्ला का साथ</h1>
+<p>हर गरीब नागरिक को उसके सपनों का आवास और बेहतर अवसर पाने में सहयोग करने का एक प्रयास। हमारी साइटों की जानकारी देखें और अपनी जरूरत के अनुसार लोकेशन चुनें। जमीन खरीदने से पहले दस्तावेज़ और स्वामित्व की जाँच अवश्य करें।</p>
+<a class="btn" href="#sites">हमारी साइटें देखें ↓</a>
+<a class="btn alt" href="#member">जनशक्ति परिवार लॉगिन ↗</a>
+</div></section>
+<section class="section" id="sites"><div class="wrap">
+<div class="heading"><h2>हमारी प्रॉपर्टी साइटें</h2><p>अपनी पसंद की लोकेशन खोजें और उपलब्ध विवरण खोलें।</p></div>
+<input class="search" id="siteSearch" type="search" placeholder="साइट या जिले का नाम खोजें..." aria-label="साइट खोजें">
+<div class="cards" id="cards">
+<a class="card" href="ibrahimbagh.html" target="_blank"><span class="num">01</span><h3>नवीन मंडी इब्राहिम बाग</h3><p>उन्नाव</p><strong>साइट विवरण देखें ↗</strong></a>
+<a class="card" href="JankiKheda.html" target="_blank"><span class="num">02</span><h3>जानकी खेड़ा</h3><p>उन्नाव</p><strong>साइट विवरण देखें ↗</strong></a>
+<a class="card" href="ZeeSchool.html" target="_blank"><span class="num">03</span><h3>जी स्कूल ग्राम कोटरा</h3><p>उन्नाव</p><strong>साइट विवरण देखें ↗</strong></a>
+<a class="card" href="orhar.html" target="_blank"><span class="num">04</span><h3>दही चौकी ग्राम ओरहर</h3><p>उन्नाव</p><strong>साइट विवरण देखें ↗</strong></a>
+<a class="card" href="Indemau.html" target="_blank"><span class="num">05</span><h3>इन्देमऊ कोतवाली के सामने</h3><p>बीघापुर, उन्नाव</p><strong>साइट विवरण देखें ↗</strong></a>
+<a class="card" href="Rasoolpur.html" target="_blank"><span class="num">06</span><h3>रसूलपुर</h3><p>नवाबगंज टोल से लगभग 4 किमी आगे · उन्नाव</p><strong>साइट विवरण देखें ↗</strong></a>
+<a class="card" href="Sohramau.html" target="_blank"><span class="num">07</span><h3>सोहरामऊ शहर</h3><p>हाईवे पर · उन्नाव</p><strong>साइट विवरण देखें ↗</strong></a>
+<a class="card" href="Bhemeshwer.html" target="_blank"><span class="num">08</span><h3>भीमेश्वर मंदिर के सामने</h3><p>चकलवंशी, उन्नाव</p><strong>साइट विवरण देखें ↗</strong></a>
+<a class="card" href="Achalganj.html" target="_blank"><span class="num">09</span><h3>ग्राम चपरीशाहपुर</h3><p>अचलगंज, उन्नाव</p><strong>साइट विवरण देखें ↗</strong></a>
+<a class="card" href="Buthur.html" target="_blank"><span class="num">10</span><h3>बिठूर</h3><p>साईं मंदिर के पास, कानपुर नगर</p><strong>साइट विवरण देखें ↗</strong></a>
+<a class="card" href="khumankheda.html" target="_blank"><span class="num">11</span><h3>खुमान खेड़ा</h3><p>चकलवंशी से 4 किमी पहले, राष्ट्रीय राजमार्ग</p><strong>साइट विवरण देखें ↗</strong></a>
+<a class="card" href="HulasiKUA.html" target="_blank"><span class="num">12</span><h3>हुलासी कुआ</h3><p>सफीपुर से लगभग 5.5 किमी पहले</p><strong>साइट विवरण देखें ↗</strong></a>
+<a class="card" href="khaga.html" target="_blank"><span class="num">13</span><h3>खागा</h3><p>टोल प्लाजा से 2 किमी आगे, राष्ट्रीय राजमार्ग</p><strong>साइट विवरण देखें ↗</strong></a>
+<a class="card" href="chitrakoot.html" target="_blank"><span class="num">14</span><h3>चित्रकूट</h3><p>बुंदेलखंड एक्सप्रेसवे से लगभग 2 किमी दूर</p><strong>साइट विवरण देखें ↗</strong></a>
+<a class="card" href="khumankheda.ml" target="_blank"><span class="num">15</span><h3>बनारस</h3><p>एयरपोर्ट रोड पर</p><strong>साइट विवरण देखें ↗</strong></a>
+<a class="card" href="khumankheda.ml" target="_blank"><span class="num">16</span><h3>तिवारीपुर</h3><p>राष्ट्रीय राजमार्ग से लगभग 1 किमी अंदर</p><strong>साइट विवरण देखें ↗</strong></a>
+<a class="card" href="khumankheda.ml" target="_blank"><span class="num">17</span><h3>सरसौल</h3><p>विवरण प्राप्त होना बाकी</p><strong>साइट विवरण देखें ↗</strong></a>
+<a class="card" href="khumankheda.ml" target="_blank"><span class="num">18</span><h3>सिखटिया</h3><p>विवरण प्राप्त होना बाकी</p><strong>साइट विवरण देखें ↗</strong></a>
+<a class="card" href="khumankheda.hl" target="_blank"><span class="num">19</span><h3>अकबरपुर</h3><p>रनिया टोल से लगभग 1 किमी पहले</p><strong>साइट विवरण देखें ↗</strong></a>
+<a class="card" href="khumankheda.ml" target="_blank"><span class="num">20</span><h3>फतेहपुर</h3><p>विवरण प्राप्त होना बाकी</p><strong>साइट विवरण देखें ↗</strong></a>
+<a class="card" href="khumankheda.ml" target="_blank"><span class="num">21</span><h3>माखी प्री-लॉन्चिंग</h3><p>ग्राम परमनी, मुख्य मार्ग से लगभग 2 किमी अंदर</p><strong>साइट विवरण देखें ↗</strong></a>
+<a class="card" href="khumankheda.ml" target="_blank"><span class="num">22</span><h3>साइड एक्सप्रेसवे</h3><p>पुरवा रोड पर</p><strong>साइट विवरण देखें ↗</strong></a>
+<a class="card" href="khumankheda.htl" target="_blank"><span class="num">23</span><h3>सिमरी अकमपुर</h3><p>अचलगंज हाईवे पर</p><strong>साइट विवरण देखें ↗</strong></a>
+<a class="card" href="khumankheda.htl" target="_blank"><span class="num">24</span><h3>दर्वैस्पुर</h3><p>प्रयागराज से लगभग 30 किमी पहले</p><strong>साइट विवरण देखें ↗</strong></a>
+<a class="card" href="khumankheda.htl" target="_blank"><span class="num">25</span><h3>हरदोई</h3><p>बघौली टोल से लगभग 2 किमी पहले</p><strong>साइट विवरण देखें ↗</strong></a>
+<a class="card" href="khumankheda.htl" target="_blank"><span class="num">26</span><h3>शिवली साइड</h3><p>ग्राम बैरी दरियाओ, कल्याणपुर–शिवली मुख्य मार्ग</p><strong>साइट विवरण देखें ↗</strong></a>
+</div>
+</div></section>
+<section class="section" id="member"><div class="wrap">
+<div class="member"><div><p style="color:#f6d986;font-weight:bold">$$ JANSHAKTI GROUP $$</p><h2>क्योंकि आप हमारे जनशक्ति परिवार के सदस्य हैं</h2><p>अपनी टीम के बारे में जानकारी करने के लिए लॉगिन करें।</p></div>
+<a class="btn" href="https://share.google/D7PV48osv6u2yl6Ui" target="_blank" rel="noopener">सदस्य लॉगिन करें ↗</a></div>
+</div></section>
+<section class="section about" id="about"><div class="wrap about-grid">
+<div><h2>जनशक्ति के बारे में</h2><p>जनशक्ति एक सामाजिक और जनहित-केंद्रित पहल है। हमारा उद्देश्य लोगों तक जमीन और लोकेशन से जुड़ी जानकारी पहुँचाना, बचत के विकल्पों के बारे में जागरूक करना और सहयोग के अवसरों की दिशा में प्रयास करना है।</p><p style="margin-top:12px">किसी भी संपत्ति में निवेश से पहले दस्तावेज़, मालिकाना हक और लागू नियमों की स्वतंत्र जाँच अवश्य करें।</p></div>
+<div class="about-box"><h2>हमारी पहचान</h2><p>जनहित • रोजगार • सामाजिक सेवा • अधिकार • बचत</p><p style="margin-top:12px">समाज के लिए जागरूकता और सहयोग की दिशा में एक प्रयास।</p></div>
+</div></section>
+</main>
+<footer><div class="wrap"><h2>जनशक्ति</h2><p>जनशक्ति का भरोसा और एडवोकेट आकाश शुक्ला का साथ</p></div></footer>
+<script>
+const search=document.getElementById('siteSearch');
+const cards=[...document.querySelectorAll('#cards .card')];
+search.addEventListener('input',()=>{
+ const q=search.value.trim().toLocaleLowerCase('hi');
+ cards.forEach(card=>card.style.display=card.innerText.toLocaleLowerCase('hi').includes(q)?'block':'none');
+});
+</script>
 </body>
-
 </html>
