@@ -27,12 +27,13 @@ nav{min-height:68px;display:flex;align-items:center;justify-content:space-betwee
 .menu a{padding:8px 13px;border-radius:8px;font-size:14px;font-weight:500;white-space:nowrap}
 .menu a:hover{background:var(--gold);color:var(--navy)}
 
-/* Hero */
-.hero{color:#fff;background:linear-gradient(100deg,rgba(7,29,51,.95) 25%,rgba(7,29,51,.55)),url("bannernew.jpeg") center/cover no-repeat}
-.hero-inner{padding:84px 0 70px}
+/* Hero: poster poori dikhegi, text uske neeche */
+.hero{color:#fff;background:linear-gradient(180deg,#071d33,#0b2a45)}
+.poster{display:block;width:100%;height:auto}
+.hero-inner{padding:36px 0 48px}
 .tag{display:inline-block;border:1px solid var(--gold);padding:5px 14px;border-radius:30px;color:#ffe4a0;font-size:13px}
 h1{font-size:clamp(30px,5vw,54px);line-height:1.3;margin:18px 0 14px;font-weight:800}
-.hero p{max-width:640px;color:#e8eef2;margin-bottom:26px;font-size:17px}
+.hero p{max-width:700px;color:#e8eef2;margin-bottom:26px;font-size:17px}
 .btn{display:inline-block;background:linear-gradient(135deg,#ffe6a0,#d9a83d);color:#10283b;padding:12px 20px;border-radius:10px;font-weight:700;margin:5px 8px 5px 0;transition:transform .15s}
 .btn:hover{transform:translateY(-2px)}
 .btn.alt{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.55)}
@@ -57,20 +58,27 @@ h1{font-size:clamp(30px,5vw,54px);line-height:1.3;margin:18px 0 14px;font-weight
 /* Cards */
 .cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
 .card{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:0 6px 20px rgba(22,43,57,.06);transition:transform .2s,border-color .2s}
-a.card:hover{transform:translateY(-4px);border-color:#d8b95f}
+
+/* बदलाव 1: खुलने वाली साइटों का हल्का हरा रंग */
+a.card{background:#e5f5e8;border-color:#b8dfc0}
+a.card:hover{transform:translateY(-4px);border-color:#8dc69a;background:#d4eed9}
+
+/* बदलाव 2: लॉक साइटों का हल्का पीला रंग */
+.locked-card{background:#fff0d6;border:1px solid #e4c98d;cursor:not-allowed;box-shadow:none;user-select:text}
+.locked-card:hover{transform:none;border-color:#e4c98d;background:#fff0d6}
+
 .badge{align-self:flex-start;background:#f8edce;color:#7d5a14;border-radius:30px;padding:2px 11px;font-weight:600;font-size:12px;margin-bottom:10px}
 .card h3{font-size:18px;line-height:1.4;color:var(--navy);margin-bottom:4px}
 .card p{font-size:13.5px;color:var(--muted);flex:1}
 .card strong{display:block;color:var(--gold-d);font-size:14px;margin-top:14px}
-.card.soon{background:#f6f3ea;box-shadow:none}
-.card.soon strong{color:#7a8791}
+a.card strong{color:#176c35}
+.locked-card strong{color:#8b6515}
 .empty{text-align:center;color:var(--muted);padding:30px 0;display:none}
 
 /* Member */
 .member{background:linear-gradient(120deg,#082039,var(--navy2));color:#fff;border-radius:20px;padding:34px;display:flex;align-items:center;justify-content:space-between;gap:20px}
 .member h2{font-size:clamp(22px,3vw,30px);margin:6px 0;line-height:1.4}
 .member p{color:#dce6ec}
-.member .kicker{color:#f6d986;font-weight:600;font-size:14px}
 
 /* About */
 .about{background:#fff}
@@ -78,7 +86,6 @@ a.card:hover{transform:translateY(-4px);border-color:#d8b95f}
 .about h2{color:var(--navy);margin-bottom:10px;font-size:28px}
 .about p{color:var(--muted)}
 .about-box{background:#fbf2dc;padding:26px;border-radius:16px}
-.note{margin-top:12px;padding:12px 14px;border-left:3px solid var(--gold);background:#fff8e4;border-radius:0 8px 8px 0;color:#5a4a1e!important;font-size:15px}
 
 footer{background:#061829;color:#fff;padding:34px 0}
 footer h2{font-size:22px}
@@ -93,8 +100,7 @@ footer p{font-size:14px;color:#bdc9d1}
  .menu{width:100%;overflow-x:auto;scrollbar-width:none;gap:2px}
  .menu::-webkit-scrollbar{display:none}
  .menu a{padding:7px 10px;font-size:14px}
- .hero{background:linear-gradient(180deg,rgba(7,29,51,.55) 0%,rgba(7,29,51,.92) 55%),url("bannernew.jpeg") center top/cover no-repeat}
- .hero-inner{padding:150px 0 44px}
+ .hero-inner{padding:28px 0 36px}
  .hero p{font-size:16px}
  .section{padding:48px 0}
  .cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
@@ -117,17 +123,17 @@ footer p{font-size:14px;color:#bdc9d1}
 </nav>
 </header>
 <main>
-<section class="hero" id="home"><div class="hero-inner wrap">
+<section class="hero" id="home"><img class="poster" src="bannernew.jpeg" alt="JSI Group जनशक्ति"><div class="hero-inner wrap">
 <span class="tag">विश्वास • जनहित • प्रॉपर्टी जानकारी</span>
 <h1>जनशक्ति का भरोसा,<br>एडवोकेट आकाश शुक्ला का साथ</h1>
-<p>हर नागरिक को उसके सपनों का आवास और बेहतर अवसर पाने में सहयोग का एक प्रयास। साइटों की जानकारी देखें और अपनी जरूरत की लोकेशन चुनें।</p>
+<p>हर गरीब नागरिक को उसके सपनों का आवास और बेहतर अवसर पाने में सहयोग करने का एक प्रयास। हमारी साइटों की जानकारी देखें और अपनी जरूरत के अनुसार लोकेशन चुनें। जमीन खरीदने से पहले दस्तावेज़ और स्वामित्व की जाँच अवश्य करें।</p>
 <a class="btn" href="#sites">हमारी साइटें देखें ↓</a>
 <a class="btn alt" href="#member">जनशक्ति परिवार लॉगिन ↗</a>
 </div></section>
 <div class="stats"><div class="wrap">
-<div><b>2014</b><span>स्थापना वर्ष</span></div>
-<div><b id="siteCount">31</b><span>प्रॉपर्टी साइटें</span></div>
-<div><b id="distCount">10</b><span>जिले</span></div>
+<div><b>2024</b><span>स्थापना वर्ष</span></div>
+<div><b id="siteCount">0</b><span>प्रॉपर्टी साइटें</span></div>
+<div><b id="distCount">0</b><span>जिले</span></div>
 </div></div>
 
 <section class="section" id="sites"><div class="wrap">
@@ -139,12 +145,12 @@ footer p{font-size:14px;color:#bdc9d1}
 </div></section>
 
 <section class="section" id="member" style="padding-top:0"><div class="wrap">
-<div class="member"><div><p class="kicker">JANSHAKTI GROUP</p><h2>क्योंकि आप हमारे जनशक्ति परिवार के सदस्य हैं</h2><p>अपनी टीम के बारे में जानकारी के लिए लॉगिन करें।</p></div>
+<div class="member"><div><p style="color:#f6d986;font-weight:bold">$$ JANSHAKTI GROUP $$</p><h2>क्योंकि आप हमारे जनशक्ति परिवार के सदस्य हैं</h2><p>अपनी टीम के बारे में जानकारी करने के लिए लॉगिन करें।</p></div>
 <a class="btn" href="https://share.google/D7PV48osv6u2yl6Ui" target="_blank" rel="noopener">सदस्य लॉगिन करें ↗</a></div>
 </div></section>
 
 <section class="section about" id="about"><div class="wrap about-grid">
-<div><h2>जनशक्ति के बारे में</h2><p>जनशक्ति एक सामाजिक और जनहित-केंद्रित पहल है। हमारा उद्देश्य लोगों तक जमीन और लोकेशन से जुड़ी जानकारी पहुँचाना, बचत के विकल्पों के बारे में जागरूक करना और सहयोग के अवसरों की दिशा में प्रयास करना है।</p><p class="note">जमीन खरीदने से पहले दस्तावेज़, मालिकाना हक और लागू नियमों की स्वतंत्र जाँच अवश्य करें।</p></div>
+<div><h2>जनशक्ति के बारे में</h2><p>जनशक्ति एक सामाजिक और जनहित-केंद्रित पहल है। हमारा उद्देश्य लोगों तक जमीन और लोकेशन से जुड़ी जानकारी पहुँचाना, बचत के विकल्पों के बारे में जागरूक करना और सहयोग के अवसरों की दिशा में प्रयास करना है।</p><p style="margin-top:12px">किसी भी संपत्ति में निवेश से पहले दस्तावेज़, मालिकाना हक और लागू नियमों की स्वतंत्र जाँच अवश्य करें।</p></div>
 <div class="about-box"><h2>हमारी पहचान</h2><p>जनहित • रोजगार • सामाजिक सेवा • अधिकार • बचत</p><p style="margin-top:12px">समाज के लिए जागरूकता और सहयोग की दिशा में एक प्रयास।</p></div>
 </div></section>
 </main>
@@ -153,82 +159,111 @@ footer p{font-size:14px;color:#bdc9d1}
 <a class="wa" id="wa" href="#" target="_blank" rel="noopener" aria-label="WhatsApp पर बात करें">💬 WhatsApp</a>
 
 <script>
-// यहाँ अपना WhatsApp नंबर डालें (91 के साथ, बिना + और स्पेस के). जब तक XXXX है, बटन छुपा रहेगा.
 const WHATSAPP="919598409423";
 
 // [नाम, जगह का विवरण, जिला, पेज की फ़ाइल]
-// फ़ाइल खाली ("") रखने पर कार्ड "जल्द उपलब्ध" दिखेगा। पेज बनने पर सही फ़ाइल नाम भर दें।
 const SITES=[
 ["नवीन मंडी इब्राहिम बाग","उन्नाव","उन्नाव","ibrahimbagh.html"],
 ["जानकी खेड़ा","उन्नाव","उन्नाव","JankiKheda.html"],
 ["जी स्कूल ग्राम कोटरा","उन्नाव","उन्नाव","ZeeSchool.html"],
 ["दही चौकी ग्राम ओरहर","उन्नाव","उन्नाव","orhar.html"],
 ["इन्देमऊ कोतवाली के सामने","बीघापुर, उन्नाव","उन्नाव","Indemau.html"],
-["रसूलपुर","नवाबगंज टोल से लगभग 4 किमी आगे","उन्नाव","Rasoolpur.html"],
-["सोहरामऊ शहर","हाईवे पर","उन्नाव","Sohramau.html"],
+["रसूलपुर","नवाबगंज टोल से लगभग 4 किमी आगे · उन्नाव","उन्नाव","Rasoolpur.html"],
+["सोहरामऊ शहर","हाईवे पर · उन्नाव","उन्नाव","Sohramau.html"],
 ["भीमेश्वर मंदिर के सामने","चकलवंशी, उन्नाव","उन्नाव","Bhemeshwer.html"],
 ["ग्राम चपरीशाहपुर","अचलगंज, उन्नाव","उन्नाव","Achalganj.html"],
 ["बिठूर पार्ट-2","साईं मंदिर के पास, कानपुर नगर","कानपुर","Buthur.html"],
-["बिठूर पार्ट-1","साईं मंदिर के पास, कानपुर नगर","कानपुर",""],
-["शिवली साइड","ग्राम बैरी दरियाओ, कल्याणपुर–शिवली मुख्य मार्ग","कानपुर",""],
+["बिठूर पार्ट-1","साईं मंदिर के पास, कानपुर नगर","कानपुर","Buthur.html"],
+["शिवली साइड","ग्राम बैरी दरियाओ, कल्याणपुर–शिवली मुख्य मार्ग","कानपुर","khumankheda.htl"],
 ["खुमान खेड़ा","चकलवंशी से 4 किमी पहले, राष्ट्रीय राजमार्ग","उन्नाव","khumankheda.html"],
 ["हुलासी कुआ","सफीपुर से लगभग 5.5 किमी पहले","उन्नाव","HulasiKUA.html"],
 ["खागा","टोल प्लाजा से 2 किमी आगे, राष्ट्रीय राजमार्ग","फतेहपुर","khaga.html"],
 ["चित्रकूट","बुंदेलखंड एक्सप्रेसवे से लगभग 2 किमी दूर","चित्रकूट","chitrakoot.html"],
-["बनारस","एयरपोर्ट रोड पर","बनारस",""],
-["तिवारीपुर सरसौल","राष्ट्रीय राजमार्ग से लगभग 1 किमी अंदर","कानपुर नगर",""],
-["सिखटिया","विवरण प्राप्त होना बाकी","कानपुर नगर",""],
+["बनारस","एयरपोर्ट रोड पर","बनारस","khumankheda.ml"],
+["तिवारीपुर","राष्ट्रीय राजमार्ग से लगभग 1 किमी अंदर","बनारस","khumankheda.ml"],
+["सरसौल","विवरण प्राप्त होना बाकी","कानपुर","khumankheda.ml"],
+["सिखटिया","विवरण प्राप्त होना बाकी","उन्नाव","khumankheda.ml"],
 ["अकबरपुर","रनिया टोल से लगभग 1 किमी पहले","कानपुर","Akbarpur.html"],
-["फतेहपुर","विवरण प्राप्त होना बाकी","फतेहपुर",""],
-["माखी प्री-लॉन्चिंग","ग्राम परमनी, मुख्य मार्ग से लगभग 2 किमी अंदर","उन्नाव",""],
-["साइड एक्सप्रेसवे","पुरवा रोड पर","उन्नाव",""],
-["सिमरी आकमपुर","उन्नाव रायबरेली हाईवे पर","उन्नाव",""],
-["दर्वैस्पुर","प्रयागराज से लगभग 30 किमी पहले","प्रयागराज",""],
-["हरदोई","बघौली टोल से लगभग 2 किमी पहले","हरदोई",""],
-["रूरा","कानपुर देहात","कानपुर देहात",""],
-["बिल्हौर","नियर शिवराजपुर, कानपुर नगर","कानपुर",""],
-["बांगरमऊ","मुख्य हाईवे पर","उन्नाव",""]
+["फतेहपुर","विवरण प्राप्त होना बाकी","फतेहपुर","khumankheda.ml"],
+["माखी प्री-लॉन्चिंग","ग्राम परमनी, मुख्य मार्ग से लगभग 2 किमी अंदर","उन्नाव","khumankheda.ml"],
+["साइड एक्सप्रेसवे","पुरवा रोड पर","उन्नाव","khumankheda.ml"],
+["सिमरी अकमपुर","अचलगंज हाईवे पर","उन्नाव","khumankheda.htl"],
+["दर्वैस्पुर","प्रयागराज से लगभग 30 किमी पहले","प्रयागराज","khumankheda.htl"],
+["हरदोई","बघौली टोल से लगभग 2 किमी पहले","हरदोई","khumankheda.htl"],
+["शिवली साइड","ग्राम बैरी दरियाओ, कल्याणपुर–शिवली मुख्य मार्ग","कानपुर","khumankheda.htl"],
+["रूरा","कानपुर देहात","कानपुर देहात","khumankheda.htl"],
+["बिल्हौर","नियर शिवराजपुर कानपुर नगर","कानपुर","khumankheda.htl"],
+["बांगरमऊ","मुख्य हाईवे पर ","उन्नाव","khumankheda.htl"]
 ];
 
-const cardsEl=document.getElementById('cards'),filtersEl=document.getElementById('filters'),
-      search=document.getElementById('siteSearch'),empty=document.getElementById('empty');
+const cardsEl=document.getElementById('cards');
+const filtersEl=document.getElementById('filters');
+const search=document.getElementById('siteSearch');
+const empty=document.getElementById('empty');
 let district="सभी";
 
+function isLocked(href,loc){
+  return !href ||
+    loc.includes("विवरण प्राप्त होना बाकी") ||
+    href.endsWith(".ml") ||
+    href.endsWith(".htl");
+}
+
 cardsEl.innerHTML=SITES.map(([name,loc,dist,href])=>{
-  const body=`<span class="badge">${dist}</span><h3>${name}</h3><p>${loc}</p>`;
-  return href
-    ?`<a class="card" data-d="${dist}" href="${href}" target="_blank" rel="noopener">${body}<strong>साइट विवरण देखें ↗</strong></a>`
-    :`<div class="card soon" data-d="${dist}">${body}<strong>जल्द उपलब्ध</strong></div>`;
+  if(isLocked(href,loc)){
+    return `<div class="card locked-card" data-d="${dist}">
+      <span class="badge">${dist}</span>
+      <h3>${name}</h3>
+      <p>${loc}</p>
+      <strong>🔒 जल्द ही डिटेल उपलब्ध कराई जाएगी</strong>
+    </div>`;
+  }
+  return `<a class="card" data-d="${dist}" href="${href}" target="_blank" rel="noopener">
+    <span class="badge">${dist}</span>
+    <h3>${name}</h3>
+    <p>${loc}</p>
+    <strong>साइट विवरण देखें ↗</strong>
+  </a>`;
 }).join('');
 
 const dists=[...new Set(SITES.map(s=>s[2]))];
 document.getElementById('siteCount').textContent=SITES.length;
 document.getElementById('distCount').textContent=dists.length;
 
+filtersEl.innerHTML=["सभी",...dists].map(d=>
+  `<button class="chip" type="button" aria-pressed="${d===district}">${d}</button>`
+).join('');
+
 const cards=[...cardsEl.children];
-filtersEl.innerHTML=["सभी",...dists].map(d=>`<button class="chip" type="button" aria-pressed="${d===district}">${d}</button>`).join('');
 
 function apply(){
   const q=search.value.trim().toLocaleLowerCase('hi');
   let shown=0;
   cards.forEach(c=>{
-    const ok=(district==="सभी"||c.dataset.d===district)&&c.innerText.toLocaleLowerCase('hi').includes(q);
+    const ok=(district==="सभी"||c.dataset.d===district)&&
+      c.innerText.toLocaleLowerCase('hi').includes(q);
     c.style.display=ok?'flex':'none';
     if(ok)shown++;
   });
   empty.style.display=shown?'none':'block';
 }
+
 search.addEventListener('input',apply);
 filtersEl.addEventListener('click',e=>{
-  const b=e.target.closest('.chip');if(!b)return;
+  const b=e.target.closest('.chip');
+  if(!b)return;
   district=b.textContent;
-  [...filtersEl.children].forEach(x=>x.setAttribute('aria-pressed',x===b));
+  [...filtersEl.children].forEach(x=>
+    x.setAttribute('aria-pressed',x===b)
+  );
   apply();
 });
 
 const wa=document.getElementById('wa');
 if(!WHATSAPP.includes('X')){
-  wa.href="https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent("नमस्ते, मुझे जनशक्ति की साइटों की जानकारी चाहिए।");
+  wa.href="https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent(
+    "नमस्ते, मुझे जनशक्ति की साइटों की जानकारी चाहिए।"
+  );
   wa.style.display='flex';
 }
 </script>
