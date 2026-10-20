@@ -4,57 +4,112 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>जनशक्ति | एडवोकेट आकाश शुक्ला</title>
+<meta name="description" content="जनशक्ति: उन्नाव, कानपुर, बनारस और आसपास की प्रॉपर्टी साइटों की जानकारी।">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600&family=Mukta:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--navy:#071d33;--gold:#e7bd59;--cream:#fbf8f0}
+:root{--navy:#071d33;--navy2:#123d5a;--gold:#e7bd59;--gold-d:#9a711c;--cream:#fbf8f0;--line:#e9e4d8;--muted:#5d6d79}
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:"Noto Sans Devanagari","Segoe UI",Arial,sans-serif;background:var(--cream);color:#182d3d;line-height:1.7}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{font-family:"Hind","Noto Sans Devanagari","Segoe UI",Arial,sans-serif;background:var(--cream);color:#182d3d;line-height:1.7;font-size:16px}
+h1,h2,h3,.brand{font-family:"Mukta","Noto Sans Devanagari",sans-serif}
 a{text-decoration:none;color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
 .wrap{width:min(1160px,92%);margin:auto}
-header{position:sticky;top:0;z-index:10;background:#071d33;color:white;border-bottom:2px solid var(--gold)}
-nav{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap;padding:12px 0}
-.brand{font-size:22px;font-weight:800}
-.brand small{display:block;font-size:12px;color:#e7bd59;font-weight:500}
-.menu{display:flex;gap:8px;flex-wrap:wrap}
-.menu a{padding:8px 12px;border-radius:8px;font-size:13px}
-.menu a:hover{background:#e7bd59;color:#071d33}
-.hero{color:white;background:linear-gradient(100deg,#071d33ed,#071d3370),url("bannernew.jpeg") center/cover no-repeat}
-.hero-inner{padding:70px 0}
-.tag{display:inline-block;border:1px solid #e7bd59;padding:6px 13px;border-radius:30px;color:#ffe4a0;font-size:13px}
-h1{font-size:clamp(30px,5vw,52px);line-height:1.35;margin:18px 0}
-.hero p{max-width:700px;color:#e2e9ee;margin-bottom:24px}
-.btn{display:inline-block;background:linear-gradient(135deg,#ffe6a0,#d9a83d);color:#10283b;padding:12px 18px;border-radius:9px;font-weight:800;margin:5px 5px 5px 0}
-.btn.alt{background:transparent;color:white;border:1px solid #ffffff80}
-.section{padding:60px 0}
-.heading{text-align:center;margin-bottom:30px}
-.heading h2{font-size:clamp(25px,3vw,35px);color:#071d33}
-.heading p{font-size:14px;color:#697985}
-.search{display:block;width:min(450px,100%);padding:13px 15px;border:1px solid #e9e4d8;border-radius:10px;margin:0 auto 22px;font:inherit;background:white}
-.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px}
-.card{display:block;background:white;border:1px solid #e9e4d8;border-radius:14px;padding:18px;box-shadow:0 7px 22px #162b390c;transition:.2s}
-.card:hover{transform:translateY(-4px);border-color:#d8b95f}
-.num{display:inline-block;background:#f8edce;color:#8c681d;border-radius:8px;padding:4px 9px;font-weight:bold;font-size:12px;margin-bottom:10px}
-.card h3{font-size:16px;color:#071d33;margin-bottom:5px}
-.card p{font-size:12px;color:#697985}
-.card strong{display:block;color:#9a711c;font-size:12px;margin-top:12px}
-.member{background:linear-gradient(120deg,#082039,#123d5a);color:white;border-radius:20px;padding:32px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-.member h2{font-size:clamp(22px,3vw,30px);margin:8px 0}
+
+/* Header */
+header{position:sticky;top:0;z-index:20;background:rgba(7,29,51,.96);backdrop-filter:blur(8px);color:#fff;border-bottom:2px solid var(--gold)}
+nav{min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:8px 0}
+.brand{font-size:23px;font-weight:800;line-height:1.2}
+.brand small{display:block;font-family:"Hind",sans-serif;font-size:12px;color:var(--gold);font-weight:500}
+.menu{display:flex;gap:4px}
+.menu a{padding:8px 13px;border-radius:8px;font-size:14px;font-weight:500;white-space:nowrap}
+.menu a:hover{background:var(--gold);color:var(--navy)}
+
+/* Hero */
+.hero{color:#fff;background:linear-gradient(100deg,rgba(7,29,51,.95) 25%,rgba(7,29,51,.55)),url("bannernew.jpeg") center/cover no-repeat}
+.hero-inner{padding:84px 0 70px}
+.tag{display:inline-block;border:1px solid var(--gold);padding:5px 14px;border-radius:30px;color:#ffe4a0;font-size:13px}
+h1{font-size:clamp(30px,5vw,54px);line-height:1.3;margin:18px 0 14px;font-weight:800}
+.hero p{max-width:640px;color:#e8eef2;margin-bottom:26px;font-size:17px}
+.btn{display:inline-block;background:linear-gradient(135deg,#ffe6a0,#d9a83d);color:#10283b;padding:12px 20px;border-radius:10px;font-weight:700;margin:5px 8px 5px 0;transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn.alt{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.55)}
+
+/* Stats */
+.stats{background:var(--navy);color:#fff;border-top:1px solid rgba(231,189,89,.35)}
+.stats .wrap{display:grid;grid-template-columns:repeat(3,1fr);text-align:center;padding:20px 0}
+.stats b{display:block;font-family:"Mukta",sans-serif;font-size:clamp(22px,4vw,32px);color:var(--gold);line-height:1.2}
+.stats span{font-size:13px;color:#cfdae2}
+
+/* Sections */
+.section{padding:64px 0}
+.heading{text-align:center;margin-bottom:28px}
+.heading h2{font-size:clamp(26px,3.5vw,36px);color:var(--navy);line-height:1.3}
+.heading p{font-size:15px;color:var(--muted)}
+.search{display:block;width:min(460px,100%);padding:13px 16px;border:1px solid var(--line);border-radius:12px;margin:0 auto 14px;font:inherit;background:#fff}
+.search:focus{border-color:var(--gold)}
+.filters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:24px}
+.chip{border:1px solid var(--line);background:#fff;color:var(--navy);padding:6px 16px;border-radius:30px;font:inherit;font-size:14px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--navy);color:#fff;border-color:var(--navy)}
+
+/* Cards */
+.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.card{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:0 6px 20px rgba(22,43,57,.06);transition:transform .2s,border-color .2s}
+a.card:hover{transform:translateY(-4px);border-color:#d8b95f}
+.badge{align-self:flex-start;background:#f8edce;color:#7d5a14;border-radius:30px;padding:2px 11px;font-weight:600;font-size:12px;margin-bottom:10px}
+.card h3{font-size:18px;line-height:1.4;color:var(--navy);margin-bottom:4px}
+.card p{font-size:13.5px;color:var(--muted);flex:1}
+.card strong{display:block;color:var(--gold-d);font-size:14px;margin-top:14px}
+.card.soon{background:#f6f3ea;box-shadow:none}
+.card.soon strong{color:#7a8791}
+.empty{text-align:center;color:var(--muted);padding:30px 0;display:none}
+
+/* Member */
+.member{background:linear-gradient(120deg,#082039,var(--navy2));color:#fff;border-radius:20px;padding:34px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.member h2{font-size:clamp(22px,3vw,30px);margin:6px 0;line-height:1.4}
 .member p{color:#dce6ec}
-.about{background:white}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}
-.about h2{color:#071d33;margin-bottom:10px}
-.about p{color:#697985}
-.about-box{background:#fbf2dc;padding:25px;border-radius:16px}
-footer{background:#061829;color:white;padding:30px 0}
-footer p{font-size:12px;color:#bdc9d1}
+.member .kicker{color:#f6d986;font-weight:600;font-size:14px}
+
+/* About */
+.about{background:#fff}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:center}
+.about h2{color:var(--navy);margin-bottom:10px;font-size:28px}
+.about p{color:var(--muted)}
+.about-box{background:#fbf2dc;padding:26px;border-radius:16px}
+.note{margin-top:12px;padding:12px 14px;border-left:3px solid var(--gold);background:#fff8e4;border-radius:0 8px 8px 0;color:#5a4a1e!important;font-size:15px}
+
+footer{background:#061829;color:#fff;padding:34px 0}
+footer h2{font-size:22px}
+footer p{font-size:14px;color:#bdc9d1}
+
+/* WhatsApp */
+.wa{position:fixed;right:16px;bottom:16px;z-index:30;display:none;align-items:center;gap:8px;background:#25d366;color:#fff;padding:12px 18px;border-radius:40px;font-weight:600;box-shadow:0 6px 18px rgba(0,0,0,.25)}
+
 @media(max-width:900px){.cards{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media(max-width:650px){nav{align-items:flex-start;flex-direction:column}.menu{gap:3px}.menu a{padding:7px 8px}.hero-inner{padding:48px 0}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.member,.about-grid{display:grid;grid-template-columns:1fr}.member{padding:24px}}
+@media(max-width:650px){
+ nav{flex-wrap:wrap;padding:8px 0 4px}
+ .menu{width:100%;overflow-x:auto;scrollbar-width:none;gap:2px}
+ .menu::-webkit-scrollbar{display:none}
+ .menu a{padding:7px 10px;font-size:14px}
+ .hero{background:linear-gradient(180deg,rgba(7,29,51,.55) 0%,rgba(7,29,51,.92) 55%),url("bannernew.jpeg") center top/cover no-repeat}
+ .hero-inner{padding:150px 0 44px}
+ .hero p{font-size:16px}
+ .section{padding:48px 0}
+ .cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+ .card{padding:14px}
+ .card h3{font-size:16px}
+ .member,.about-grid{display:grid;grid-template-columns:1fr}
+ .member{padding:24px}
+}
 @media(max-width:390px){.cards{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
 <header>
-<nav class="wrap">
+<nav class="wrap" aria-label="मुख्य मेनू">
 <a class="brand" href="#home">जनशक्ति<small>विद एडवोकेट आकाश शुक्ला</small></a>
 <div class="menu">
 <a href="#home">होम</a><a href="#sites">हमारी साइट</a><a href="#about">हमारे बारे में</a><a href="#member">सदस्य लॉगिन</a>
@@ -65,64 +120,117 @@ footer p{font-size:12px;color:#bdc9d1}
 <section class="hero" id="home"><div class="hero-inner wrap">
 <span class="tag">विश्वास • जनहित • प्रॉपर्टी जानकारी</span>
 <h1>जनशक्ति का भरोसा,<br>एडवोकेट आकाश शुक्ला का साथ</h1>
-<p>हर गरीब नागरिक को उसके सपनों का आवास और बेहतर अवसर पाने में सहयोग करने का एक प्रयास। हमारी साइटों की जानकारी देखें और अपनी जरूरत के अनुसार लोकेशन चुनें। जमीन खरीदने से पहले दस्तावेज़ और स्वामित्व की जाँच अवश्य करें।</p>
+<p>हर नागरिक को उसके सपनों का आवास और बेहतर अवसर पाने में सहयोग का एक प्रयास। साइटों की जानकारी देखें और अपनी जरूरत की लोकेशन चुनें।</p>
 <a class="btn" href="#sites">हमारी साइटें देखें ↓</a>
 <a class="btn alt" href="#member">जनशक्ति परिवार लॉगिन ↗</a>
 </div></section>
+<div class="stats"><div class="wrap">
+<div><b>2014</b><span>स्थापना वर्ष</span></div>
+<div><b id="siteCount">31</b><span>प्रॉपर्टी साइटें</span></div>
+<div><b id="distCount">10</b><span>जिले</span></div>
+</div></div>
+
 <section class="section" id="sites"><div class="wrap">
 <div class="heading"><h2>हमारी प्रॉपर्टी साइटें</h2><p>अपनी पसंद की लोकेशन खोजें और उपलब्ध विवरण खोलें।</p></div>
 <input class="search" id="siteSearch" type="search" placeholder="साइट या जिले का नाम खोजें..." aria-label="साइट खोजें">
-<div class="cards" id="cards">
-<a class="card" href="ibrahimbagh.html" target="_blank"><span class="num">01</span><h3>नवीन मंडी इब्राहिम बाग</h3><p>उन्नाव</p><strong>साइट विवरण देखें ↗</strong></a>
-<a class="card" href="JankiKheda.html" target="_blank"><span class="num">02</span><h3>जानकी खेड़ा</h3><p>उन्नाव</p><strong>साइट विवरण देखें ↗</strong></a>
-<a class="card" href="ZeeSchool.html" target="_blank"><span class="num">03</span><h3>जी स्कूल ग्राम कोटरा</h3><p>उन्नाव</p><strong>साइट विवरण देखें ↗</strong></a>
-<a class="card" href="orhar.html" target="_blank"><span class="num">04</span><h3>दही चौकी ग्राम ओरहर</h3><p>उन्नाव</p><strong>साइट विवरण देखें ↗</strong></a>
-<a class="card" href="Indemau.html" target="_blank"><span class="num">05</span><h3>इन्देमऊ कोतवाली के सामने</h3><p>बीघापुर, उन्नाव</p><strong>साइट विवरण देखें ↗</strong></a>
-<a class="card" href="Rasoolpur.html" target="_blank"><span class="num">06</span><h3>रसूलपुर</h3><p>नवाबगंज टोल से लगभग 4 किमी आगे · उन्नाव</p><strong>साइट विवरण देखें ↗</strong></a>
-<a class="card" href="Sohramau.html" target="_blank"><span class="num">07</span><h3>सोहरामऊ शहर</h3><p>हाईवे पर · उन्नाव</p><strong>साइट विवरण देखें ↗</strong></a>
-<a class="card" href="Bhemeshwer.html" target="_blank"><span class="num">08</span><h3>भीमेश्वर मंदिर के सामने</h3><p>चकलवंशी, उन्नाव</p><strong>साइट विवरण देखें ↗</strong></a>
-<a class="card" href="Achalganj.html" target="_blank"><span class="num">09</span><h3>ग्राम चपरीशाहपुर</h3><p>अचलगंज, उन्नाव</p><strong>साइट विवरण देखें ↗</strong></a>
-<a class="card" href="Buthur.html" target="_blank"><span class="num">10</span><h3>बिठूर पार्ट-2</h3><p>साईं मंदिर के पास, कानपुर नगर</p><strong>साइट विवरण देखें ↗</strong></a>
-<a class="card" href="Buthur.html" target="_blank"><span class="num">11</span><h3>बिठूर पार्ट-1</h3><p>साईं मंदिर के पास, कानपुर नगर</p><strong>साइट विवरण देखें ↗</strong></a>
-<a class="card" href="khumankheda.htl" target="_blank"><span class="num">12</span><h3>शिवली साइड</h3><p>ग्राम बैरी दरियाओ, कल्याणपुर–शिवली मुख्य मार्ग</p><strong>साइट विवरण देखें ↗</strong></a>
-<a class="card" href="khumankheda.html" target="_blank"><span class="num">13</span><h3>खुमान खेड़ा</h3><p>चकलवंशी से 4 किमी पहले, राष्ट्रीय राजमार्ग</p><strong>साइट विवरण देखें ↗</strong></a>
-<a class="card" href="HulasiKUA.html" target="_blank"><span class="num">14</span><h3>हुलासी कुआ</h3><p>सफीपुर से लगभग 5.5 किमी पहले</p><strong>साइट विवरण देखें ↗</strong></a>
-<a class="card" href="khaga.html" target="_blank"><span class="num">15</span><h3>खागा</h3><p>टोल प्लाजा से 2 किमी आगे, राष्ट्रीय राजमार्ग</p><strong>साइट विवरण देखें ↗</strong></a>
-<a class="card" href="chitrakoot.html" target="_blank"><span class="num">16</span><h3>चित्रकूट</h3><p>बुंदेलखंड एक्सप्रेसवे से लगभग 2 किमी दूर</p><strong>साइट विवरण देखें ↗</strong></a>
-<a class="card" href="khumankheda.ml" target="_blank"><span class="num">17</span><h3>बनारस</h3><p>एयरपोर्ट रोड पर</p><strong>साइट विवरण देखें ↗</strong></a>
-<a class="card" href="khumankheda.ml" target="_blank"><span class="num">18</span><h3>तिवारीपुर</h3><p>राष्ट्रीय राजमार्ग से लगभग 1 किमी अंदर</p><strong>साइट विवरण देखें ↗</strong></a>
-<a class="card" href="khumankheda.ml" target="_blank"><span class="num">19</span><h3>सरसौल</h3><p>विवरण प्राप्त होना बाकी</p><strong>साइट विवरण देखें ↗</strong></a>
-<a class="card" href="khumankheda.ml" target="_blank"><span class="num">20</span><h3>सिखटिया</h3><p>विवरण प्राप्त होना बाकी</p><strong>साइट विवरण देखें ↗</strong></a>
-<a class="card" href="Akbarpur.html" target="_blank"><span class="num">21</span><h3>अकबरपुर</h3><p>रनिया टोल से लगभग 1 किमी पहले</p><strong>साइट विवरण देखें ↗</strong></a>
-<a class="card" href="khumankheda.ml" target="_blank"><span class="num">22</span><h3>फतेहपुर</h3><p>विवरण प्राप्त होना बाकी</p><strong>साइट विवरण देखें ↗</strong></a>
-<a class="card" href="khumankheda.ml" target="_blank"><span class="num">23</span><h3>माखी प्री-लॉन्चिंग</h3><p>ग्राम परमनी, मुख्य मार्ग से लगभग 2 किमी अंदर</p><strong>साइट विवरण देखें ↗</strong></a>
-<a class="card" href="khumankheda.ml" target="_blank"><span class="num">24</span><h3>साइड एक्सप्रेसवे</h3><p>पुरवा रोड पर</p><strong>साइट विवरण देखें ↗</strong></a>
-<a class="card" href="khumankheda.htl" target="_blank"><span class="num">25</span><h3>सिमरी अकमपुर</h3><p>अचलगंज हाईवे पर</p><strong>साइट विवरण देखें ↗</strong></a>
-<a class="card" href="khumankheda.htl" target="_blank"><span class="num">26</span><h3>दर्वैस्पुर</h3><p>प्रयागराज से लगभग 30 किमी पहले</p><strong>साइट विवरण देखें ↗</strong></a>
-<a class="card" href="khumankheda.htl" target="_blank"><span class="num">27</span><h3>हरदोई</h3><p>बघौली टोल से लगभग 2 किमी पहले</p><strong>साइट विवरण देखें ↗</strong></a>
-<a class="card" href="khumankheda.htl" target="_blank"><span class="num">28</span><h3>शिवली साइड</h3><p>ग्राम बैरी दरियाओ, कल्याणपुर–शिवली मुख्य मार्ग</p><strong>साइट विवरण देखें ↗</strong></a>
-<a class="card" href="khumankheda.htl" target="_blank"><span class="num">29</span><h3>रूरा</h3><p>कानपुर देहात</p><strong>साइट विवरण देखें ↗</strong></a>
-<a class="card" href="khumankheda.htl" target="_blank"><span class="num">30</span><h3>बिल्हौर</h3><p>नियर शिवराजपुर कानपुर नगर</p><strong>साइट विवरण देखें ↗</strong></a>
-<a class="card" href="khumankheda.htl" target="_blank"><span class="num">31</span><h3>बांगरमऊ</h3><p>मुख्य हाईवे पर </p><strong>साइट विवरण देखें ↗</strong></a>
-</div>
+<div class="filters" id="filters"></div>
+<div class="cards" id="cards"></div>
+<p class="empty" id="empty">कोई साइट नहीं मिली। दूसरा नाम खोजें या फ़िल्टर बदलें।</p>
 </div></section>
-<section class="section" id="member"><div class="wrap">
-<div class="member"><div><p style="color:#f6d986;font-weight:bold">$$ JANSHAKTI GROUP $$</p><h2>क्योंकि आप हमारे जनशक्ति परिवार के सदस्य हैं</h2><p>अपनी टीम के बारे में जानकारी करने के लिए लॉगिन करें।</p></div>
+
+<section class="section" id="member" style="padding-top:0"><div class="wrap">
+<div class="member"><div><p class="kicker">JANSHAKTI GROUP</p><h2>क्योंकि आप हमारे जनशक्ति परिवार के सदस्य हैं</h2><p>अपनी टीम के बारे में जानकारी के लिए लॉगिन करें।</p></div>
 <a class="btn" href="https://share.google/D7PV48osv6u2yl6Ui" target="_blank" rel="noopener">सदस्य लॉगिन करें ↗</a></div>
 </div></section>
+
 <section class="section about" id="about"><div class="wrap about-grid">
-<div><h2>जनशक्ति के बारे में</h2><p>जनशक्ति एक सामाजिक और जनहित-केंद्रित पहल है। हमारा उद्देश्य लोगों तक जमीन और लोकेशन से जुड़ी जानकारी पहुँचाना, बचत के विकल्पों के बारे में जागरूक करना और सहयोग के अवसरों की दिशा में प्रयास करना है।</p><p style="margin-top:12px">किसी भी संपत्ति में निवेश से पहले दस्तावेज़, मालिकाना हक और लागू नियमों की स्वतंत्र जाँच अवश्य करें।</p></div>
+<div><h2>जनशक्ति के बारे में</h2><p>जनशक्ति एक सामाजिक और जनहित-केंद्रित पहल है। हमारा उद्देश्य लोगों तक जमीन और लोकेशन से जुड़ी जानकारी पहुँचाना, बचत के विकल्पों के बारे में जागरूक करना और सहयोग के अवसरों की दिशा में प्रयास करना है।</p><p class="note">जमीन खरीदने से पहले दस्तावेज़, मालिकाना हक और लागू नियमों की स्वतंत्र जाँच अवश्य करें।</p></div>
 <div class="about-box"><h2>हमारी पहचान</h2><p>जनहित • रोजगार • सामाजिक सेवा • अधिकार • बचत</p><p style="margin-top:12px">समाज के लिए जागरूकता और सहयोग की दिशा में एक प्रयास।</p></div>
 </div></section>
 </main>
 <footer><div class="wrap"><h2>जनशक्ति</h2><p>जनशक्ति का भरोसा और एडवोकेट आकाश शुक्ला का साथ</p></div></footer>
+
+<a class="wa" id="wa" href="#" target="_blank" rel="noopener" aria-label="WhatsApp पर बात करें">💬 WhatsApp</a>
+
 <script>
-const search=document.getElementById('siteSearch');
-const cards=[...document.querySelectorAll('#cards .card')];
-search.addEventListener('input',()=>{
- const q=search.value.trim().toLocaleLowerCase('hi');
- cards.forEach(card=>card.style.display=card.innerText.toLocaleLowerCase('hi').includes(q)?'block':'none');
+// यहाँ अपना WhatsApp नंबर डालें (91 के साथ, बिना + और स्पेस के). जब तक XXXX है, बटन छुपा रहेगा.
+const WHATSAPP="919598409423";
+
+// [नाम, जगह का विवरण, जिला, पेज की फ़ाइल]
+// फ़ाइल खाली ("") रखने पर कार्ड "जल्द उपलब्ध" दिखेगा। पेज बनने पर सही फ़ाइल नाम भर दें।
+const SITES=[
+["नवीन मंडी इब्राहिम बाग","उन्नाव","उन्नाव","ibrahimbagh.html"],
+["जानकी खेड़ा","उन्नाव","उन्नाव","JankiKheda.html"],
+["जी स्कूल ग्राम कोटरा","उन्नाव","उन्नाव","ZeeSchool.html"],
+["दही चौकी ग्राम ओरहर","उन्नाव","उन्नाव","orhar.html"],
+["इन्देमऊ कोतवाली के सामने","बीघापुर, उन्नाव","उन्नाव","Indemau.html"],
+["रसूलपुर","नवाबगंज टोल से लगभग 4 किमी आगे","उन्नाव","Rasoolpur.html"],
+["सोहरामऊ शहर","हाईवे पर","उन्नाव","Sohramau.html"],
+["भीमेश्वर मंदिर के सामने","चकलवंशी, उन्नाव","उन्नाव","Bhemeshwer.html"],
+["ग्राम चपरीशाहपुर","अचलगंज, उन्नाव","उन्नाव","Achalganj.html"],
+["बिठूर पार्ट-2","साईं मंदिर के पास, कानपुर नगर","कानपुर","Buthur.html"],
+["बिठूर पार्ट-1","साईं मंदिर के पास, कानपुर नगर","कानपुर",""],
+["शिवली साइड","ग्राम बैरी दरियाओ, कल्याणपुर–शिवली मुख्य मार्ग","कानपुर",""],
+["खुमान खेड़ा","चकलवंशी से 4 किमी पहले, राष्ट्रीय राजमार्ग","उन्नाव","khumankheda.html"],
+["हुलासी कुआ","सफीपुर से लगभग 5.5 किमी पहले","उन्नाव","HulasiKUA.html"],
+["खागा","टोल प्लाजा से 2 किमी आगे, राष्ट्रीय राजमार्ग","फतेहपुर","khaga.html"],
+["चित्रकूट","बुंदेलखंड एक्सप्रेसवे से लगभग 2 किमी दूर","चित्रकूट","chitrakoot.html"],
+["बनारस","एयरपोर्ट रोड पर","बनारस",""],
+["तिवारीपुर सरसौल","राष्ट्रीय राजमार्ग से लगभग 1 किमी अंदर","कानपुर नगर",""],
+["सिखटिया","विवरण प्राप्त होना बाकी","कानपुर नगर",""],
+["अकबरपुर","रनिया टोल से लगभग 1 किमी पहले","कानपुर","Akbarpur.html"],
+["फतेहपुर","विवरण प्राप्त होना बाकी","फतेहपुर",""],
+["माखी प्री-लॉन्चिंग","ग्राम परमनी, मुख्य मार्ग से लगभग 2 किमी अंदर","उन्नाव",""],
+["साइड एक्सप्रेसवे","पुरवा रोड पर","उन्नाव",""],
+["सिमरी आकमपुर","उन्नाव रायबरेली हाईवे पर","उन्नाव",""],
+["दर्वैस्पुर","प्रयागराज से लगभग 30 किमी पहले","प्रयागराज",""],
+["हरदोई","बघौली टोल से लगभग 2 किमी पहले","हरदोई",""],
+["रूरा","कानपुर देहात","कानपुर देहात",""],
+["बिल्हौर","नियर शिवराजपुर, कानपुर नगर","कानपुर",""],
+["बांगरमऊ","मुख्य हाईवे पर","उन्नाव",""]
+];
+
+const cardsEl=document.getElementById('cards'),filtersEl=document.getElementById('filters'),
+      search=document.getElementById('siteSearch'),empty=document.getElementById('empty');
+let district="सभी";
+
+cardsEl.innerHTML=SITES.map(([name,loc,dist,href])=>{
+  const body=`<span class="badge">${dist}</span><h3>${name}</h3><p>${loc}</p>`;
+  return href
+    ?`<a class="card" data-d="${dist}" href="${href}" target="_blank" rel="noopener">${body}<strong>साइट विवरण देखें ↗</strong></a>`
+    :`<div class="card soon" data-d="${dist}">${body}<strong>जल्द उपलब्ध</strong></div>`;
+}).join('');
+
+const dists=[...new Set(SITES.map(s=>s[2]))];
+document.getElementById('siteCount').textContent=SITES.length;
+document.getElementById('distCount').textContent=dists.length;
+
+const cards=[...cardsEl.children];
+filtersEl.innerHTML=["सभी",...dists].map(d=>`<button class="chip" type="button" aria-pressed="${d===district}">${d}</button>`).join('');
+
+function apply(){
+  const q=search.value.trim().toLocaleLowerCase('hi');
+  let shown=0;
+  cards.forEach(c=>{
+    const ok=(district==="सभी"||c.dataset.d===district)&&c.innerText.toLocaleLowerCase('hi').includes(q);
+    c.style.display=ok?'flex':'none';
+    if(ok)shown++;
+  });
+  empty.style.display=shown?'none':'block';
+}
+search.addEventListener('input',apply);
+filtersEl.addEventListener('click',e=>{
+  const b=e.target.closest('.chip');if(!b)return;
+  district=b.textContent;
+  [...filtersEl.children].forEach(x=>x.setAttribute('aria-pressed',x===b));
+  apply();
 });
+
+const wa=document.getElementById('wa');
+if(!WHATSAPP.includes('X')){
+  wa.href="https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent("नमस्ते, मुझे जनशक्ति की साइटों की जानकारी चाहिए।");
+  wa.style.display='flex';
+}
 </script>
 </body>
 </html>
