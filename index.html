@@ -44,6 +44,14 @@ h1{font-size:clamp(30px,5vw,54px);line-height:1.3;margin:18px 0 14px;font-weight
 .stats b{display:block;font-family:"Mukta",sans-serif;font-size:clamp(22px,4vw,32px);color:var(--gold);line-height:1.2}
 .stats span{font-size:13px;color:#cfdae2}
 
+/* Certified line (नया) */
+.certified{background:#0b2a45;color:#ffe4a0;text-align:center;padding:10px 12px;font-weight:600;font-size:15px;border-top:1px solid rgba(231,189,89,.35)}
+
+/* Photo slider (नया) */
+.slider{position:relative;width:min(1000px,92%);height:min(75vh,600px);margin:40px auto 0;overflow:hidden;border-radius:14px;box-shadow:0 6px 20px rgba(22,43,57,.15);background:#071d33}
+.slide{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity 1s ease}
+.slide.active{opacity:1}
+
 /* Sections */
 .section{padding:64px 0}
 .heading{text-align:center;margin-bottom:28px}
@@ -103,6 +111,7 @@ footer p{font-size:14px;color:#bdc9d1}
  .hero-inner{padding:28px 0 36px}
  .hero p{font-size:16px}
  .section{padding:48px 0}
+ .slider{aspect-ratio:4/3;margin-top:28px}
  .cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
  .card{padding:14px}
  .card h3{font-size:16px}
@@ -131,10 +140,16 @@ footer p{font-size:14px;color:#bdc9d1}
 <a class="btn alt" href="#member">जनशक्ति परिवार लॉगिन ↗</a>
 </div></section>
 <div class="stats"><div class="wrap">
-<div><b>2024</b><span>स्थापना वर्ष</span></div>
+<div><b>2014</b><span>स्थापना वर्ष</span></div>
 <div><b id="siteCount">0</b><span>प्रॉपर्टी साइटें</span></div>
 <div><b id="distCount">0</b><span>जिले</span></div>
 </div></div>
+
+<!-- नया: केंद्र सरकार प्रमाणित लाइन -->
+<div class="certified">✅ केंद्र सरकार द्वारा प्रमाणित कंपनी | स्थापना: 2014</div>
+
+<!-- नया: फोटो स्लाइडर -->
+<div class="slider" id="slider" aria-label="फोटो एल्बम"></div>
 
 <section class="section" id="sites"><div class="wrap">
 <div class="heading"><h2>हमारी प्रॉपर्टी साइटें</h2><p>अपनी पसंद की लोकेशन खोजें और उपलब्ध विवरण खोलें।</p></div>
@@ -265,6 +280,33 @@ if(!WHATSAPP.includes('X')){
     "नमस्ते, मुझे जनशक्ति की साइटों की जानकारी चाहिए।"
   );
   wa.style.display='flex';
+}
+
+// नया: फोटो एल्बम (अपनी फोटो के नाम यहाँ लिखो, 9-10 फोटो)
+const PHOTOS=[
+  "1.jpeg",
+  "2.jpeg",
+  "3.jpeg",
+  "4.jpeg",
+  "5.jpeg",
+  "6.jpeg",
+  "7.jpeg",
+  "8.jpeg",
+  "9.jpeg",
+  "10.jpeg"
+];
+const slider=document.getElementById('slider');
+slider.innerHTML=PHOTOS.map((p,i)=>
+  `<img class="slide${i===0?' active':''}" src="${p}" alt="जनशक्ति फोटो ${i+1}"${i>0?' loading="lazy"':''}>`
+).join('');
+const slides=slider.querySelectorAll('.slide');
+let cur=0;
+if(slides.length>1){
+  setInterval(()=>{
+    slides[cur].classList.remove('active');
+    cur=(cur+1)%slides.length;
+    slides[cur].classList.add('active');
+  },5000); // 6 second ke liye 6000
 }
 </script>
 </body>
