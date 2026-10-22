@@ -5,6 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>जनशक्ति | एडवोकेट आकाश शुक्ला</title>
 <meta name="description" content="जनशक्ति: उन्नाव, कानपुर, बनारस और आसपास की प्रॉपर्टी साइटों की जानकारी।">
+<meta property="og:type" content="website">
+<meta property="og:title" content="जनशक्ति | एडवोकेट आकाश शुक्ला">
+<meta property="og:description" content="उन्नाव, कानपुर, बनारस और आसपास की प्रॉपर्टी साइटों की जानकारी। केंद्र सरकार द्वारा प्रमाणित कंपनी, स्थापना 2014।">
+<!-- WhatsApp प्रीव्यू फोटो के लिए अपनी साइट का पूरा लिंक डालकर यह लाइन चालू करें:
+<meta property="og:image" content="https://आपकी-साइट.github.io/bannernew.jpeg"> -->
+<meta name="theme-color" content="#071d33">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600&family=Mukta:wght@600;700;800&display=swap" rel="stylesheet">
@@ -18,7 +24,6 @@ a{text-decoration:none;color:inherit}
 :focus-visible{outline:3px solid var(--gold);outline-offset:2px}
 .wrap{width:min(1160px,92%);margin:auto}
 
-/* Header */
 header{position:sticky;top:0;z-index:20;background:rgba(7,29,51,.96);backdrop-filter:blur(8px);color:#fff;border-bottom:2px solid var(--gold)}
 nav{min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:8px 0}
 .brand{font-size:23px;font-weight:800;line-height:1.2}
@@ -27,7 +32,6 @@ nav{min-height:68px;display:flex;align-items:center;justify-content:space-betwee
 .menu a{padding:8px 13px;border-radius:8px;font-size:14px;font-weight:500;white-space:nowrap}
 .menu a:hover{background:var(--gold);color:var(--navy)}
 
-/* Hero: poster poori dikhegi, text uske neeche */
 .hero{color:#fff;background:linear-gradient(180deg,#071d33,#0b2a45)}
 .poster{display:block;width:100%;height:auto}
 .hero-inner{padding:36px 0 48px}
@@ -38,21 +42,19 @@ h1{font-size:clamp(30px,5vw,54px);line-height:1.3;margin:18px 0 14px;font-weight
 .btn:hover{transform:translateY(-2px)}
 .btn.alt{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.55)}
 
-/* Stats */
 .stats{background:var(--navy);color:#fff;border-top:1px solid rgba(231,189,89,.35)}
 .stats .wrap{display:grid;grid-template-columns:repeat(3,1fr);text-align:center;padding:20px 0}
 .stats b{display:block;font-family:"Mukta",sans-serif;font-size:clamp(22px,4vw,32px);color:var(--gold);line-height:1.2}
 .stats span{font-size:13px;color:#cfdae2}
-
-/* Certified line (नया) */
 .certified{background:#0b2a45;color:#ffe4a0;text-align:center;padding:10px 12px;font-weight:600;font-size:15px;border-top:1px solid rgba(231,189,89,.35)}
 
-/* Photo slider (नया) */
-.slider{position:relative;width:min(1000px,92%);height:min(75vh,600px);margin:40px auto 0;overflow:hidden;border-radius:14px;box-shadow:0 6px 20px rgba(22,43,57,.15);background:#071d33}
-.slide{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity 1s ease}
+.slider{position:relative;width:min(1000px,92%);aspect-ratio:16/8;margin:40px auto 0;overflow:hidden;border-radius:14px;box-shadow:0 6px 20px rgba(22,43,57,.15);background:#ddd}
+.slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1s ease}
 .slide.active{opacity:1}
+.dots{position:absolute;left:0;right:0;bottom:10px;display:flex;justify-content:center;gap:7px;z-index:2}
+.dots button{width:9px;height:9px;border-radius:50%;border:0;background:rgba(255,255,255,.55);cursor:pointer;padding:0}
+.dots button.on{background:var(--gold);width:22px;border-radius:6px}
 
-/* Sections */
 .section{padding:64px 0}
 .heading{text-align:center;margin-bottom:28px}
 .heading h2{font-size:clamp(26px,3.5vw,36px);color:var(--navy);line-height:1.3}
@@ -63,44 +65,41 @@ h1{font-size:clamp(30px,5vw,54px);line-height:1.3;margin:18px 0 14px;font-weight
 .chip{border:1px solid var(--line);background:#fff;color:var(--navy);padding:6px 16px;border-radius:30px;font:inherit;font-size:14px;cursor:pointer}
 .chip[aria-pressed="true"]{background:var(--navy);color:#fff;border-color:var(--navy)}
 
-/* Cards */
 .cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
 .card{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:0 6px 20px rgba(22,43,57,.06);transition:transform .2s,border-color .2s}
-
-/* बदलाव 1: खुलने वाली साइटों का हल्का हरा रंग */
-a.card{background:#e5f5e8;border-color:#b8dfc0}
-a.card:hover{transform:translateY(-4px);border-color:#8dc69a;background:#d4eed9}
-
-/* बदलाव 2: लॉक साइटों का हल्का पीला रंग */
-.locked-card{background:#fff0d6;border:1px solid #e4c98d;cursor:not-allowed;box-shadow:none;user-select:text}
-.locked-card:hover{transform:none;border-color:#e4c98d;background:#fff0d6}
-
+.card.open{background:#e5f5e8;border-color:#b8dfc0}
+.card.open:hover{transform:translateY(-4px);border-color:#8dc69a;background:#d4eed9}
+.locked-card{background:#fff0d6;border:1px solid #e4c98d;box-shadow:none}
 .badge{align-self:flex-start;background:#f8edce;color:#7d5a14;border-radius:30px;padding:2px 11px;font-weight:600;font-size:12px;margin-bottom:10px}
 .card h3{font-size:18px;line-height:1.4;color:var(--navy);margin-bottom:4px}
 .card p{font-size:13.5px;color:var(--muted);flex:1}
-.card strong{display:block;color:var(--gold-d);font-size:14px;margin-top:14px}
-a.card strong{color:#176c35}
-.locked-card strong{color:#8b6515}
+.soon{display:block;color:#8b6515;font-size:14px;margin-top:14px;font-weight:600}
+.acts{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.mini{flex:1;text-align:center;padding:8px 10px;border-radius:8px;font-size:13px;font-weight:600;white-space:nowrap}
+.mini.view{background:#176c35;color:#fff}
+.mini.ask{background:#fff;border:1px solid #25d366;color:#128c4a}
 .empty{text-align:center;color:var(--muted);padding:30px 0;display:none}
 
-/* Member */
 .member{background:linear-gradient(120deg,#082039,var(--navy2));color:#fff;border-radius:20px;padding:34px;display:flex;align-items:center;justify-content:space-between;gap:20px}
 .member h2{font-size:clamp(22px,3vw,30px);margin:6px 0;line-height:1.4}
 .member p{color:#dce6ec}
 
-/* About */
 .about{background:#fff}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:center}
 .about h2{color:var(--navy);margin-bottom:10px;font-size:28px}
 .about p{color:var(--muted)}
 .about-box{background:#fbf2dc;padding:26px;border-radius:16px}
 
-footer{background:#061829;color:#fff;padding:34px 0}
+footer{background:#061829;color:#fff;padding:34px 0 90px}
 footer h2{font-size:22px}
 footer p{font-size:14px;color:#bdc9d1}
 
-/* WhatsApp */
-.wa{position:fixed;right:16px;bottom:16px;z-index:30;display:none;align-items:center;gap:8px;background:#25d366;color:#fff;padding:12px 18px;border-radius:40px;font-weight:600;box-shadow:0 6px 18px rgba(0,0,0,.25)}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+
+.fab{position:fixed;bottom:16px;z-index:30;display:flex;align-items:center;gap:8px;color:#fff;padding:12px 18px;border-radius:40px;font-weight:600;box-shadow:0 6px 18px rgba(0,0,0,.25)}
+.wa{right:16px;background:#25d366;display:none}
+.call{left:16px;background:var(--navy2);border:1px solid var(--gold)}
 
 @media(max-width:900px){.cards{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:650px){
@@ -119,7 +118,7 @@ footer p{font-size:14px;color:#bdc9d1}
  .member{padding:24px}
 }
 @media(max-width:390px){.cards{grid-template-columns:1fr}}
-@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
 </style>
 </head>
 <body>
@@ -132,27 +131,25 @@ footer p{font-size:14px;color:#bdc9d1}
 </nav>
 </header>
 <main>
-<section class="hero" id="home"><img class="poster" src="bannernew.jpeg" alt="JSI Group जनशक्ति"><div class="hero-inner wrap">
+<section class="hero" id="home"><img class="poster" src="WhatsApp Image 2026-10-22 at 11.26.25 PM.jpeg" alt="JSI Group जनशक्ति"><div class="hero-inner wrap">
 <span class="tag">विश्वास • जनहित • प्रॉपर्टी जानकारी</span>
 <h1>जनशक्ति का भरोसा,<br>एडवोकेट आकाश शुक्ला का साथ</h1>
 <p>हर गरीब नागरिक को उसके सपनों का आवास और बेहतर अवसर पाने में सहयोग करने का एक प्रयास। हमारी साइटों की जानकारी देखें और अपनी जरूरत के अनुसार लोकेशन चुनें। जमीन खरीदने से पहले दस्तावेज़ और स्वामित्व की जाँच अवश्य करें।</p>
 <a class="btn" href="#sites">हमारी साइटें देखें ↓</a>
 <a class="btn alt" href="#member">जनशक्ति परिवार लॉगिन ↗</a>
 </div></section>
-<div class="stats"><div class="wrap">
-<div><b>2014</b><span>स्थापना वर्ष</span></div>
-<div><b id="siteCount">0</b><span>प्रॉपर्टी साइटें</span></div>
-<div><b id="distCount">0</b><span>जिले</span></div>
+<div class="stats" id="stats"><div class="wrap">
+<div><b data-to="2014">2014</b><span>स्थापना वर्ष</span></div>
+<div><b id="siteCount" data-to="0">0</b><span>प्रॉपर्टी साइटें</span></div>
+<div><b id="distCount" data-to="0">0</b><span>जिले</span></div>
 </div></div>
 
-<!-- नया: केंद्र सरकार प्रमाणित लाइन -->
 <div class="certified">✅ केंद्र सरकार द्वारा प्रमाणित कंपनी | स्थापना: 2014</div>
 
-<!-- नया: फोटो स्लाइडर -->
 <div class="slider" id="slider" aria-label="फोटो एल्बम"></div>
 
 <section class="section" id="sites"><div class="wrap">
-<div class="heading"><h2>हमारी प्रॉपर्टी साइटें</h2><p>अपनी पसंद की लोकेशन खोजें और उपलब्ध विवरण खोलें।</p></div>
+<div class="heading reveal"><h2>हमारी प्रॉपर्टी साइटें</h2><p>अपनी पसंद की लोकेशन खोजें और उपलब्ध विवरण खोलें।</p></div>
 <input class="search" id="siteSearch" type="search" placeholder="साइट या जिले का नाम खोजें..." aria-label="साइट खोजें">
 <div class="filters" id="filters"></div>
 <div class="cards" id="cards"></div>
@@ -160,21 +157,23 @@ footer p{font-size:14px;color:#bdc9d1}
 </div></section>
 
 <section class="section" id="member" style="padding-top:0"><div class="wrap">
-<div class="member"><div><p style="color:#f6d986;font-weight:bold">$$ JANSHAKTI GROUP $$</p><h2>क्योंकि आप हमारे जनशक्ति परिवार के सदस्य हैं</h2><p>अपनी टीम के बारे में जानकारी करने के लिए लॉगिन करें।</p></div>
+<div class="member reveal"><div><p style="color:#f6d986;font-weight:bold">$$ JANSHAKTI GROUP $$</p><h2>क्योंकि आप हमारे जनशक्ति परिवार के सदस्य हैं</h2><p>अपनी टीम के बारे में जानकारी करने के लिए लॉगिन करें।</p></div>
 <a class="btn" href="https://share.google/D7PV48osv6u2yl6Ui" target="_blank" rel="noopener">सदस्य लॉगिन करें ↗</a></div>
 </div></section>
 
-<section class="section about" id="about"><div class="wrap about-grid">
+<section class="section about" id="about"><div class="wrap about-grid reveal">
 <div><h2>जनशक्ति के बारे में</h2><p>जनशक्ति एक सामाजिक और जनहित-केंद्रित पहल है। हमारा उद्देश्य लोगों तक जमीन और लोकेशन से जुड़ी जानकारी पहुँचाना, बचत के विकल्पों के बारे में जागरूक करना और सहयोग के अवसरों की दिशा में प्रयास करना है।</p><p style="margin-top:12px">किसी भी संपत्ति में निवेश से पहले दस्तावेज़, मालिकाना हक और लागू नियमों की स्वतंत्र जाँच अवश्य करें।</p></div>
 <div class="about-box"><h2>हमारी पहचान</h2><p>जनहित • रोजगार • सामाजिक सेवा • अधिकार • बचत</p><p style="margin-top:12px">समाज के लिए जागरूकता और सहयोग की दिशा में एक प्रयास।</p></div>
 </div></section>
 </main>
 <footer><div class="wrap"><h2>जनशक्ति</h2><p>जनशक्ति का भरोसा और एडवोकेट आकाश शुक्ला का साथ</p></div></footer>
 
-<a class="wa" id="wa" href="#" target="_blank" rel="noopener" aria-label="WhatsApp पर बात करें">💬 WhatsApp</a>
+<a class="fab call" id="call" href="#" aria-label="कॉल करें">📞 कॉल करें</a>
+<a class="fab wa" id="wa" href="#" target="_blank" rel="noopener" aria-label="WhatsApp पर बात करें">💬 WhatsApp</a>
 
 <script>
 const WHATSAPP="919598409423";
+const OPEN="✅ उपलब्ध", SOON="🔒 जल्द आ रही";
 
 // [नाम, जगह का विवरण, जिला, पेज की फ़ाइल]
 const SITES=[
@@ -189,23 +188,22 @@ const SITES=[
 ["ग्राम चपरीशाहपुर","अचलगंज, उन्नाव","उन्नाव","Achalganj.html"],
 ["बिठूर पार्ट-2","साईं मंदिर के पास, कानपुर नगर","कानपुर","Buthur.html"],
 ["बिठूर पार्ट-1","साईं मंदिर के पास, कानपुर नगर","कानपुर","Buthur.html"],
-["शिवली साइड","ग्राम बैरी दरियाओ, कल्याणपुर–शिवली मुख्य मार्ग","कानपुर","khumankheda.htl"],
 ["खुमान खेड़ा","चकलवंशी से 4 किमी पहले, राष्ट्रीय राजमार्ग","उन्नाव","khumankheda.html"],
 ["हुलासी कुआ","सफीपुर से लगभग 5.5 किमी पहले","उन्नाव","HulasiKUA.html"],
 ["खागा","टोल प्लाजा से 2 किमी आगे, राष्ट्रीय राजमार्ग","फतेहपुर","khaga.html"],
 ["चित्रकूट","बुंदेलखंड एक्सप्रेसवे से लगभग 2 किमी दूर","चित्रकूट","chitrakoot.html"],
+["अकबरपुर","रनिया टोल से लगभग 1 किमी पहले","कानपुर","Akbarpur.html"],
+["शिवली साइड","ग्राम बैरी दरियाओ, कल्याणपुर–शिवली मुख्य मार्ग","कानपुर","khumankheda.htl"],
 ["बनारस","एयरपोर्ट रोड पर","बनारस","khumankheda.ml"],
 ["तिवारीपुर","राष्ट्रीय राजमार्ग से लगभग 1 किमी अंदर","बनारस","khumankheda.ml"],
 ["सरसौल","विवरण प्राप्त होना बाकी","कानपुर","khumankheda.ml"],
 ["सिखटिया","विवरण प्राप्त होना बाकी","उन्नाव","khumankheda.ml"],
-["अकबरपुर","रनिया टोल से लगभग 1 किमी पहले","कानपुर","Akbarpur.html"],
 ["फतेहपुर","विवरण प्राप्त होना बाकी","फतेहपुर","khumankheda.ml"],
 ["माखी प्री-लॉन्चिंग","ग्राम परमनी, मुख्य मार्ग से लगभग 2 किमी अंदर","उन्नाव","khumankheda.ml"],
 ["साइड एक्सप्रेसवे","पुरवा रोड पर","उन्नाव","khumankheda.ml"],
 ["सिमरी अकमपुर","अचलगंज हाईवे पर","उन्नाव","khumankheda.htl"],
 ["दर्वैस्पुर","प्रयागराज से लगभग 30 किमी पहले","प्रयागराज","khumankheda.htl"],
 ["हरदोई","बघौली टोल से लगभग 2 किमी पहले","हरदोई","khumankheda.htl"],
-["शिवली साइड","ग्राम बैरी दरियाओ, कल्याणपुर–शिवली मुख्य मार्ग","कानपुर","khumankheda.htl"],
 ["रूरा","कानपुर देहात","कानपुर देहात","khumankheda.htl"],
 ["बिल्हौर","नियर शिवराजपुर कानपुर नगर","कानपुर","khumankheda.htl"],
 ["बांगरमऊ","मुख्य हाईवे पर ","उन्नाव","khumankheda.htl"]
@@ -218,95 +216,122 @@ const empty=document.getElementById('empty');
 let district="सभी";
 
 function isLocked(href,loc){
-  return !href ||
-    loc.includes("विवरण प्राप्त होना बाकी") ||
-    href.endsWith(".ml") ||
-    href.endsWith(".htl");
+  return !href || loc.includes("विवरण प्राप्त होना बाकी") || href.endsWith(".ml") || href.endsWith(".htl");
 }
+const waLink=t=>"https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent(t);
 
-cardsEl.innerHTML=SITES.map(([name,loc,dist,href])=>{
+// उपलब्ध साइटें ऊपर, जल्द आने वाली नीचे
+const ORDERED=[...SITES].sort((a,b)=>isLocked(a[3],a[1])-isLocked(b[3],b[1]));
+
+cardsEl.innerHTML=ORDERED.map(([name,loc,dist,href])=>{
+  const ask=`<a class="mini ask" href="${waLink('नमस्ते, मुझे "'+name+'" साइट की जानकारी चाहिए।')}" target="_blank" rel="noopener">💬 WhatsApp पर पूछें</a>`;
   if(isLocked(href,loc)){
-    return `<div class="card locked-card" data-d="${dist}">
-      <span class="badge">${dist}</span>
-      <h3>${name}</h3>
-      <p>${loc}</p>
-      <strong>🔒 जल्द ही डिटेल उपलब्ध कराई जाएगी</strong>
-    </div>`;
+    return `<div class="card locked-card" data-d="${dist}" data-s="${SOON}">
+      <span class="badge">${dist}</span><h3>${name}</h3><p>${loc}</p>
+      <span class="soon">🔒 जल्द आ रही है </span>
+      <div class="acts">${ask}</div></div>`;
   }
-  return `<a class="card" data-d="${dist}" href="${href}" target="_blank" rel="noopener">
-    <span class="badge">${dist}</span>
-    <h3>${name}</h3>
-    <p>${loc}</p>
-    <strong>साइट विवरण देखें ↗</strong>
-  </a>`;
+  return `<div class="card open" data-d="${dist}" data-s="${OPEN}">
+    <span class="badge">${dist}</span><h3>${name}</h3><p>${loc}</p>
+    <div class="acts"><a class="mini view" href="${href}" target="_blank" rel="noopener">साइट विवरण ↗</a>${ask}</div></div>`;
 }).join('');
 
 const dists=[...new Set(SITES.map(s=>s[2]))];
-document.getElementById('siteCount').textContent=SITES.length;
-document.getElementById('distCount').textContent=dists.length;
+document.getElementById('siteCount').dataset.to=SITES.length;
+document.getElementById('distCount').dataset.to=dists.length;
 
-filtersEl.innerHTML=["सभी",...dists].map(d=>
+filtersEl.innerHTML=["सभी",OPEN,SOON,...dists].map(d=>
   `<button class="chip" type="button" aria-pressed="${d===district}">${d}</button>`
 ).join('');
 
 const cards=[...cardsEl.children];
-
 function apply(){
   const q=search.value.trim().toLocaleLowerCase('hi');
   let shown=0;
   cards.forEach(c=>{
-    const ok=(district==="सभी"||c.dataset.d===district)&&
+    const ok=(district==="सभी"||c.dataset.d===district||c.dataset.s===district)&&
       c.innerText.toLocaleLowerCase('hi').includes(q);
     c.style.display=ok?'flex':'none';
     if(ok)shown++;
   });
   empty.style.display=shown?'none':'block';
 }
-
 search.addEventListener('input',apply);
 filtersEl.addEventListener('click',e=>{
   const b=e.target.closest('.chip');
   if(!b)return;
   district=b.textContent;
-  [...filtersEl.children].forEach(x=>
-    x.setAttribute('aria-pressed',x===b)
-  );
+  [...filtersEl.children].forEach(x=>x.setAttribute('aria-pressed',x===b));
   apply();
 });
 
+// WhatsApp और कॉल बटन
 const wa=document.getElementById('wa');
 if(!WHATSAPP.includes('X')){
-  wa.href="https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent(
-    "नमस्ते, मुझे जनशक्ति की साइटों की जानकारी चाहिए।"
-  );
+  wa.href=waLink("नमस्ते, मुझे जनशक्ति की साइटों की जानकारी चाहिए।");
   wa.style.display='flex';
 }
+document.getElementById('call').href="tel:+"+WHATSAPP;
 
-// नया: फोटो एल्बम (अपनी फोटो के नाम यहाँ लिखो, 9-10 फोटो)
+// आँकड़ों की गिनती और सेक्शन का हल्का एनिमेशन
+const still=matchMedia('(prefers-reduced-motion:reduce)').matches||!('IntersectionObserver' in window);
+function countUp(el){
+  const to=+el.dataset.to;
+  if(still){el.textContent=to;return;}
+  const t0=performance.now(),d=1200;
+  (function step(t){
+    const p=Math.min((t-t0)/d,1);
+    el.textContent=Math.round(to*(0.5-Math.cos(Math.PI*p)/2)) ;
+    if(p<1)requestAnimationFrame(step);else el.textContent=to;
+  })(t0);
+}
+const statEls=document.querySelectorAll('#stats b');
+statEls.forEach(el=>{ if(el.dataset.to!=="2014") el.textContent="0"; });
+if(still){
+  statEls.forEach(countUp);
+  document.querySelectorAll('.reveal').forEach(e=>e.classList.add('in'));
+}else{
+  new IntersectionObserver((en,ob)=>en.forEach(e=>{
+    if(e.isIntersecting){statEls.forEach(el=>{ if(el.dataset.to!=="2014") countUp(el); });ob.disconnect();}
+  }),{threshold:.4}).observe(document.getElementById('stats'));
+  const io=new IntersectionObserver((en)=>en.forEach(e=>{
+    if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}
+  }),{threshold:.15});
+  document.querySelectorAll('.reveal').forEach(e=>io.observe(e));
+}
+
+// फोटो एल्बम (अपनी फोटो के नाम यहाँ लिखो, 9-10 फोटो)
 const PHOTOS=[
-  "1.jpeg",
-  "2.jpeg",
-  "3.jpeg",
-  "4.jpeg",
-  "5.jpeg",
-  "6.jpeg",
-  "7.jpeg",
-  "8.jpeg",
-  "9.jpeg",
-  "10.jpeg"
+  "1.jpeg","2.jpeg","3.jpeg","4.jpeg","/5.jpeg",
+  "6.jpeg","7.jpeg","8.jpeg","9.jpeg","10.jpeg"
 ];
 const slider=document.getElementById('slider');
 slider.innerHTML=PHOTOS.map((p,i)=>
   `<img class="slide${i===0?' active':''}" src="${p}" alt="जनशक्ति फोटो ${i+1}"${i>0?' loading="lazy"':''}>`
-).join('');
+).join('')+'<div class="dots"></div>';
 const slides=slider.querySelectorAll('.slide');
-let cur=0;
+const dotsEl=slider.querySelector('.dots');
+let cur=0,timer;
+function show(i){
+  slides[cur].classList.remove('active');dotsEl.children[cur].classList.remove('on');
+  cur=(i+slides.length)%slides.length;
+  slides[cur].classList.add('active');dotsEl.children[cur].classList.add('on');
+}
+function auto(){clearInterval(timer);timer=setInterval(()=>show(cur+1),5000);} // 6 second के लिए 6000
 if(slides.length>1){
-  setInterval(()=>{
-    slides[cur].classList.remove('active');
-    cur=(cur+1)%slides.length;
-    slides[cur].classList.add('active');
-  },5000); // 6 second ke liye 6000
+  dotsEl.innerHTML=PHOTOS.map((_,i)=>`<button type="button" aria-label="फोटो ${i+1}"></button>`).join('');
+  dotsEl.children[0].classList.add('on');
+  dotsEl.addEventListener('click',e=>{const i=[...dotsEl.children].indexOf(e.target.closest('button'));if(i>-1){show(i);auto();}});
+  // स्वाइप
+  let x0=null;
+  slider.addEventListener('touchstart',e=>{x0=e.touches[0].clientX},{passive:true});
+  slider.addEventListener('touchend',e=>{
+    if(x0===null)return;
+    const dx=e.changedTouches[0].clientX-x0;
+    if(Math.abs(dx)>40){show(cur+(dx<0?1:-1));auto();}
+    x0=null;
+  });
+  auto();
 }
 </script>
 </body>
