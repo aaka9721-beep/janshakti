@@ -80,6 +80,14 @@ h1{font-size:clamp(30px,5vw,54px);line-height:1.3;margin:18px 0 14px;font-weight
 .mini.ask{background:#fff;border:1px solid #25d366;color:#128c4a}
 .empty{text-align:center;color:var(--muted);padding:30px 0;display:none}
 
+/* रेट बोर्ड */
+.jrb{margin-top:12px;border:1px dashed #c9a24a;background:#fffaf0;border-radius:10px;padding:8px 10px;font-size:13.5px;color:#182d3d}
+.jrb-t{font-weight:700;color:#7d5a14;font-size:13px;margin-bottom:4px}
+.jrb-r{display:flex;justify-content:space-between;gap:8px;padding:3px 0;border-top:1px solid #f0e6cc}
+.jrb-t+.jrb-r{border-top:0}
+.jrb-r b{color:#176c35;white-space:nowrap}
+.jrb-r em{color:#8a8a8a;font-style:normal;font-size:12.5px}
+
 .member{background:linear-gradient(120deg,#082039,var(--navy2));color:#fff;border-radius:20px;padding:34px;display:flex;align-items:center;justify-content:space-between;gap:20px}
 .member h2{font-size:clamp(22px,3vw,30px);margin:6px 0;line-height:1.4}
 .member p{color:#dce6ec}
@@ -208,6 +216,70 @@ const SITES=[
 ["बांगरमऊ","मुख्य हाईवे पर ","उन्नाव","khumankheda.htl"]
 ];
 
+// ===== रेट बोर्ड: हर साइट का रेट यहाँ भरें =====
+// आम तरीका:  "साइट का नाम":["50 गज का रेट","100 गज का रेट"],
+// खाली "" छोड़ने पर "रेट के लिए संपर्क करें" दिखेगा।
+// अलग लाइनें चाहिए तो:  "साइट का नाम":{lines:[["नाम","रेट"],["नाम","रेट"]]},
+// "जल्द आ रही" वाली साइट पर रेट तभी दिखेगा जब आप उसमें रेट भरेंगे।
+const RATES={
+"नवीन मंडी इब्राहिम बाग":["₹ 6,00,000","₹ 12,00,000"],
+"जानकी खेड़ा":["₹ 2,50,000","₹ 5,00,000"],
+"जी स्कूल ग्राम कोटरा":{lines:[["600 स्क्वायर फीट","₹ 5,40,000"]]},
+"दही चौकी ग्राम ओरहर":["₹ 2,75,000","₹ 5,50,000"],
+"इन्देमऊ कोतवाली के सामने":{lines:[
+  ["50 गज (फ्रंट/कॉर्नर)","₹ 7,00,000"],
+  ["50 गज (पीछे)","₹ 4,00,000"],
+  ["100 गज (फ्रंट/कॉर्नर)","₹ 14,00,000"],
+  ["100 गज (पीछे)","₹ 8,00,000"]
+]},
+"रसूलपुर":["₹ 4,10,000","₹ 8,20,000"],
+"सोहरामऊ शहर":["₹ 12,50,000","₹ 25,00,000"],
+"भीमेश्वर मंदिर के सामने":["₹ 4,25,000","₹ 8,50,000"],
+"ग्राम चपरीशाहपुर":["₹ 2,75,000","₹ 5,50,000"],
+"बिठूर पार्ट-2":["₹ 7,00,000","₹ 14,00,000"],
+"बिठूर पार्ट-1":["₹ 4,00,000","₹ 8,00,000"],
+"खुमान खेड़ा":{lines:[
+  ["50 गज (फ्रंट)","₹ 15,00,000"],
+  ["50 गज (पीछे)","₹ 10,00,000"],
+  ["100 गज (फ्रंट)","₹ 30,00,000"],
+  ["100 गज (पीछे)","₹ 20,00,000"]
+]},
+"हुलासी कुआ":["₹ 3,75,000","₹ 7,50,000"],
+"खागा":["₹ 3,25,000","₹ 6,50,000"],
+"चित्रकूट":["₹ 3,50,000","₹ 7,00,000"],
+"अकबरपुर":["₹ 7,00,000","₹ 14,00,000"],
+"शिवली साइड":["7,00,000","14,00,000"],
+"बनारस":["6,00,000","12,00,000"],
+"तिवारीपुर सरसौल":["3,50,000","7,00,000"],
+"सिखटिया":["3,75,000","6,50,000"],
+"फतेहपुर":["4,25,000","8,50,000"],
+"थाना प्री-लॉन्चिंग":["2,00,000","4,00,000"],
+"साइड एक्सप्रेसवे":[,"4,25,000","8,50,000"],
+"सिमरी आकमपुर":["7,50,000","15,00,000"],
+"दर्वैस्पुर":["",""],
+"हरदोई":["5,00,000","10,00,000"],
+"रूरा":["2,50,000","5,00,000"],
+"बिल्हौर":["2,75,000","5,50,000"],
+"बांगरमऊ":["",""]
+};
+function fmtRate(v){
+  if(v===""||v===null||v===undefined)return null;
+  if(typeof v==="number")return "₹ "+v.toLocaleString("en-IN");
+  return String(v);
+}
+function rateBoard(name,locked){
+  const r=RATES[name.trim()]||["",""];
+  const lines=Array.isArray(r)?[["50 गज",r[0]],["100 गज",r[1]]]:r.lines;
+  // "जल्द आ रही" वाली साइट पर रेट तभी दिखेगा जब भरा हो
+  if(locked&&!lines.some(l=>fmtRate(l[1])))return "";
+  const rows=lines.map(([label,v])=>{
+    const t=fmtRate(v);
+    return `<div class="jrb-r"><span>${label}</span>${t?`<b>${t}</b>`:`<em>रेट के लिए संपर्क करें</em>`}</div>`;
+  }).join('');
+  return `<div class="jrb"><div class="jrb-t">📋 रेट बोर्ड</div>${rows}</div>`;
+}
+// ===== रेट बोर्ड खत्म =====
+
 const cardsEl=document.getElementById('cards');
 const filtersEl=document.getElementById('filters');
 const search=document.getElementById('siteSearch');
@@ -228,10 +300,12 @@ cardsEl.innerHTML=ORDERED.map(([name,loc,dist,href])=>{
     return `<div class="card locked-card" data-d="${dist}" data-s="${SOON}">
       <span class="badge">${dist}</span><h3>${name}</h3><p>${loc}</p>
       <span class="soon">🔒 जल्द आ रही है </span>
+      ${rateBoard(name,true)}
       <div class="acts">${ask}</div></div>`;
   }
   return `<div class="card open" data-d="${dist}" data-s="${OPEN}">
     <span class="badge">${dist}</span><h3>${name}</h3><p>${loc}</p>
+    ${rateBoard(name,false)}
     <div class="acts"><a class="mini view" href="${href}" target="_blank" rel="noopener">साइट विवरण ↗</a>${ask}</div></div>`;
 }).join('');
 
