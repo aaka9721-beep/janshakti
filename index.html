@@ -142,7 +142,7 @@ footer p{font-size:14px;color:#bdc9d1}
 </head>
 <body>
 <section class="topvideo" aria-label="जनशक्ति वीडियो">
-<video id="कार मिलने के दौरान का जश्न" src="intro.mp4"autoplay muted loop playsinline></video>
+<video id="introVideo" src="intro.mp4"autoplay muted loop playsinline></video>
 <button id="soundBtn" type="button">🔊 आवाज़ चालू करें</button>
 </section>
 <header>
@@ -478,7 +478,7 @@ if(slides.length>1){
 }
 
 // टॉप वीडियो: लगातार चलेगी, आवाज़ बटन से चालू/बंद
-const vid=document.getElementById('intro.mp4');
+const vid=document.getElementById('introVideo');
 const sBtn=document.getElementById('soundBtn');
 function setSound(on){
   vid.muted=!on;
