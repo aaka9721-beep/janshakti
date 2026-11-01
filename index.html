@@ -132,9 +132,19 @@ footer p{font-size:14px;color:#bdc9d1}
 }
 @media(max-width:390px){.cards{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
+
+/* टॉप वीडियो */
+.topvideo{position:relative;background:#000}
+.topvideo video{display:block;width:100%;max-height:75vh;object-fit:cover}
+#soundBtn{position:absolute;right:12px;bottom:12px;z-index:5;border:1px solid var(--gold);background:rgba(7,29,51,.85);color:#fff;padding:9px 16px;border-radius:30px;font:inherit;font-size:14px;font-weight:600;cursor:pointer}
+#soundBtn:hover{background:var(--gold);color:var(--navy)}
 </style>
 </head>
 <body>
+<section class="topvideo" aria-label="जनशक्ति वीडियो">
+<video id="WhatsApp Video 2026-11-01 at 9.59.09 AM.mp4" src="intro.mp4" autoplay muted loop playsinline preload="auto"></video>
+<button id="soundBtn" type="button">🔊 आवाज़ चालू करें</button>
+</section>
 <header>
 <nav class="wrap" aria-label="मुख्य मेनू">
 <a class="brand" href="#home">जनशक्ति<small>विद एडवोकेट आकाश शुक्ला</small></a>
@@ -195,6 +205,7 @@ const SITES=[
 ["जी स्कूल ग्राम कोटरा","उन्नाव","उन्नाव","ZeeSchool.html"],
 ["दही चौकी ग्राम ओरहर","उन्नाव","उन्नाव","orhar.html"],
 ["इन्देमऊ कोतवाली के सामने","बीघापुर, उन्नाव","उन्नाव","Indemau.html"],
+["चंडीगढ़ विश्वविद्यालय के बगल में","नवाबगंज, उन्नाव","उन्नाव","Inu.ml"],
 ["रसूलपुर","नवाबगंज टोल से लगभग 4 किमी आगे · उन्नाव","उन्नाव","Rasoolpur.html"],
 ["सोहरामऊ शहर","हाईवे पर · उन्नाव","उन्नाव","Sohramau.html"],
 ["भीमेश्वर मंदिर के सामने","चकलवंशी, उन्नाव","उन्नाव","Bhemeshwer.html"],
@@ -213,7 +224,7 @@ const SITES=[
 ["सिखटिया","विवरण प्राप्त होना बाकी","उन्नाव","khumankheda.ml"],
 ["फतेहपुर","विवरण प्राप्त होना बाकी","फतेहपुर","khumankheda.ml"],
 ["थाना प्री-लॉन्चिंग","ग्राम परमनी, मुख्य मार्ग से लगभग 2 किमी अंदर","उन्नाव","khumankheda.ml"],
-["साइड एक्सप्रेसवे","पुरवा रोड पर ग्राम पड़री खुर्द","उन्नाव","xpressway.html"],
+["साइड एक्सप्रेसवे","पुरवा रोड पर ग्राम पड़री खुर्द","उन्नाव","xpressway.html"],
 ["सिमरी आकमपुर","अचलगंज हाईवे पर नियर रायबरेली ","उन्नाव","khumankheda.htl"],
 ["दर्वैस्पुर","प्रयागराज से लगभग 30 किमी पहले","प्रयागराज","khumankheda.htl"],
 ["हरदोई","बघौली टोल से लगभग 2 किमी पहले","हरदोई","hardoi.html"],
@@ -240,6 +251,12 @@ const RATES={
 ]},
 "रसूलपुर":["₹ 4,10,000","₹ 8,20,000"],
 "सोहरामऊ शहर":["₹ 12,50,000","₹ 25,00,000"],
+"चंडीगढ़ विश्वविद्यालय के बगल में":{lines:[
+  ["50 गज (फ्रंट/कॉर्नर)","₹ 12,50,000"],
+  ["50 गज (पीछे)","₹ 10,00,000"],
+  ["100 गज (फ्रंट/कॉर्नर)","₹ 25,00,000"],
+  ["100 गज (पीछे)","₹ 20,00,000"]
+]},
 "भीमेश्वर मंदिर के सामने":["₹ 4,25,000","₹ 8,50,000"],
 "भीमेश्वर मंदिर के बगल में प्री लॉचिंग":["₹ 3,50,000","₹ 7,00,000"],
 "ग्राम चपरीशाहपुर":["₹ 3,50,000","₹ 7,00,000"],
@@ -298,6 +315,7 @@ const PAY={
 "दही चौकी ग्राम ओरहर":[5],
 "इन्देमऊ कोतवाली के सामने":[5],
 "रसूलपुर":[5],
+"चंडीगढ़ विश्वविद्यालय के बगल में":[4],
 "सोहरामऊ शहर":["कैश"],
 "भीमेश्वर मंदिर के सामने":[5],
 "भीमेश्वर मंदिर के बगल में प्री लॉचिंग":[5],
@@ -428,7 +446,7 @@ if(still){
 // फोटो एल्बम (अपनी फोटो के नाम यहाँ लिखो, 9-10 फोटो)
 const PHOTOS=[
   "1.jpeg","2.jpeg","3.jpeg","4.jpeg","5.jpeg",
-  "6.jpeg","7.jpeg","8.jpeg","9.jpeg","10.jpeg"
+  "6.jpeg","7.jpeg","8.jpeg","WhatsApp Image 2026-10-28 at 11.33.04 PM.jpeg","10.jpeg"
 ];
 const slider=document.getElementById('slider');
 slider.innerHTML=PHOTOS.map((p,i)=>
@@ -458,6 +476,20 @@ if(slides.length>1){
   });
   auto();
 }
+
+// टॉप वीडियो: लगातार चलेगी, आवाज़ बटन से चालू/बंद
+const vid=document.getElementById('WhatsApp Video 2026-11-01 at 9.59.09 AM.mp4');
+const sBtn=document.getElementById('soundBtn');
+function setSound(on){
+  vid.muted=!on;
+  sBtn.textContent=on?'🔇 आवाज़ बंद करें':'🔊 आवाज़ चालू करें';
+  if(vid.paused)vid.play().catch(()=>{});
+}
+sBtn.addEventListener('click',e=>{e.stopPropagation();setSound(vid.muted);});
+// पहली बार कहीं भी टैप/क्लिक करने पर आवाज़ अपने आप चालू
+['click','touchstart','keydown'].forEach(ev=>
+  document.addEventListener(ev,()=>{ if(vid.muted)setSound(true); },{once:true,passive:true})
+);
 </script>
 </body>
 </html>
