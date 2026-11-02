@@ -507,6 +507,10 @@ footer p{font-size:14px;color:#8ba5ba}
   .emi-grid{grid-template-columns:1fr;gap:22px}
   .modern-emi-box{padding:24px}
 }
+/* दो नए वीडियो */
+.clip{padding:48px 0 0}
+.clip .box{width:min(900px,92%);margin:auto;border:2px solid rgba(238,187,77,.4);border-radius:18px;overflow:hidden;background:#000;box-shadow:0 12px 35px rgba(0,0,0,.5)}
+.clip video{display:block;width:100%;max-height:80vh}
 </style>
 </head>
 <body>
@@ -514,7 +518,7 @@ footer p{font-size:14px;color:#8ba5ba}
 <video id="introVideo" autoplay muted loop playsinline webkit-playsinline>
 <source src="intro.mp4" type="video/mp4">
 </video>
-<button id="soundBtn" type="button">🔊 आवाज़ चालू करें</button>
+<button id="soundBtn" type="button">🔊 आवाज़ चालू करें</button>
 </section>
 <header>
 <nav class="wrap" aria-label="मुख्य मेनू">
@@ -541,6 +545,12 @@ footer p{font-size:14px;color:#8ba5ba}
 <div class="certified">✅ केंद्र सरकार द्वारा प्रमाणित कंपनी | स्थापना: 2014</div>
 
 <div class="slider" id="slider" aria-label="फोटो एल्बम"></div>
+
+<!-- वीडियो 1: साइट विज़िट -->
+<section class="clip" id="sitevisit"><div class="wrap">
+<div class="heading reveal"><h2>साइट विज़िट की झलक</h2><p>हमारी साइटों पर लोगों का कारवां</p></div>
+<div class="box reveal"><video src="sitevisit.mp4" autoplay muted loop playsinline controls preload="metadata"></video></div>
+</div></section>
 
 <section class="section" id="sites"><div class="wrap">
 <div class="heading reveal"><h2>हमारी प्रॉपर्टी साइटें</h2><p>अपनी पसंद की लोकेशन खोजें और उपलब्ध विवरण खोलें।</p></div>
@@ -585,12 +595,17 @@ footer p{font-size:14px;color:#8ba5ba}
 <div><h2>जनशक्ति के बारे में</h2><p>जनशक्ति एक सामाजिक और जनहित-केंद्रित पहल है। हमारा उद्देश्य लोगों तक जमीन और लोकेशन से जुड़ी जानकारी पहुँचाना, बचत के विकल्पों के बारे में जागरूक करना और सहयोग के अवसरों की दिशा में प्रयास करना है।</p><p style="margin-top:12px">किसी भी संपत्ति में निवेश से पहले दस्तावेज़, मालिकाना हक और लागू नियमों की स्वतंत्र जाँच अवश्य करें।</p></div>
 <div class="about-box"><h2>हमारी पहचान</h2><p>जनहित • रोजगार • सामाजिक सेवा • अधिकार • बचत</p><p style="margin-top:12px">समाज के लिए जागरूकता और सहयोग की दिशा में एक प्रयास।</p></div>
 </div></section>
+
+<!-- वीडियो 2: Audi गिफ्ट -->
+<section class="clip" id="audi" style="padding-bottom:60px"><div class="wrap">
+<div class="heading reveal"><h2>जनशक्ति के 3 लीडर्स को Audi गिफ्ट</h2><p>मेहनत और भरोसे का इनाम</p></div>
+<div class="box reveal"><video src="audi.mp4" controls playsinline preload="metadata"></video></div>
+</div></section>
 </main>
 <footer><div class="wrap"><h2>जनशक्ति</h2><p>जनशक्ति का भरोसा और एडवोकेट आकाश शुक्ला का साथ</p></div></footer>
 
 <a class="fab call" id="call" href="#" aria-label="कॉल करें">📞 कॉल करें</a>
 <a class="fab wa" id="wa" href="#" target="_blank" rel="noopener" aria-label="WhatsApp पर बात करें">💬 WhatsApp</a>
-
 <script>
 const WHATSAPP="919598409423";
 const OPEN="✅ उपलब्ध", SOON="🔒 जल्द आ रही";
