@@ -253,19 +253,21 @@ h1{
   transition:all .3s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-/* लॉन्च हो चुकी साइटें – रॉयल रूबी रेड */
+/* लॉन्च हो चुकी साइटें – प्रोफेशनल गहरा एमरल्ड ग्रीन */
 .card.open{
-  background:linear-gradient(160deg, #c8102e 0%, #8b0a1f 55%, #4a0612 100%);
-  border:1.5px solid #ff6b81;
-  box-shadow:0 10px 28px rgba(200,16,46,.35), inset 0 1px 0 rgba(255,255,255,.18);
+  background:linear-gradient(160deg, #137a52 0%, #0c5138 55%, #062e21 100%);
+  border:1.5px solid #5fd3a0;
+  box-shadow:0 10px 28px rgba(19,122,82,.4), inset 0 1px 0 rgba(255,255,255,.14);
 }
 .card.open:hover{
   transform:translateY(-6px);
-  border-color:#ffd77a;
-  box-shadow:0 14px 34px rgba(255,70,90,.5);
+  border-color:#eebb4d;
+  box-shadow:0 14px 34px rgba(95,211,160,.4);
 }
-.card.open .badge{background:rgba(255,255,255,.16);color:#fff;border-color:rgba(255,255,255,.4)}
-.card.open p{color:#ffd9de}
+.card.open .badge{background:rgba(255,255,255,.14);color:#eafff4;border-color:rgba(255,255,255,.4)}
+.card.open p{color:#d4f5e2}
+.card.open .mini.view{background:linear-gradient(135deg,#ffe6a0 0%,#d9a83d 100%);color:#2b1a00;box-shadow:0 3px 10px rgba(217,168,61,.35)}
+.card.open .mini.view:hover{background:linear-gradient(135deg,#fff0bd 0%,#e8b94a 100%);transform:translateY(-1px)}
 
 /* जल्द आने वाली साइटें – बहुत हल्का पीला, गहरी नीली लिखावट */
 .locked-card{
@@ -276,12 +278,12 @@ h1{
 .card.locked-card h3{color:#06235c;font-weight:800}
 .card.locked-card p{color:#0b2f73;font-weight:700}
 .locked-card .badge{background:#0a2a66;color:#ffe673;border-color:#0a2a66}
-.locked-card .soon{color:#8a0000;font-weight:800}
+.locked-card .soon{color:#5a3700;font-weight:800}
 .locked-card .jrb{background:rgba(10,42,102,.08);border-color:rgba(10,42,102,.5);color:#06235c}
 .locked-card .jrb-t{color:#06235c;font-weight:800}
 .locked-card .jrb-r{border-top-color:rgba(10,42,102,.25)}
 .locked-card .jrb-r span{color:#06235c;font-weight:600}
-.locked-card .jrb-r b{color:#8a0000;font-weight:800}
+.locked-card .jrb-r b{color:#0b5d2e;font-weight:800}
 .locked-card .jrb-r em{color:#0b2f73;font-weight:600}
 .locked-card .pay span{background:rgba(10,42,102,.08);border-color:rgba(10,42,102,.55);color:#06235c;font-weight:700}
 .locked-card .pay span.cash{background:#0a2a66;border-color:#0a2a66;color:#ffe673}
