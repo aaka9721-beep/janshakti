@@ -7,7 +7,7 @@
 <meta name="description" content="जनशक्ति: उन्नाव, कानपुर, बनारस और आसपास की प्रॉपर्टी साइटों की जानकारी।">
 <meta property="og:type" content="website">
 <meta property="og:title" content="जनशक्ति | एडवोकेट आकाश शुक्ला">
-<meta property="og:description" content="उन्नाव, कानपुर, बनारस और आसपास की प्रॉपर्टी साइटों की जानकारी। केंद्र सरकार द्वारा प्रमाणित कंपनी, स्थापना 2014।">
+<meta property="og:description" content="उन्नाव, कानपुर, बनारस और आसपास की प्रॉपर्टी साइटों की जानकारी। संस्था स्थापना 2015, कंपनी रजिस्ट्रेशन 2017।">
 <!-- WhatsApp प्रीव्यू फोटो के लिए अपनी साइट का पूरा लिंक डालकर यह लाइन चालू करें:
 <meta property="og:image" content="https://आपकी-साइट.github.io/bannernew.jpeg"> -->
 <meta name="theme-color" content="#051322">
@@ -153,9 +153,16 @@ h1{
   padding:12px 14px;
   font-weight:700;
   font-size:15px;
-  letter-spacing:0.5px;
+  line-height:1.6;
+  letter-spacing:0.3px;
   border-bottom:1px solid rgba(238,187,77,.25);
 }
+.certified a{color:#fff;text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
+.certified a:hover{color:var(--gold)}
+.certified{padding:14px 16px 10px}
+.cert-main{font-size:clamp(16px,2.6vw,21px);font-weight:800;color:#ffe9ad;letter-spacing:.3px;line-height:1.5}
+.cert-main small{display:block;font-size:13.5px;font-weight:600;color:#cfe0ee;margin-top:2px}
+.cert-years{display:flex;justify-content:space-between;gap:10px;margin-top:10px;padding-top:8px;border-top:1px solid rgba(238,187,77,.25);font-size:13.5px;font-weight:700;color:var(--gold)}
 
 /* स्लाइडर */
 .slider{
@@ -399,6 +406,52 @@ h1{
 }
 .about-box h2{color:var(--gold)}
 
+/* कंपनी रजिस्ट्रेशन प्रमाणपत्र */
+.cert-section{padding-top:0}
+.cert-grid{
+  display:grid;
+  grid-template-columns:minmax(0,720px);
+  justify-content:center;
+}
+.cert-show{padding:32px 0 8px;text-align:center}
+.cert-frame{
+  display:block;
+  width:min(560px,92%);
+  margin:0 auto;
+  border:2px solid rgba(238,187,77,.5);
+  border-radius:14px;
+  overflow:hidden;
+  background:#fff;
+  box-shadow:0 12px 35px rgba(0,0,0,.5);
+}
+.cert-frame img{display:block;width:100%;height:auto}
+.cert-img{
+  display:block;
+  border:2px solid rgba(238,187,77,.45);
+  border-radius:14px;
+  overflow:hidden;
+  background:#fff;
+  box-shadow:0 12px 35px rgba(0,0,0,.5);
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+.cert-img:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(238,187,77,.25)}
+.cert-img img{display:block;width:100%;height:auto}
+.cert-note{font-size:13px;color:var(--muted);margin-top:8px;text-align:center}
+.cert-info{
+  background:rgba(12, 40, 68, 0.7);
+  border:1px solid rgba(238,187,77,0.3);
+  padding:28px;
+  border-radius:18px;
+  backdrop-filter:blur(8px);
+  box-shadow:0 10px 30px rgba(0,0,0,0.3);
+}
+.cert-info h3{color:var(--gold);font-size:22px;margin-bottom:14px}
+.cert-row{display:flex;flex-direction:column;padding:10px 0;border-top:1px solid rgba(238,187,77,.18)}
+.cert-info h3+.cert-row{border-top:0}
+.cert-row span{font-size:13px;color:var(--muted)}
+.cert-row b{font-size:16px;color:#fff;font-weight:600;word-break:break-word}
+.cert-small{font-size:13px;color:#8ba5ba;margin-top:12px}
+
 /* फुटर */
 footer{
   background:#030b14;
@@ -445,8 +498,9 @@ footer p{font-size:14px;color:#8ba5ba}
  .cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
  .card{padding:15px}
  .card h3{font-size:16.5px}
- .member,.about-grid{display:grid;grid-template-columns:1fr}
+ .member,.about-grid,.cert-grid{display:grid;grid-template-columns:1fr}
  .member{padding:26px}
+ .certified{font-size:14px}
 }
 @media(max-width:390px){.cards{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
@@ -454,25 +508,6 @@ footer p{font-size:14px;color:#8ba5ba}
 /* टॉप वीडियो */
 .topvideo{position:relative;background:#000;border-bottom:2px solid var(--gold)}
 .topvideo video{display:block;width:100%;max-height:75vh;object-fit:cover}
-#soundBtn{
-  position:absolute;
-  right:14px;
-  bottom:14px;
-  z-index:5;
-  border:1.5px solid var(--gold);
-  background:rgba(5, 19, 34, 0.85);
-  backdrop-filter:blur(8px);
-  color:#fff;
-  padding:10px 18px;
-  border-radius:30px;
-  font:inherit;
-  font-size:14px;
-  font-weight:700;
-  cursor:pointer;
-  box-shadow:0 4px 15px rgba(0,0,0,0.5);
-  transition:all .25s ease;
-}
-#soundBtn:hover{background:var(--gold);color:var(--navy);box-shadow:0 0 16px var(--gold)}
 
 /* ========================================================
    अतिरिक्त आधुनिक EMI कैलकुलेटर (लग्जरी थीम अनुरूप)
@@ -544,17 +579,17 @@ footer p{font-size:14px;color:#8ba5ba}
 </style>
 </head>
 <body>
+<!-- टॉप वीडियो: अब नीचे के वीडियो जैसा ही आवाज़ चालू/बंद वाला कंट्रोल (डाउनलोड हटा हुआ) -->
 <section class="topvideo" aria-label="जनशक्ति वीडियो">
-<video id="introVideo" autoplay muted loop playsinline webkit-playsinline>
+<video id="introVideo" autoplay muted loop playsinline webkit-playsinline controls controlsList="nodownload noremoteplayback" disablePictureInPicture oncontextmenu="return false">
 <source src="intro.mp4" type="video/mp4">
 </video>
-<button id="soundBtn" type="button">🔊 आवाज़ चालू करें</button>
 </section>
 <header>
 <nav class="wrap" aria-label="मुख्य मेनू">
 <a class="brand" href="#home">जनशक्ति<small>विद एडवोकेट आकाश शुक्ला</small></a>
 <div class="menu">
-<a href="#home">होम</a><a href="#sites">हमारी साइट</a><a href="#emi-calculator">EMI कैलकुलेटर</a><a href="#about">हमारे बारे में</a><a href="#member">सदस्य लॉगिन</a>
+<a href="#home">होम</a><a href="#sites">हमारी साइट</a><a href="#emi-calculator">EMI कैलकुलेटर</a><a href="#about">हमारे बारे में</a><a href="#certificate">रजिस्ट्रेशन</a><a href="#member">सदस्य लॉगिन</a>
 </div>
 </nav>
 </header>
@@ -567,19 +602,28 @@ footer p{font-size:14px;color:#8ba5ba}
 <a class="btn alt" href="#member">जनशक्ति परिवार लॉगिन ↗</a>
 </div></section>
 <div class="stats" id="stats"><div class="wrap">
-<div><b data-to="2014">2014</b><span>स्थापना वर्ष</span></div>
+<div><b data-to="2015">2015</b><span>स्थापना वर्ष</span></div>
 <div><b id="siteCount" data-to="0">0</b><span>प्रॉपर्टी साइटें</span></div>
 <div><b id="distCount" data-to="0">0</b><span>जिले</span></div>
 </div></div>
 
-<div class="certified">✅ केंद्र सरकार द्वारा प्रमाणित कंपनी | स्थापना: 2014</div>
+<div class="certified">
+<div class="cert-main">🏛️ भारत सरकार के कॉर्पोरेट कार्य मंत्रालय (MCA) में पंजीकृत कंपनी<small>जनशक्ति ड्रीम्स प्राइवेट लिमिटेड</small></div>
+<div class="cert-years"><span>🗓️ स्थापना वर्ष: 2015</span><span>📄 रजिस्ट्रेशन वर्ष: 2017</span></div>
+</div>
+
+<!-- सर्टिफिकेट: बैनर के ठीक नीचे हमेशा दिखेगा -->
+<section class="cert-show" id="certificate">
+<div class="cert-frame"><img src="certificate.jpg" alt="जनशक्ति ड्रीम्स प्राइवेट लिमिटेड - Certificate of Incorporation"></div>
+<p class="cert-note">Certificate of Incorporation – कॉर्पोरेट कार्य मंत्रालय, भारत सरकार</p>
+</section>
 
 <div class="slider" id="slider" aria-label="फोटो एल्बम"></div>
 
 <!-- वीडियो 1: साइट विज़िट -->
 <section class="clip" id="sitevisit"><div class="wrap">
 <div class="heading reveal"><h2>साइट विज़िट की झलक</h2><p>हमारी साइटों पर लोगों का कारवां</p></div>
-<div class="box reveal"><video src="sitevisit.mp4" autoplay muted loop playsinline controls preload="metadata"></video></div>
+<div class="box reveal"><video src="sitevisit.mp4" autoplay muted loop playsinline controls controlsList="nodownload noremoteplayback" disablePictureInPicture preload="metadata" oncontextmenu="return false"></video></div>
 </div></section>
 
 <section class="section" id="sites"><div class="wrap">
@@ -626,10 +670,26 @@ footer p{font-size:14px;color:#8ba5ba}
 <div class="about-box"><h2>हमारी पहचान</h2><p>जनहित • रोजगार • सामाजिक सेवा • अधिकार • बचत</p><p style="margin-top:12px">समाज के लिए जागरूकता और सहयोग की दिशा में एक प्रयास।</p></div>
 </div></section>
 
+<!-- कंपनी रजिस्ट्रेशन प्रमाणपत्र -->
+<section class="section cert-section" id="reg-details"><div class="wrap">
+<div class="heading reveal"><h2>हमारा कंपनी रजिस्ट्रेशन</h2><p>संस्था स्थापना: 2015 &nbsp;|&nbsp; कंपनी रजिस्ट्रेशन: 2017</p></div>
+<div class="cert-grid reveal">
+<div class="cert-info">
+<h3>Certificate of Incorporation</h3>
+<div class="cert-row"><span>कंपनी का नाम</span><b>जनशक्ति ड्रीम्स प्राइवेट लिमिटेड<br>(JANSHAKTI DREAMS PRIVATE LIMITED)</b></div>
+<div class="cert-row"><span>निगमन की तिथि</span><b>8 मार्च 2017 (कंपनी अधिनियम, 2013 के अंतर्गत)</b></div>
+<div class="cert-row"><span>कॉर्पोरेट पहचान संख्या (CIN)</span><b>U93000UP2017PTC091117</b></div>
+<div class="cert-row"><span>जारीकर्ता</span><b>Registrar of Companies, Central Registration Centre<br>कॉर्पोरेट कार्य मंत्रालय, भारत सरकार</b></div>
+<div class="cert-row"><span>पंजीकृत पता</span><b>H.NO. 49, मोहल्ला पीतांबर नगर, उन्नाव, उत्तर प्रदेश – 209801</b></div>
+<p class="cert-small">कंपनी की पंजीकरण स्थिति और अन्य विवरण www.mca.gov.in पर जाँचे जा सकते हैं।</p>
+</div>
+</div>
+</div></section>
+
 <!-- वीडियो 2: Audi गिफ्ट -->
 <section class="clip" id="audi" style="padding-bottom:60px"><div class="wrap">
 <div class="heading reveal"><h2>जनशक्ति के 3 लीडर्स को Audi गिफ्ट</h2><p>मेहनत और भरोसे का इनाम</p></div>
-<div class="box reveal"><video src="audi.mp4" controls playsinline preload="metadata"></video></div>
+<div class="box reveal"><video src="audi.mp4" controls controlsList="nodownload noremoteplayback" disablePictureInPicture playsinline preload="metadata" oncontextmenu="return false"></video></div>
 </div></section>
 </main>
 <footer><div class="wrap"><h2>जनशक्ति</h2><p>जनशक्ति का भरोसा और एडवोकेट आकाश शुक्ला का साथ</p></div></footer>
@@ -871,13 +931,13 @@ function countUp(el){
   })(t0);
 }
 const statEls=document.querySelectorAll('#stats b');
-statEls.forEach(el=>{ if(el.dataset.to!=="2014") el.textContent="0"; });
+statEls.forEach(el=>{ if(el.dataset.to!=="2015") el.textContent="0"; });
 if(still){
   statEls.forEach(countUp);
   document.querySelectorAll('.reveal').forEach(e=>e.classList.add('in'));
 }else{
   new IntersectionObserver((en,ob)=>en.forEach(e=>{
-    if(e.isIntersecting){statEls.forEach(el=>{ if(el.dataset.to!=="2014") countUp(el); });ob.disconnect();}
+    if(e.isIntersecting){statEls.forEach(el=>{ if(el.dataset.to!=="2015") countUp(el); });ob.disconnect();}
   }),{threshold:.4}).observe(document.getElementById('stats'));
   const io=new IntersectionObserver((en)=>en.forEach(e=>{
     if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}
@@ -918,19 +978,6 @@ if(slides.length>1){
   });
   auto();
 }
-
-// टॉप वीडियो
-const vid=document.getElementById('introVideo');
-const sBtn=document.getElementById('soundBtn');
-function setSound(on){
-  vid.muted=!on;
-  sBtn.textContent=on?'🔇 आवाज़ बंद करें':'🔊 आवाज़ चालू करें';
-  if(vid.paused)vid.play().catch(()=>{});
-}
-sBtn.addEventListener('click',e=>{e.stopPropagation();setSound(vid.muted);});
-['click','touchstart','keydown'].forEach(ev=>
-  document.addEventListener(ev,()=>{ if(vid.muted)setSound(true); },{once:true,passive:true})
-);
 
 // EMI कैलकुलेटर
 (function initEmiCalc(){
