@@ -602,7 +602,17 @@ footer p{font-size:14px;color:#8ba5ba}
   border:1px solid rgba(238,187,77,.6);background:rgba(255,255,255,.06);color:#ffe8a6;
   padding:8px 16px;border-radius:10px;font:inherit;font-weight:700;font-size:14.5px;cursor:pointer;
 }
-.v-stage{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;padding:14px}
+.v-stage{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;padding:14px;overflow:hidden;position:relative}
+.v-stage #vPic{position:relative;z-index:1}
+.v-back{position:absolute;display:none;pointer-events:none;z-index:0;object-fit:contain}
+.v-flapw{
+  position:absolute;display:none;pointer-events:none;z-index:2;
+  filter:drop-shadow(-8px -8px 12px rgba(0,0,0,.55));
+}
+.v-flap{
+  width:100%;height:100%;border-radius:14px;
+  background:linear-gradient(135deg,#fffaf0 0%,#f0dca0 50%,#c99a3a 100%);
+}
 .v-stage img{
   max-width:100%;max-height:100%;object-fit:contain;
   border:2px solid rgba(238,187,77,.45);border-radius:14px;
@@ -732,7 +742,7 @@ footer p{font-size:14px;color:#8ba5ba}
 <!-- फोटो व्यूअर: "पूरी जानकारी देखें" बटन दबाने पर खुलता है -->
 <div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-label="जनशक्ति जानकारी" hidden>
 <div class="v-top"><b>जनशक्ति</b><button type="button" id="vClose">✕ बंद करें</button></div>
-<div class="v-stage"><img id="vPic" src="" alt="जनशक्ति जानकारी"></div>
+<div class="v-stage"><img id="vBack" class="v-back" alt=""><img id="vPic" src="" alt="जनशक्ति जानकारी"><div class="v-flapw" id="vFlapW"><div class="v-flap" id="vFlap"></div></div></div>
 <div class="v-bar">
 <button class="v-nav" id="vPrev" type="button">← पिछला</button>
 <div id="vCount">1 / 1</div>
@@ -1085,16 +1095,99 @@ const SLIDE_IMAGES=[
   const count=document.getElementById('vCount');
   const openBtn=document.getElementById('openSlides');
   let i=0;
-  function show(n){
-    i=Math.max(0,Math.min(SLIDE_IMAGES.length-1,n));
+      const back=document.getElementById('vBack');
+  const flapW=document.getElementById('vFlapW');
+  const flap=document.getElementById('vFlap');
+  const DUR=2400;    // पेज मुड़ने का समय (ms)
+  const BDUR=3200;  // पीछे वाले पेज के उभरने का समय (ms)
+  let raf=0,busy=false,bAnim=null,token=0;
+
+  function setPic(){
     pic.src=SLIDE_IMAGES[i];
     pic.alt="जनशक्ति जानकारी "+(i+1);
+  }
+  function hardReset(){
+    token++;
+    cancelAnimationFrame(raf);
+    if(bAnim){bAnim.cancel();bAnim=null;}
+    busy=false;
+    pic.style.clipPath='';
+    back.style.display='none';
+    flapW.style.display='none';
+  }
+  function place(el){
+    el.style.left=pic.offsetLeft+'px';
+    el.style.top=pic.offsetTop+'px';
+    el.style.width=pic.offsetWidth+'px';
+    el.style.height=pic.offsetHeight+'px';
+  }
+  const P=v=>(v*100).toFixed(2)+'%';
+  function poly(pts){return 'polygon('+pts.map(([u,v])=>P(u)+' '+P(v)).join(',')+')';}
+
+  // c: 2 (कोना) से 0 (पूरा पेज बंद) तक। मुड़ने की रेखा: u+v=c
+  function frame(c,dir){
+    let keep,fl;
+    if(c>1){
+      keep=[[0,0],[1,0],[1,c-1],[c-1,1],[0,1]];
+      fl=[[1,c-1],[c-1,1],[c-1,c-1]];
+    }else{
+      keep=[[0,0],[c,0],[0,c]];
+      fl=[[c,0],[c,c-1],[c-1,c-1],[c-1,c],[0,c]];
+    }
+    const f=a=>poly(a.map(([u,v])=>[dir===1?u:1-u,v]));
+    pic.style.clipPath=f(keep);
+    flap.style.clipPath=f(fl);
+  }
+  function curl(dir){
+    const t0=performance.now();
+    (function step(t){
+      const p=Math.min(Math.max((t-t0)/DUR,0),1);
+      const e=p<.5?4*p*p*p:1-Math.pow(-2*p+2,3)/2;
+      frame(2*(1-e),dir);
+      if(p<1)raf=requestAnimationFrame(step);
+    })(t0);
+  }
+  function complete(my){
+    setPic();
+    const c=()=>{if(my===token)hardReset();};
+    pic.decode?pic.decode().then(c,c):c();
+  }
+  function start(my,dir){
+    place(back);place(flapW);
+    back.style.display='block';
+    flapW.style.display='block';
+    bAnim=back.animate(
+      [{filter:'blur(14px)',opacity:.35,transform:'scale(.96)'},
+       {filter:'blur(0px)',opacity:1,transform:'scale(1)'}],
+      {duration:BDUR,easing:'cubic-bezier(.2,.8,.2,1)',fill:'forwards'}
+    );
+    bAnim.onfinish=()=>{if(my===token)complete(my);};
+    frame(2,dir);
+    curl(dir);
+  }
+  function show(n,instant){
+    const was=busy;
+    hardReset();
+    if(was)setPic();           // बीच में बटन दबे तो पिछला बदलाव पूरा कर दो
+    const old=i;
+    i=Math.max(0,Math.min(SLIDE_IMAGES.length-1,n));
     count.textContent=(i+1)+" / "+SLIDE_IMAGES.length;
     prev.disabled=i===0;
     next.disabled=i===SLIDE_IMAGES.length-1;
+
+    const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+    if(instant||reduce||i===old||!back.animate){setPic();return;}
+
+    const dir=i>old?1:-1;      // 1 = अगला (दाएँ कोने से), -1 = पिछला (बाएँ कोने से)
+    busy=true;
+    const my=++token;
+    back.src=SLIDE_IMAGES[i];
+    const go=()=>{if(my===token)start(my,dir);};
+    back.decode?back.decode().then(go,go):go();
   }
   function openV(){
-    show(0);
+    hardReset();
+    show(0,true);
     viewer.hidden=false;
     document.body.style.overflow='hidden';
     document.getElementById('vClose').focus();
