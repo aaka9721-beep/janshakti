@@ -576,6 +576,52 @@ footer p{font-size:14px;color:#8ba5ba}
 .clip{padding:48px 0 0}
 .clip .box{width:min(900px,92%);margin:auto;border:2px solid rgba(238,187,77,.4);border-radius:18px;overflow:hidden;background:#000;box-shadow:0 12px 35px rgba(0,0,0,.5)}
 .clip video{display:block;width:100%;max-height:80vh}
+
+/* टॉप पोस्ट + बटन (नया जोड़ा गया) */
+.toppost{background:#051322;text-align:center;border-bottom:2px solid var(--gold);padding:34px 0 26px}
+.toppost img{display:block;width:100%;max-width:900px;height:auto;margin:0 auto}
+.toppost .btn{margin:18px 0 0;font-size:17px}
+
+.toppost button.btn{border:0;cursor:pointer;font:inherit;font-weight:700;font-size:17px}
+
+/* फोटो व्यूअर (पिछला / अगला) */
+.viewer{
+  position:fixed;inset:0;z-index:100;
+  display:flex;flex-direction:column;
+  background:radial-gradient(circle at 50% 0%, #0d2f4f 0%, #051322 75%);
+}
+.viewer[hidden]{display:none}
+.v-top{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:12px 16px;
+  background:rgba(5,19,34,.9);
+  border-bottom:1.5px solid rgba(238,187,77,.35);
+}
+.v-top b{font-family:"Mukta",sans-serif;font-size:20px;color:#fff}
+.v-top button{
+  border:1px solid rgba(238,187,77,.6);background:rgba(255,255,255,.06);color:#ffe8a6;
+  padding:8px 16px;border-radius:10px;font:inherit;font-weight:700;font-size:14.5px;cursor:pointer;
+}
+.v-stage{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;padding:14px}
+.v-stage img{
+  max-width:100%;max-height:100%;object-fit:contain;
+  border:2px solid rgba(238,187,77,.45);border-radius:14px;
+  box-shadow:0 12px 35px rgba(0,0,0,.5);background:#000;
+}
+.v-bar{
+  display:flex;align-items:center;justify-content:center;gap:16px;
+  padding:14px 16px calc(14px + env(safe-area-inset-bottom));
+  background:rgba(5,19,34,.92);
+  border-top:1.5px solid rgba(238,187,77,.35);
+}
+.v-nav{
+  flex:1;max-width:220px;border:0;padding:13px 18px;border-radius:12px;
+  font:inherit;font-weight:700;font-size:16px;cursor:pointer;color:#091d30;
+  background:linear-gradient(135deg,#ffe6a0 0%,#d9a83d 100%);
+  box-shadow:0 6px 18px rgba(217,168,61,.3);
+}
+.v-nav:disabled{opacity:.35;cursor:not-allowed;box-shadow:none}
+#vCount{min-width:70px;text-align:center;font-weight:700;color:#ffe8a6}
 </style>
 </head>
 <body>
@@ -620,6 +666,11 @@ footer p{font-size:14px;color:#8ba5ba}
 <div class="heading reveal"><h2>साइट विज़िट की झलक</h2><p>हमारी साइटों पर लोगों का कारवां</p></div>
 <div class="box reveal"><video src="sitevisit.mp4" autoplay muted loop playsinline controls controlsList="nodownload noremoteplayback" disablePictureInPicture preload="metadata" oncontextmenu="return false"></video></div>
 </div></section>
+<!-- पोस्ट + बटन: अपनी पोस्ट की फोटो का नाम "post.jpeg" रखकर इसी फोल्डर में डालें -->
+<section class="toppost" aria-label="जनशक्ति पोस्ट">
+<img src="main.jpeg" alt="जनशक्ति पोस्ट">
+<button class="btn" type="button" id="openSlides">पूरी जानकारी देखें ↗</button>
+</section>
 <div class="stats" id="stats"><div class="wrap">
 <div><b data-to="2015">2015</b><span>स्थापना वर्ष</span></div>
 <div><b id="siteCount" data-to="0">0</b><span>प्रॉपर्टी साइटें</span></div>
@@ -642,7 +693,7 @@ footer p{font-size:14px;color:#8ba5ba}
     <div>
       <div class="emi-field">
         <label><span>प्लॉट की कुल कीमत:</span> <strong id="emiPriceVal" style="color:var(--gold);">₹ 4,00,000</strong></label>
-        <input type="range" class="emi-slider" id="emiPrice" min="200000" max="1000000" step="25000" value="400000">
+        <input type="range" class="emi-slider" id="emiPrice" min="200000" max="3000000" step="25000" value="400000">
       </div>
       <div class="emi-field">
         <label><span>किस्त की अवधि (वर्ष):</span> <strong id="emiTenureVal" style="color:var(--gold);">5 साल (60 माह)</strong></label>
@@ -677,6 +728,17 @@ footer p{font-size:14px;color:#8ba5ba}
 </main>
 <footer><div class="wrap"><h2>जनशक्ति</h2><p>जनशक्ति का भरोसा और एडवोकेट आकाश शुक्ला का साथ</p></div></footer>
 
+
+<!-- फोटो व्यूअर: "पूरी जानकारी देखें" बटन दबाने पर खुलता है -->
+<div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-label="जनशक्ति जानकारी" hidden>
+<div class="v-top"><b>जनशक्ति</b><button type="button" id="vClose">✕ बंद करें</button></div>
+<div class="v-stage"><img id="vPic" src="" alt="जनशक्ति जानकारी"></div>
+<div class="v-bar">
+<button class="v-nav" id="vPrev" type="button">← पिछला</button>
+<div id="vCount">1 / 1</div>
+<button class="v-nav" id="vNext" type="button">अगला →</button>
+</div>
+</div>
 <a class="fab call" id="call" href="#" aria-label="कॉल करें">📞 कॉल करें</a>
 <a class="fab wa" id="wa" href="#" target="_blank" rel="noopener" aria-label="WhatsApp पर बात करें">💬 WhatsApp</a>
 <script>
@@ -711,11 +773,10 @@ const SITES=[
 ["थाना प्री-लॉन्चिंग","ग्राम परमनी, मुख्य मार्ग से लगभग 2 किमी अंदर","उन्नाव","khumankheda.ml"],
 ["साइड एक्सप्रेसवे","पुरवा रोड पर ग्राम पड़री खुर्द","उन्नाव","xpressway.html"],
 ["सिमरी आकमपुर","अचलगंज हाईवे पर नियर रायबरेली ","उन्नाव","khumankheda.htl"],
-["दर्वैस्पुर","प्रयागराज से लगभग 30 किमी पहले","कौशाम्बी","khumankheda.htl"],
+["दर्वैस्पुर","प्रयागराज से लगभग 30 किमी पहले","प्रयागराज","khumankheda.htl"],
 ["हरदोई","बघौली टोल से लगभग 2 किमी पहले","हरदोई","hardoi.html"],
 ["रूरा","कानपुर देहात","कानपुर देहात","khumankheda.htl"],
 ["बिल्हौर","नियर शिवराजपुर कानपुर नगर","कानपुर नगर","khumankheda.htl"],
-["इटावा","अकबरपुर से आगे आगरा मथुरा एक्सप्रेसवे क्रॉस होने के ठीक बाद","इटावा","khumankheda.htl"],
 ["बांगरमऊ","मुख्य हाईवे पर ","उन्नाव","khumankheda.htl"]
 ];
 
@@ -755,46 +816,21 @@ const RATES={
   ["100 गज (पीछे)","₹ 20,00,000"]
 ]},
 "हुलासी कुआ":["₹ 3,75,000","₹ 7,50,000"],
-"खागा":{lines:[
-  ["फ्रंट","₹17,00,000"],
-  ["कॉर्नर","8,50,000"],
-  ["नॉर्मल","₹6,50,000"],
-]},
+"खागा":["₹ 2,75,000","₹ 5,50,000"],
 "चित्रकूट":["₹ 3,50,000","₹ 7,00,000"],
 "अकबरपुर":["₹ 7,00,000","₹ 14,00,000"],
-"शिवली साइड":{lines:[
-  ["कमर्शियल","₹35,00,000"],
-  ["कॉर्नर","20,00,000"],
-  ["नॉर्मल","₹14,00,000"],
-]},
-"बनारस":["6,00,000","12,00,000"],
-"तिवारीपुर सरसौल":["3,50,000","7,00,000"],
-"सिखटिया":["3,25,000","6,50,000"],
-"फतेहपुर":{lines:[
-  ["100 गज (कमर्शियल/कॉर्नर)","₹ 20,00,000"],
-  ["100 गज (नार्मल)","₹ 10,00,000"],
-]},
-"थाना प्री-लॉन्चिंग":["2,00,000","4,00,000"],
+"शिवली साइड":["",""],
+"बनारस":["",""],
+"तिवारीपुर सरसौल":["",""],
+"सिखटिया":["",""],
+"फतेहपुर":["",""],
+"थाना प्री-लॉन्चिंग":["",""],
 "साइड एक्सप्रेसवे":["4,25,000","8,50,000"],
-"सिमरी आकमपुर":{lines:[
-  ["100 गज (फ्रंट/कॉर्नर)","₹ 30,00,000"],
-  ["100 गज (नॉर्मल)","₹ 15,00,000"]
-]},
-"दर्वैस्पुर":{lines:[
-  ["100 गज (फ्रंट/कॉर्नर)","₹ 20,00,000"],
-  ["100 गज (नॉर्मल)","₹ 15,00,000"]
-]},
+"सिमरी आकमपुर":["",""],
+"दर्वैस्पुर":["",""],
 "हरदोई":["5,00,000","10,00,000"],
-"रूरा":["2,00,000","5,00,000"],
-"साइड एक्सप्रेसवे":{lines:[
-  ["कमर्शियल","₹16,00,000"],
-  ["नॉर्मल","₹8,50,000"],
-]},
-"बिल्हौर":["2,75,000","5,50,000"],
-"इटावा":{lines:[
-  ["100 गज (फ्रंट/कॉर्नर)","₹ 20,00,000"],
-  ["100 गज (नॉर्मल)","₹ 15,00,000"]
-]},
+"रूरा":["",""],
+"बिल्हौर":["",""],
 "बांगरमऊ":["",""]
 };
 function fmtRate(v){
@@ -850,7 +886,6 @@ const PAY={
 "हरदोई":[5],
 "रूरा":[5],
 "बिल्हौर":[5],
-"इटावा":[4],
 "बांगरमऊ":[5]
 };
 function payBoard(name){
@@ -1008,6 +1043,85 @@ if(slides.length>1){
 
   priceInput.addEventListener('input', updateEmi);
   tenureInput.addEventListener('input', updateEmi);
+})();
+</script>
+<script>
+// ===== फोटो व्यूअर: यहाँ अपनी फोटो के नाम सीरियल से लिखें (पहली फोटो सबसे पहले) =====
+// फोटो इसी फोल्डर में रखें। हर नाम के बाद कॉमा लगाएँ।
+const SLIDE_IMAGES=[
+  "slide1.jpeg",
+  "slide2.jpeg",
+  "slide3.jpeg",
+  "slide4.jpeg",
+  "slide5.jpeg",
+  "slide6.jpeg",
+  "slide7.jpeg",
+  "slide8.jpeg",
+  "slide9.jpeg",
+  "slide10.jpeg",
+  "slide11.jpeg",
+  "slide12.jpeg",
+  "slide13.jpeg",
+  "slide14.jpeg",
+  "slide15.jpeg",
+  "slide16.jpeg",
+  "slide17.jpeg",
+  "slide18.jpeg",
+  "slide19.jpeg",
+  "slide20.jpeg",
+  "slide21.jpeg",
+  "slide22.jpeg",
+  "slide23.jpeg",
+  "slide24.jpeg",
+  "slide25.jpeg",
+  "slide26.jpeg",
+];
+// ===================================================================
+(function(){
+  const viewer=document.getElementById('viewer');
+  const pic=document.getElementById('vPic');
+  const prev=document.getElementById('vPrev');
+  const next=document.getElementById('vNext');
+  const count=document.getElementById('vCount');
+  const openBtn=document.getElementById('openSlides');
+  let i=0;
+  function show(n){
+    i=Math.max(0,Math.min(SLIDE_IMAGES.length-1,n));
+    pic.src=SLIDE_IMAGES[i];
+    pic.alt="जनशक्ति जानकारी "+(i+1);
+    count.textContent=(i+1)+" / "+SLIDE_IMAGES.length;
+    prev.disabled=i===0;
+    next.disabled=i===SLIDE_IMAGES.length-1;
+  }
+  function openV(){
+    show(0);
+    viewer.hidden=false;
+    document.body.style.overflow='hidden';
+    document.getElementById('vClose').focus();
+  }
+  function closeV(){
+    viewer.hidden=true;
+    document.body.style.overflow='';
+    openBtn.focus();
+  }
+  openBtn.addEventListener('click',openV);
+  document.getElementById('vClose').addEventListener('click',closeV);
+  prev.addEventListener('click',()=>show(i-1));
+  next.addEventListener('click',()=>show(i+1));
+  document.addEventListener('keydown',e=>{
+    if(viewer.hidden)return;
+    if(e.key==="Escape")closeV();
+    if(e.key==="ArrowLeft")show(i-1);
+    if(e.key==="ArrowRight")show(i+1);
+  });
+  let x0=null;
+  pic.addEventListener('touchstart',e=>{x0=e.touches[0].clientX},{passive:true});
+  pic.addEventListener('touchend',e=>{
+    if(x0===null)return;
+    const dx=e.changedTouches[0].clientX-x0;
+    if(Math.abs(dx)>50)show(i+(dx<0?1:-1));
+    x0=null;
+  });
 })();
 </script>
 </body>
