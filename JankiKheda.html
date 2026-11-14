@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>विस्तृत जानकारी एवं संसाधन - जनशक्ति</title>
+
     <style>
         * {
             box-sizing: border-box;
@@ -26,26 +27,39 @@
 
         /* Top Bar */
         .topbar {
-            background: #092238;
-            height: 70px;
+            background: #061a2b;
+            min-height: 90px;
             display: flex;
             align-items: center;
-            padding: 0 5%;
+            justify-content: space-between;
+            padding: 12px 5%;
             border-bottom: 2px solid #c89d42;
         }
 
-        .back-btn {
-            color: #e4bb54;
-            font-size: 13px;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            transition: opacity 0.2s;
+        .brand {
+            color: #ffffff;
+            font-size: 23px;
+            font-weight: 800;
         }
 
-        .back-btn:hover {
-            opacity: 0.8;
+        /* Golden Close Button */
+        .close-btn {
+            color: #ffe6a0;
+            background: #10283b;
+            border: 4px double #eebb4d;
+            border-radius: 25px;
+            padding: 13px 25px;
+            font-size: 18px;
+            font-weight: 800;
+            font-family: inherit;
+            cursor: pointer;
+            box-shadow: 0 0 8px rgba(238, 187, 77, 0.25);
+            transition: 0.2s ease;
+        }
+
+        .close-btn:hover {
+            background: #193a53;
+            box-shadow: 0 0 14px rgba(238, 187, 77, 0.45);
         }
 
         /* Container */
@@ -90,7 +104,7 @@
             padding-left: 10px;
         }
 
-        /* YouTube Video Section (Responsive 16:9) */
+        /* YouTube Video Section */
         .video-wrapper {
             position: relative;
             width: 100%;
@@ -201,6 +215,21 @@
         }
 
         @media (max-width: 600px) {
+
+            .topbar {
+                min-height: 85px;
+                padding: 12px 4%;
+            }
+
+            .brand {
+                font-size: 21px;
+            }
+
+            .close-btn {
+                font-size: 16px;
+                padding: 11px 19px;
+            }
+
             .container {
                 margin: 25px auto 40px;
                 gap: 25px;
@@ -231,7 +260,14 @@
 
     <!-- Top Navigation Bar -->
     <header class="topbar">
-        <a href="janshakti_static.html" class="back-btn">&#8592; मुख्य पृष्ठ पर लौटें</a>
+
+        <b class="brand">जनशक्ति</b>
+
+        <button type="button" class="close-btn"
+            onclick="if (history.length > 1) { history.back(); } else { location.href='janshakti_static.html'; }">
+            ✕ बंद करें
+        </button>
+
     </header>
 
     <div class="container">
