@@ -702,7 +702,6 @@ footer p{font-size:14px;color:#8ba5ba}
 <div><b id="siteCount" data-to="0">0</b><span>प्रॉपर्टी साइटें</span></div>
 <div><b id="distCount" data-to="0">0</b><span>जिले</span></div>
 </div></div>
-
 <section class="section" id="sites"><div class="wrap">
 <div class="heading reveal"><h2>हमारी प्रॉपर्टी साइटें</h2><p>अपनी पसंद की लोकेशन खोजें और उपलब्ध विवरण खोलें।</p></div>
 <div class="filters" id="filters"></div>
@@ -739,14 +738,13 @@ footer p{font-size:14px;color:#8ba5ba}
 <!-- ग्राहक अनुभव: YouTube फीडबैक वीडियो (पोस्टर का नाम feedback.jpeg रखें) -->
 <section class="section" id="feedback"><div class="wrap">
 <div class="heading reveal"><h2>ग्राहकों के अनुभव</h2><p>हमारे ग्राहकों की अपनी जुबानी</p></div>
-<img class="fb-poster" src="feedback.jpeg" alt="ग्राहक फीडबैक" onerror="this.style.display='none'">
+<img class="fb-poster" src="bann.jpeg" alt="ग्राहक फीडबैक" onerror="this.style.display='none'">
 <div class="fb-wrap">
 <button class="fb-arrow l" id="fbPrev" type="button" aria-label="पिछला">‹</button>
 <div class="fb-track" id="fbTrack"></div>
 <button class="fb-arrow r" id="fbNext" type="button" aria-label="अगला">›</button>
 </div>
 </div></section>
-
 <section class="section" id="member" style="padding-top:0"><div class="wrap">
 <div class="member reveal"><div><p style="color:#f6d986;font-weight:bold">$$ JANSHAKTI GROUP $$</p><h2>क्योंकि आप हमारे जनशक्ति परिवार के सदस्य हैं</h2><p>अपनी टीम के बारे में जानकारी करने के लिए लॉगिन करें।</p></div>
 <a class="btn" href="https://share.google/D7PV48osv6u2yl6Ui" target="_blank" rel="noopener">सदस्य लॉगिन करें ↗</a></div>
@@ -933,17 +931,14 @@ function payBoard(name){
     :`<span>🗓️ ${x} साल की किस्त</span>`).join('')}</div>`;
 }
 // ===== भुगतान विकल्प खत्म =====
-
 const cardsEl=document.getElementById('cards');
 const filtersEl=document.getElementById('filters');
 const empty=document.getElementById('empty');
 let district="सभी";
-
 function isLocked(href,loc){
   return !href || loc.includes("विवरण प्राप्त होना बाकी") || href.endsWith(".ml") || href.endsWith(".htl");
 }
 const waLink=t=>"https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent(t);
-
 // उपलब्ध साइटें ऊपर, जल्द आने वाली नीचे
 const ORDERED=[...SITES].sort((a,b)=>isLocked(a[3],a[1])-isLocked(b[3],b[1]));
 
@@ -969,7 +964,6 @@ document.getElementById('distCount').dataset.to=dists.length;
 filtersEl.innerHTML=["सभी",OPEN,SOON,...dists].map(d=>
   `<button class="chip" type="button" aria-pressed="${d===district}">${d}</button>`
 ).join('');
-
 const cards=[...cardsEl.children];
 function apply(){
   let shown=0;
@@ -987,7 +981,6 @@ filtersEl.addEventListener('click',e=>{
   [...filtersEl.children].forEach(x=>x.setAttribute('aria-pressed',x===b));
   apply();
 });
-
 // WhatsApp और कॉल बटन
 const wa=document.getElementById('wa');
 if(!WHATSAPP.includes('X')){
@@ -995,7 +988,6 @@ if(!WHATSAPP.includes('X')){
   wa.style.display='flex';
 }
 document.getElementById('call').href="tel:+"+WHATSAPP;
-
 // आँकड़ों की गिनती और सेक्शन का हल्का एनिमेशन
 const still=matchMedia('(prefers-reduced-motion:reduce)').matches||!('IntersectionObserver' in window);
 function countUp(el){
@@ -1072,12 +1064,10 @@ if(slides.length>1){
     const y = parseInt(tenureInput.value, 10);
     const months = y * 12;
     const monthlyRate = Math.round(p / months);
-    
     priceVal.textContent = "₹ " + p.toLocaleString('en-IN');
     tenureVal.textContent = y + " साल (" + months + " माह)";
     emiMonthly.textContent = "₹ " + monthlyRate.toLocaleString('en-IN');
   }
-
   priceInput.addEventListener('input', updateEmi);
   tenureInput.addEventListener('input', updateEmi);
 })();
@@ -1201,7 +1191,6 @@ const SLIDE_IMAGES=[
     count.textContent=(i+1)+" / "+SLIDE_IMAGES.length;
     prev.disabled=i===0;
     next.disabled=i===SLIDE_IMAGES.length-1;
-
     const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
     if(instant||reduce||i===old||!back.animate){setPic();return;}
 
@@ -1247,8 +1236,13 @@ const SLIDE_IMAGES=[
 <script>
 // ===== ग्राहक अनुभव: यहाँ अपने YouTube लिंक डालें (हर लिंक के बाद कॉमा) =====
 const FEEDBACK_LINKS=[
-  "https://youtube.com/shorts/XXXXXXXXXXX",
-  "https://youtube.com/shorts/YYYYYYYYYYY"
+  "https://youtube.com/shorts/fFtNfAKJgF0",
+  "https://youtube.com/shorts/fNMrWME9ZdY",
+  "https://youtube.com/shorts/IJKj_r8ufFs",
+  "https://youtube.com/shorts/w5F0W4fho2k",
+  "https://youtube.com/shorts/0ibUvpHHAiM",
+  "https://youtube.com/shorts/uyL9PSu60Pg",
+  "https://youtube.com/shorts/1g6KbVDzY7g",
 ];
 // ============================================================================
 (function(){
