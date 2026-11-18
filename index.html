@@ -632,6 +632,22 @@ footer p{font-size:14px;color:#8ba5ba}
 }
 .v-nav:disabled{opacity:.35;cursor:not-allowed;box-shadow:none}
 #vCount{min-width:70px;text-align:center;font-weight:700;color:#ffe8a6}
+
+/* ===== ग्राहक अनुभव (YouTube फीडबैक वीडियो) ===== */
+#feedback{border-top:1px solid rgba(238,187,77,.25)}
+.fb-poster{display:block;width:min(700px,100%);height:auto;margin:0 auto 30px;border-radius:16px;border:2px solid rgba(238,187,77,.4);box-shadow:0 10px 28px rgba(0,0,0,.45)}
+.fb-wrap{position:relative}
+.fb-track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 4px 18px;scrollbar-width:none;scroll-behavior:smooth}
+.fb-track::-webkit-scrollbar{display:none}
+.fb-card{flex:0 0 min(260px,72%);scroll-snap-align:center;aspect-ratio:9/16;position:relative;overflow:hidden;border-radius:18px;border:2px solid rgba(238,187,77,.4);background:#000;box-shadow:0 10px 28px rgba(0,0,0,.45);cursor:pointer}
+.fb-card img{width:100%;height:100%;object-fit:cover;display:block}
+.fb-card iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.fb-play{position:absolute;inset:0;margin:auto;width:62px;height:62px;border-radius:50%;background:linear-gradient(135deg,#ffe6a0,#d9a83d);color:#091d30;display:flex;align-items:center;justify-content:center;font-size:24px;padding-left:4px;box-shadow:0 6px 18px rgba(0,0,0,.5)}
+.fb-card::after{content:"⭐ ग्राहक अनुभव";position:absolute;left:10px;bottom:10px;background:rgba(5,19,34,.8);color:#ffe8a6;font-size:12.5px;font-weight:700;padding:4px 12px;border-radius:30px;border:1px solid rgba(238,187,77,.4)}
+.fb-card.playing::after{display:none}
+.fb-arrow{position:absolute;top:50%;transform:translateY(-60%);z-index:3;width:44px;height:44px;border-radius:50%;border:1px solid var(--gold);background:rgba(5,19,34,.9);color:var(--gold);font-size:20px;cursor:pointer}
+.fb-arrow.l{left:-6px}.fb-arrow.r{right:-6px}
+@media(min-width:900px){.fb-arrow.l{left:-22px}.fb-arrow.r{right:-22px}}
 </style>
 </head>
 <body>
@@ -645,7 +661,7 @@ footer p{font-size:14px;color:#8ba5ba}
 <nav class="wrap" aria-label="मुख्य मेनू">
 <a class="brand" href="#home">जनशक्ति<small>विद एडवोकेट आकाश शुक्ला</small></a>
 <div class="menu">
-<a href="#home">होम</a><a href="#sites">हमारी साइट</a><a href="#emi-calculator">EMI कैलकुलेटर</a><a href="#about">हमारे बारे में</a><a href="#certificate">रजिस्ट्रेशन</a><a href="#member">सदस्य लॉगिन</a>
+<a href="#home">होम</a><a href="#sites">हमारी साइट</a><a href="#emi-calculator">EMI कैलकुलेटर</a><a href="#feedback">ग्राहक अनुभव</a><a href="#about">हमारे बारे में</a><a href="#certificate">रजिस्ट्रेशन</a><a href="#member">सदस्य लॉगिन</a>
 </div>
 </nav>
 </header>
@@ -718,6 +734,17 @@ footer p{font-size:14px;color:#8ba5ba}
   </div>
 </div>
 
+</div></section>
+
+<!-- ग्राहक अनुभव: YouTube फीडबैक वीडियो (पोस्टर का नाम feedback.jpeg रखें) -->
+<section class="section" id="feedback"><div class="wrap">
+<div class="heading reveal"><h2>ग्राहकों के अनुभव</h2><p>हमारे ग्राहकों की अपनी जुबानी</p></div>
+<img class="fb-poster" src="feedback.jpeg" alt="ग्राहक फीडबैक" onerror="this.style.display='none'">
+<div class="fb-wrap">
+<button class="fb-arrow l" id="fbPrev" type="button" aria-label="पिछला">‹</button>
+<div class="fb-track" id="fbTrack"></div>
+<button class="fb-arrow r" id="fbNext" type="button" aria-label="अगला">›</button>
+</div>
 </div></section>
 
 <section class="section" id="member" style="padding-top:0"><div class="wrap">
@@ -1215,6 +1242,32 @@ const SLIDE_IMAGES=[
     if(Math.abs(dx)>50)show(i+(dx<0?1:-1));
     x0=null;
   });
+})();
+</script>
+<script>
+// ===== ग्राहक अनुभव: यहाँ अपने YouTube लिंक डालें (हर लिंक के बाद कॉमा) =====
+const FEEDBACK_LINKS=[
+  "https://youtube.com/shorts/XXXXXXXXXXX",
+  "https://youtube.com/shorts/YYYYYYYYYYY"
+];
+// ============================================================================
+(function(){
+  const track=document.getElementById('fbTrack');
+  const ytId=u=>{const m=u.match(/(?:shorts\/|youtu\.be\/|v=|embed\/)([\w-]{11})/);return m?m[1]:null};
+  const ids=FEEDBACK_LINKS.map(ytId).filter(Boolean);
+  if(!ids.length){document.getElementById('feedback').style.display='none';return;}
+  const thumb=id=>`<img src="https://i.ytimg.com/vi/${id}/hqdefault.jpg" alt="ग्राहक फीडबैक वीडियो" loading="lazy"><div class="fb-play">▶</div>`;
+  track.innerHTML=ids.map(id=>`<div class="fb-card" data-id="${id}">${thumb(id)}</div>`).join('');
+  track.addEventListener('click',e=>{
+    const c=e.target.closest('.fb-card');
+    if(!c||c.classList.contains('playing'))return;
+    track.querySelectorAll('.playing').forEach(p=>{p.classList.remove('playing');p.innerHTML=thumb(p.dataset.id);});
+    c.classList.add('playing');
+    c.innerHTML=`<iframe src="https://www.youtube.com/embed/${c.dataset.id}?autoplay=1&rel=0&playsinline=1" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen title="ग्राहक फीडबैक"></iframe>`;
+  });
+  const step=()=>{const c=track.querySelector('.fb-card');return c?c.offsetWidth+16:280};
+  document.getElementById('fbPrev').onclick=()=>track.scrollBy({left:-step(),behavior:'smooth'});
+  document.getElementById('fbNext').onclick=()=>track.scrollBy({left:step(),behavior:'smooth'});
 })();
 </script>
 </body>
