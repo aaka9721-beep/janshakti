@@ -297,6 +297,25 @@ h1{
 .locked-card .mini.ask{background:#0a2a66;border-color:#0a2a66;color:#ffe673}
 .locked-card .mini.ask:hover{background:#25d366;border-color:#25d366;color:#061829}
 
+/* पूरी तरह बिक चुकी साइटें – वाइन-रेड + गोल्ड (हरे और पीले से अलग) */
+.card.sold{
+  background:linear-gradient(160deg,#8e1b3f 0%,#5c0f2a 55%,#33061a 100%);
+  border:1.5px solid #eebb4d;
+  box-shadow:0 10px 28px rgba(142,27,63,.45), inset 0 1px 0 rgba(255,255,255,.12);
+}
+.card.sold:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(238,187,77,.3)}
+.card.sold h3{color:#fff}
+.card.sold p{color:#f3d3dc}
+.card.sold .badge{background:rgba(255,255,255,.12);color:#ffe8a6;border-color:rgba(238,187,77,.5)}
+.sold-tag{
+  display:block;margin-top:auto;padding:10px 8px;text-align:center;
+  border-radius:10px;font-weight:800;font-size:13.5px;line-height:1.4;color:#33061a;
+  background:linear-gradient(135deg,#ffe6a0 0%,#d9a83d 100%);
+  box-shadow:0 3px 12px rgba(238,187,77,.35);
+}
+.sold-tag b{display:block;font-size:17px;letter-spacing:1.5px;white-space:nowrap}
+.card.sold .pay{margin-bottom:14px}
+
 .badge{
   align-self:flex-start;
   background:rgba(238, 187, 77, 0.15);
@@ -778,8 +797,13 @@ footer p{font-size:14px;color:#8ba5ba}
 <a class="fab wa" id="wa" href="#" target="_blank" rel="noopener" aria-label="WhatsApp पर बात करें">💬 WhatsApp</a>
 <script>
 const WHATSAPP="919598409423";
-const OPEN="✅ उपलब्ध", SOON="🔒 जल्द आ रही";
+const OPEN="✅ उपलब्ध", SOON="🔒 जल्द आ रही", SOLD_S="🏆 पूरी तरह बिक चुकी";
 
+// जो साइटें पूरी तरह बिक चुकी हैं, उनके नाम यहाँ (SITES वाले नाम से हूबहू) लिखें
+const SOLD=[
+"जी स्कूल ग्राम कोटरा"
+];
+const isSold=n=>SOLD.includes(n.trim());
 // [नाम, जगह का विवरण, जिला, पेज की फ़ाइल]
 const SITES=[
 ["नवीन मंडी इब्राहिम बाग","उन्नाव","उन्नाव","ibrahimbagh.html"],
@@ -939,11 +963,19 @@ function isLocked(href,loc){
   return !href || loc.includes("विवरण प्राप्त होना बाकी") || href.endsWith(".ml") || href.endsWith(".htl");
 }
 const waLink=t=>"https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent(t);
-// उपलब्ध साइटें ऊपर, जल्द आने वाली नीचे
-const ORDERED=[...SITES].sort((a,b)=>isLocked(a[3],a[1])-isLocked(b[3],b[1]));
+
+// क्रम: उपलब्ध → जल्द आ रही → बिक चुकी
+const rank=s=>isSold(s[0])?2:(isLocked(s[3],s[1])?1:0);
+const ORDERED=[...SITES].sort((a,b)=>rank(a)-rank(b));
 
 cardsEl.innerHTML=ORDERED.map(([name,loc,dist,href])=>{
   const ask=`<a class="mini ask" href="${waLink('नमस्ते, मुझे "'+name+'" साइट की जानकारी चाहिए।')}" target="_blank" rel="noopener">💬 WhatsApp पर पूछें</a>`;
+   if(isSold(name)){
+    return `<div class="card sold" data-d="${dist}" data-s="${SOLD_S}">
+      <span class="badge">${dist}</span><h3>${name}</h3><p>${loc}</p>
+      ${rateBoard(name,false)}${payBoard(name)}
+      <span class="sold-tag">🏆 सम्पूर्ण साइट बिक चुकी<br><b>TOTAL SOLD</b></span></div>`;
+  }
   if(isLocked(href,loc)){
     return `<div class="card locked-card" data-d="${dist}" data-s="${SOON}">
       <span class="badge">${dist}</span><h3>${name}</h3><p>${loc}</p>
@@ -956,12 +988,10 @@ cardsEl.innerHTML=ORDERED.map(([name,loc,dist,href])=>{
     ${rateBoard(name,false)}${payBoard(name)}
     <div class="acts"><a class="mini view" href="${href}" target="_blank" rel="noopener">साइट विवरण ↗</a>${ask}</div></div>`;
 }).join('');
-
 const dists=[...new Set(SITES.map(s=>s[2]))];
 document.getElementById('siteCount').dataset.to=SITES.length;
 document.getElementById('distCount').dataset.to=dists.length;
-
-filtersEl.innerHTML=["सभी",OPEN,SOON,...dists].map(d=>
+filtersEl.innerHTML=["सभी",OPEN,SOON,SOLD_S,...dists].map(d=>
   `<button class="chip" type="button" aria-pressed="${d===district}">${d}</button>`
 ).join('');
 const cards=[...cardsEl.children];
@@ -1014,7 +1044,6 @@ if(still){
   }),{threshold:.15});
   document.querySelectorAll('.reveal').forEach(e=>io.observe(e));
 }
-
 // फोटो एल्बम
 const PHOTOS=[
   "1.jpeg","2.jpeg","3.jpeg","4.jpeg","5.jpeg",
@@ -1048,7 +1077,6 @@ if(slides.length>1){
   });
   auto();
 }
-
 // EMI कैलकुलेटर
 (function initEmiCalc(){
   const priceInput = document.getElementById('emiPrice');
