@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="hi">
 
@@ -70,7 +71,7 @@
             color: var(--gold);
         }
 
-        /* Golden Close Button */
+        /* Close Button */
         .close-btn {
             color: var(--gold);
             background: transparent;
@@ -119,14 +120,15 @@
             color: var(--muted);
         }
 
-        /* Card Wrapper */
+        /* Content Card */
         .content-card {
             position: relative;
             border-radius: 20px;
             padding: 20px 18px 22px;
             background: linear-gradient(160deg, rgba(15, 90, 70, .50), rgba(8, 36, 31, .78));
             border: 1px solid var(--line);
-            box-shadow: 0 14px 34px rgba(0, 0, 0, .35), inset 0 1px 0 rgba(255, 255, 255, .06);
+            box-shadow: 0 14px 34px rgba(0, 0, 0, .35),
+                inset 0 1px 0 rgba(255, 255, 255, .06);
         }
 
         .content-card::before {
@@ -148,7 +150,7 @@
             padding-left: 10px;
         }
 
-        /* YouTube Video Section */
+        /* Video */
         .video-wrapper {
             position: relative;
             width: 100%;
@@ -167,40 +169,28 @@
             display: block;
         }
 
-        /* Photo Gallery Section (agar use karein) */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 15px;
-        }
-
-        .gallery-item {
-            overflow: hidden;
-            border-radius: 12px;
-            border: 1px solid var(--line);
-            background: rgba(6, 20, 42, .55);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            display: block;
-            transition: transform .3s ease;
-        }
-
-        .gallery-item img:hover {
-            transform: scale(1.03);
-        }
-
-        .gallery-caption {
-            font-size: 12px;
-            padding: 8px 10px;
-            color: var(--muted);
+        .video-soon {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
             text-align: center;
+            padding: 16px;
+            color: var(--gold);
+            font-size: 19px;
+            font-weight: 700;
+            background: linear-gradient(160deg, #0b2a2f, #06142a);
         }
 
-        /* Map & Download Section */
+        .video-soon small {
+            color: var(--muted);
+            font-size: 13px;
+            font-weight: 400;
+        }
+
+        /* Map & Download */
         .map-box {
             border: 1px solid var(--line);
             border-radius: 12px;
@@ -257,7 +247,6 @@
             outline-offset: 2px;
         }
 
-        /* Data nahi hone par: "जल्द उपलब्ध होगा" */
         .download-btn.soon {
             background: rgba(255, 255, 255, .08);
             color: var(--muted);
@@ -265,6 +254,7 @@
             box-shadow: none;
             cursor: not-allowed;
             transform: none;
+            pointer-events: none;
         }
 
         /* Footer */
@@ -282,7 +272,7 @@
             font-weight: 600;
         }
 
-        /* Floating buttons */
+        /* Floating Buttons */
         .float {
             position: fixed;
             left: 0;
@@ -338,10 +328,6 @@
                 padding: 18px 14px 20px;
             }
 
-            .gallery-grid {
-                grid-template-columns: 1fr;
-            }
-
             .download-action {
                 flex-direction: column;
                 align-items: flex-start;
@@ -368,7 +354,10 @@
     <!-- Top Navigation Bar -->
     <header class="topbar">
 
-        <b class="brand">जनशक्ति<small>एडवोकेट आकाश शुक्ला</small></b>
+        <b class="brand">
+            जनशक्ति
+            <small>एडवोकेट आकाश शुक्ला</small>
+        </b>
 
         <button type="button" class="close-btn"
             onclick="if (history.length > 1) { history.back(); } else { location.href='janshakti_static.html'; }">
@@ -389,13 +378,16 @@
         <section class="content-card">
             <h2>🎬 परिचय वीडियो</h2>
 
-            <div class="video-wrapper">
+            <div class="video-wrapper" id="videoWrapper">
+
+                <!-- वीडियो उपलब्ध होने पर यहाँ सही YouTube Embed Link डालें -->
                 <iframe
-                    src="https://www.youtube-nocookie.com/embed/Jt"
-                    title="YouTube video player"
+                    src=""
+                    title="जनशक्ति परिचय वीडियो"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowfullscreen>
                 </iframe>
+
             </div>
         </section>
 
@@ -407,23 +399,23 @@
                 <span>खतौनी :</span>
 
                 <a href="achangank khatainu.pdf"
-                   download="खतौनी"
-                   class="download-btn">
+                    download="खतौनी.pdf"
+                    class="download-btn">
                     ⬇ डाउनलोड करें
                 </a>
             </div>
         </section>
 
-        <!-- 3. Downloadable Map Section -->
+        <!-- 3. Site Map -->
         <section class="content-card">
-            <h2>🗺️ साइड का मैप</h2>
+            <h2>🗺️ साइट का मैप</h2>
 
             <div class="download-action">
-                <span>साइड का नक्शा अपने डिवाइस में सुरक्षित करें:</span>
+                <span>साइट का नक्शा अपने डिवाइस में सुरक्षित करें:</span>
 
                 <a href="WhatsApp Image 2026-09-27 at 11.57.31 AM.jpeg"
-                   download="साइड मैप"
-                   class="download-btn">
+                    download="साइट मैप.jpeg"
+                    class="download-btn">
                     ⬇ नक्शा डाउनलोड करें
                 </a>
             </div>
@@ -437,8 +429,8 @@
                 <span>धारा-80 आदेश :</span>
 
                 <a href="143 dhara 80 order Achalganj.pdf"
-                   download="धारा-80 आदेश"
-                   class="download-btn">
+                    download="धारा-80 आदेश.pdf"
+                    class="download-btn">
                     ⬇ डाउनलोड करें
                 </a>
             </div>
@@ -450,43 +442,122 @@
         <p><b>जनशक्ति</b> • न्याय, अधिकार और जनहित में समर्पित</p>
     </footer>
 
+    <!-- Floating Buttons -->
     <div class="float">
         <a class="call" href="tel:+919598409423">📞 कॉल करें</a>
-        <a class="wa" href="https://wa.me/919598409423" target="_blank" rel="noopener">💬 WhatsApp</a>
+
+        <a class="wa" href="https://wa.me/919598409423"
+            target="_blank" rel="noopener">
+            💬 WhatsApp
+        </a>
     </div>
 
     <script>
-        /* Har download button ke liye:
-           - link khaali ho ya file na mile (404)  -> "⏳ जल्द उपलब्ध होगा"
-           - file mil jaye                          -> "⬇ डाउनलोड करें" (jaisa hai) */
+
+        /* VIDEO CHECK */
+
+        (function () {
+
+            var wrapper = document.getElementById('videoWrapper');
+            var iframe = wrapper.querySelector('iframe');
+
+            var src = (iframe.getAttribute('src') || '').trim();
+
+            /*
+              खाली या गलत YouTube लिंक होने पर
+              जल्द उपलब्ध होगा दिखाएँ।
+            */
+
+            var validVideo = false;
+
+            try {
+
+                var url = new URL(src);
+
+                var videoId = '';
+
+                if (
+                    url.hostname === 'www.youtube.com' ||
+                    url.hostname === 'youtube.com' ||
+                    url.hostname === 'www.youtube-nocookie.com' ||
+                    url.hostname === 'youtube-nocookie.com'
+                ) {
+                    var match = url.pathname.match(/^\/embed\/([a-zA-Z0-9_-]{11})\/?$/);
+
+                    if (match) {
+                        videoId = match[1];
+                    }
+                }
+
+                validVideo = /^[a-zA-Z0-9_-]{11}$/.test(videoId);
+
+            } catch (error) {
+                validVideo = false;
+            }
+
+            if (!validVideo) {
+
+                wrapper.innerHTML = `
+                    <div class="video-soon">
+                        ⏳ जल्द उपलब्ध होगा
+                        <small>
+                            परिचय वीडियो जल्द ही यहाँ जोड़ा जाएगा।
+                        </small>
+                    </div>
+                `;
+
+            }
+
+        })();
+
+
+        /* DOWNLOAD BUTTON CHECK */
+
         function markSoon(btn) {
+
             btn.classList.add('soon');
+
             btn.removeAttribute('href');
             btn.removeAttribute('download');
+
             btn.setAttribute('aria-disabled', 'true');
+
             btn.textContent = '⏳ जल्द उपलब्ध होगा';
-            btn.addEventListener('click', function (e) { e.preventDefault(); });
+
         }
 
+
         document.querySelectorAll('.download-btn').forEach(function (btn) {
+
             var href = (btn.getAttribute('href') || '').trim();
-            if (!href || href === '#') { markSoon(btn); return; }
+
+            if (!href || href === '#') {
+                markSoon(btn);
+                return;
+            }
+
             fetch(href, { method: 'HEAD' })
-                .then(function (r) { if (!r.ok) markSoon(btn); })
-                .catch(function () { /* offline / file:// me check nahi ho sakta, button jaisa hai waisa rahe */ });
+
+                .then(function (response) {
+
+                    if (!response.ok) {
+                        markSoon(btn);
+                    }
+
+                })
+
+                .catch(function () {
+
+                    /*
+                      Offline या file:// में
+                      फाइल चेक नहीं हो पाएगी।
+                    */
+
+                });
+
         });
 
-        /* Video ka link khaali ho to "जल्द उपलब्ध होगा" dikhaye */
-        (function () {
-            var f = document.querySelector('.video-wrapper iframe');
-            var src = f ? (f.getAttribute('src') || '').trim() : '';
-            if (!src || /\/embed\/?$/.test(src)) {
-                f.parentElement.innerHTML =
-                    '<div style="height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center;padding:16px;color:#f3c14f;font-size:18px;font-weight:700;background:linear-gradient(160deg,#0b2a2f,#06142a)">⏳ जल्द उपलब्ध होगा<small style="color:#9fb8b2;font-size:13px;font-weight:400">परिचय वीडियो जल्द ही यहाँ जोड़ा जाएगा।</small></div>';
-            }
-        })();
     </script>
 
 </body>
-
 </html>
